@@ -359,7 +359,7 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
 - A sentence explaining the association between the drug and the gene.
 
-- The type of drug-gene ineraction for that gene. When this interaction is of type pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
+- The type of drug-gene ineraction for that gene. When this interaction is of type pathway member (<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>), there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
 
 - The type of alteration that drives the sensitivity/resistance response.
 
