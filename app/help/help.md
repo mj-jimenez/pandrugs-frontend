@@ -48,6 +48,7 @@ There are five possible input options to obtain a **rank of therapies according 
   - A list of gene symbols and their CNV status ([CNVs Query](#!/help#gene-ranking-query)).
   - A VCF file containing a set of somatic (and optionally germline) variants <!-- corresponding to the GRCh38/hg38 assembly of the human genome -->([Small Variants Query](#!/help#vcf-query)).
   - At least two of these inputs in order to make a [Multi-omics Query](#!/help#multi-omics-query):
+  
     - A CNVs Query
     - A Small Variants Query
     - A list of genes ranked according to their expression change between tumor and normal samples.
