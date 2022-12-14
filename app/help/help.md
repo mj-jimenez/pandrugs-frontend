@@ -48,7 +48,7 @@ There are five possible input options to obtain a **rank of therapies according 
   - A list of gene symbols and their CNV status ([CNVs Query](#!/help#gene-ranking-query)).
   - A VCF file containing a set of somatic (and optionally germline) variants <!-- corresponding to the GRCh38/hg38 assembly of the human genome -->([Small Variants Query](#!/help#vcf-query)).
   - At least two of these inputs in order to make a [Multi-omics Query](#!/help#multi-omics-query):
-  
+
     - A CNVs Query
     - A Small Variants Query
     - A list of genes ranked according to their expression change between tumor and normal samples.
@@ -97,17 +97,17 @@ In this query option, you must upload a **[VCF](https://samtools.github.io/hts-s
 To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
 <!-- Update image -->
-![New VCF Analysis](vcf-query-02.png "Create a New Small Variants Analysis in PanDrugs")
+<div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="40%" width="40%"/>
 
 A message indicating that the computation has been successfully submitted will appear. In this message you will get a link in order to follow the computation progress.
 
 <!-- Update image -->
-![Small Variants Analysis Submitted](vcf-query-03.png "Small Variants Analysis Submission Message")
+<div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="25%" width="25%"/>
 
 Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
 
 <!-- Update image -->
-![Progress Bar](vcf-query-04.png "PanDrugs' Progress Bar")
+<div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="70%" width="70%"/>
 
 During this process, the somatic variants included in the VCF are annotated using Ensembl's [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) and additional databases. With these annotations, a Variant Score (VScore) is computed for each variant. The final GScore is then calculated as the maximum VScore for the principal transcript of each gene.
 
@@ -118,7 +118,7 @@ Finally, when the progress bar is complete, you can query PanDrugsdb and obtain 
 Moreover, it is possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
 <!-- Update image -->
-![Progress Bar Completed](vcf-query-05.png "PanDrugs' Progress Bar Completed")
+<div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="70%" width="70%"/>
 
 If you are logged in PanDrugs, the results of the query will be stored in your personal account. You will be able to access any previous analyses done within the last 6 months <!-- check this --> and select one of them to make a new query. That is why we encourage you to register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
