@@ -13,7 +13,9 @@
   2. [Interaction evidence level](#!/help#interaction-evidence-level)
   3. [Select Cancer Types](#!/help#select-cancer-types)
 
-3. [GScore AND DScore CONCEPT AND CALCULATION](#!/help#gscore-and-dscore-concept-and-calculation)
+3. **[PanDrugs Scores](#!/help#pandrugs-scores)**
+  1. [GScore Calculation](#!/help#gscore-calculation)
+  2. [DScore Calculation](#!/help#dscore-calculation)
 
 4. **[Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output)**
   1. [Summary Box](#!/help#summary-box)
@@ -66,7 +68,7 @@ In this query option, it is possible to upload a **ranked list of genes as a [RN
 
 This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line. 
 
-The ranking metric will be scaled between 0 and 1 and will be treated as an user-supplied [GScore]#!/help#gscore-and-dscore-concept-and-calculation), overwritting the precomputed one.
+The ranking metric will be scaled between 0 and 1 and will be treated as an user-supplied [GScore]#!/help#gscore), overwritting the precomputed one.
 
 <!-- Update image -->
 <div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
@@ -193,29 +195,50 @@ Allows to filter therapeutic options approved for specific cancer types. **Drugs
 
 By default, all cancer types are selected.
 
-## 3. Gene Score (GScore) and Drug Score (DScore) concept and calculation<a name="gscore-and-dscore-concept-and-calculation"></a>
+## 3. PanDrugs Scores<a name="pandrugs-scores"></a>
 
-The GScore measures the biological relevance of the gene in the tumoral process. It ranges from 0 to 1.
+PanDrugs **ranks the results based on** two scores: the **Gene Score (GScore)** and the **Drug Score (DScore)**.
 
-The DScore measures the suitability of the drug according to the genomic profile. It goes from -1 to 1 with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
+- The **GScore** measures the **biological relevance of a gene in the tumoral process and its druggability**. It is estimated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer, its druggability level, the biological impact of mutations, the frequency of gene alterations and their clinical implications. The GScore **ranges from 0 to 1**.
 
-**GScore calculation**
+- The **DScore** measures the **suitability of the treatment** according to the drug indication and status, type of drug-gene association and curation level of the sources. It **ranges from -1 to 1**, with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
 
-When the input is a **ranked gene list** where the ranking is based on some experimental results, as for example, data originating from differential expression studies, the introduced values are normalized to the 0-1 scale.
+### 3.1 GScore Calculation<a name="gscore-calculation"></a>
 
-If the input consists of a **non ranked list of genes**, the GScore is calculated according to the relevance of that gene in carcinogenesis. To perform this calculation we consider different aspects as the frequency at which the gene appears in different tumors, the probability of being a driver and the gene essentiality.
+PanDrugsdb stores pre-computed GScores for each gene symbol. This score has been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
 
-When the input is a **vcf file**, the GScore is computed taking into account the annotations provided for the variants located in each gene. Variants are annotated using the information provided by the VEP and other additional sources. The score for each variant (called VScore) is computed taking into account a set of features from these annotations. Variants are then filtered using the consequence indicated by VEP, keeping only those with a relevant impact in the sequence (transcript_ablation, splice_donor_variant, splice_acceptor_variant, stop_gained, frameshift_variant, stop_lost, start_lost, transcript_amplification, inframe_insertion, inframe_deletion, missense_variant, protein_altering_variant, splice_region_variant, incomplete_terminal_codon_variant and stop_retained_variant). Finally, we extract the affected genes and the GScore is established for each of them selecting the highest value of VScore for the principal transcript.
+Depending on the type of query, the GScore can suffer modifications:
+  
+  - **After a Drug Query:** The table shows the pre-computed GScore.
 
-**DScore calculation**
+  - **After a Genes or CNVs Query:** The table shows a final GScore for each group of genes. PanDrugs selects the maximum pre-computed GScore among all drug-gene associations for a specific drug.
 
-There is a pre-computed DScore in the database for each single drug-gene relation of each source. In its calculation we first take into account the use of the drug in cancer, then the approval status of the drug and finally the definition of the gene as a target or biomarker in the relation with the drug. Experimental compounds have a different score assignation and they rank below drugs in another status, giving more relevance to target than to biomarker genes.
+  - **After a Gene Ranking Query:** The GScore is computed by scaling the ranking metric in the second column between 0 and 1.
 
-During the assignation process the drug score is readjusted to take into account the information provided by the combination of all input data. We define a **collective gene impact factor**, which reflects the number of genes in the input that points to a particular compound and a **database factor** that reflects the number of expert curated sources that support a particular drug-gene interaction. Pathway member assignations are penalized with respect to direct ones unless a biomarker evidence supports the association.
+  - **After a Small Variants Query:** A Variant Score (VScore) is computed for each variant taking into account their biological impact, their frequency and their clinical implications. The final GScore is then calculated as the maximum VScore for the principal isoform of each gene.
 
-Experimental compounds maintain the pre-computed DScore with the exception of a penalization for pathway member cases.
+  - **After a Multi-omics Query:** There can be two types of GScores:
 
-In the case one drug has a sensitivity response due to one gene, but a resistance response due to another, the drug assignation appears with the sign of the highest DScore in absolute value. This means that the response with the most relevant evidences is the one that is going to be selected to position the drug in the sensitivity or resistance area.
+    - If the input includes a VCF: The GScores are computed from the VScores as in any other Small Variants Query.
+    - If the input incudes a CNV file and/or an expression ranking: The final GScore for the genes with CNVs and/or the Highly Overexpressed Oncogenes is computed as in a CNVs Query.
+
+    If a gene is found in the VCF and any other input file, the GScore computed from VScores has priority over the other GScore.
+
+### 3.2 DScore Calculation<a name="dscore-calculation"></a>
+
+PanDrugsdb stores pre-computed DScores for each drug. This score has been calculated according to the drug indication and approval status, type of drug-gene interaction and drug response.
+<!--
+<div style="text-align: left;"><img src="pre-computed-dscore.png" alt="Pre-computed DScore" height="70%" width="70%"/>
+-->
+
+Depending on the type of query, the DScore can suffer modifications:
+  
+  - **After a Drug Query:** The table shows the pre-computed DScore.
+
+  - **After any other query:** The table shows a final DScore for each individual drug. PanDrugs selects the maximum pre-computed DScore in absolute value multiplied by its original sign among all drug-gene associations for a specific drug. Then, it modifies this score to account for the approval status of the drug, number of associated genes and their interactions with the drug and curation level of the sources.
+  <!--
+  <div style="text-align: left;"><img src="final-dscore.png" alt="Collapsed DScore" height="70%" width="70%"/>
+  -->
 
 ## 4. Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output<a name="genes-gene-rank-cnvs-vcf-and-multi-omics-query-output"></a>
 
@@ -226,7 +249,7 @@ Once the query has been completed, a summary box with the execution details, som
 This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [Advanced Options](#!/help#advanced-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report would be available for download at the summary box.
 
 <!-- Add image -->
-<!-- ![Summary Box](summary-box-01.png "Summary Box") -->
+![Summary Box](summary-box-01.png "Summary Box")
 
 ### 4.2 Charts<a name="drug-status-level"></a>
 
@@ -310,28 +333,9 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
   <!-- Update image -->
   <img src="pandrugs-sources.png" alt="PanDrugs Sources" height="750" width="500" style="horizontal-align:left;"/>
 
-  **9. DScore:** Measures the suitability of the treatment. It ranges from -1 to 1, with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
+  **9. DScore:** Measures the suitability of the treatment. It ranges from -1 to 1, with the negative values corresponding to resistance and the positive values corresponding to sensitivity. For further information, please refer to [DScore Calculation] section.
 
-  - **After a Drug Query:** The table shows the pre-computed DScore, which has been calculated according to the drug indication and approval status, type of drug-gene interaction and drug response.
-
-  - **After any other query:** The table shows a final DScore for each individual drug. PanDrugs selects the maximum pre-computed DScore in absolute value multiplied by its original sign among all drug-gene associations for a specific drug. Then , it modifies this score to account for the approval status of the drug, number of associated genes and curation level of the sources.
-
-  **10. GScore:** Measures the biological relevance of the gene in the tumoral process and its druggability. It ranges from 0 to 1.
-
-  - **After a Drug Query:** The table shows the pre-computed GScore, which has been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
-
-  - **After a Genes or CNVs Query:** The table shows a final GScore for each group of genes. PanDrugs selects the maximum pre-computed GScore among all drug-gene associations for a specific drug.
-
-  - **After a Gene Ranking Query:** The GScore is computed by scaling the ranking metric in the second column between 0 and 1.
-
-  - **After a Small Variants Query:** A Variant Score (VScore) is computed for each variant taking into account their biological impact, their frequency and their clinical implications. The final GScore is then calculated as the maximum VScore for the principal isoform of each gene.
-
-  - **After a Multi-omics Query:** There can be two types of GScores:
-
-    - If the input includes a VCF: The GScores are computed from the VScores as in any other Small Variants Query.
-    - If the input incudes a CNV file and/or an expression ranking: The final GScore for the genes with CNVs and/or the Highly Overexpressed Oncogenes is computed as in a CNVs Query.
-
-    If a gene is found in the VCF and any other input file, the GScore computed from VScores has priority over the other GScore.
+  **10. GScore:** Measures the biological relevance of the gene in the tumoral process and its druggability. It ranges from 0 to 1. For further information, please refer to [GScore Calculation] section.
 
   **11. BTC:** The Best Therapeutic Candidates, with DScore > 0.7 and GScore > 0.6, are highlighted with a yellow star in the BTC column.
   
