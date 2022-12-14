@@ -256,13 +256,13 @@ You can click and drag the cursor to select any plot region you want to zoom in.
 
 This chart shows the percentage of ranked therapies in each approval status group (Approved, Clinical Trials or Experimental).
 
-<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="80%" width="80%"/>
 
 **Drugs by family**
 
 This chart shows the percentage of ranked therapies that belongs to each drug family.
 
-<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="80%" width="80%"/>
 
 These two charts can also be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="18" width="18" style="vertical-align:middle;"/>.
 
