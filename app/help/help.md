@@ -29,8 +29,8 @@
 6. **[Examples](#!/help#examples)**
   1. [Genes Analysis](#!/help#examples-genes-query)
   2. [Gene Ranking Analysis](#!/help#examples-gene-ranking-query)
-  3. [CNVs Analysis](#!/help#examples-cnvs-query)
-  4. [Drug Analysis](#!/help#examples-drug-query)
+  3. [Drug Analysis](#!/help#examples-drug-query)
+  4. [CNVs Analysis](#!/help#examples-cnvs-query)
   5. [Small Variants Analysis](#!/help#examples-vcf-query)
     1. [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat)
     2. [Small Variants Analysis with PharmCAT](#!/help#examples-vcf-query-pharmcat)
@@ -453,26 +453,7 @@ Note that the "Drug response" column shows the label "Both". If you expand Pacli
 
 Also, other treatments based on pathway members are suggested, as Imatinib and Bosutinib that targets downstream proteins to EGFR, gene that is altered in the patient and that is causing an increased expression in the tumor.
 
-### 6.3 CNVs<a name="examples-cnvs-query"></a>
-
-[Load example for a breast invasive carcinoma patient from the TCGA]()
-
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbors a deletion in *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
-
-<!-- Add image -->
-<!-- ![CNVs Query Input](cnvs-query-input.png "CNVs query example input") -->
-
-Load the example file, do not modify any of the "Advanced Options" and click on the "Query" button.
-
-<u>**Output Interpretation**</u>
-
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
-
-These results can be interpreted as the ones obtained after a Genes Query.
-
-For this example...
-
-### 6.4. Drug<a name="examples-drug-query"></a>
+### 6.3. Drug<a name="examples-drug-query"></a>
 
 [Query Palbociclib](#!/query?tab=drugs)
 
@@ -498,6 +479,25 @@ In the summary table, each row represents a gene associated with Palbociclib. We
 
 <!-- Update image -->
 ![Drug Query Summary Table](drug-query-output-02.png "Drug query example summary table")
+
+### 6.4 CNVs<a name="examples-cnvs-query"></a>
+
+[Load example for a breast invasive carcinoma patient from the TCGA]()
+
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbors a deletion in *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
+
+<!-- Add image -->
+<!-- ![CNVs Query Input](cnvs-query-input.png "CNVs query example input") -->
+
+Load the example file, do not modify any of the "Advanced Options" and click on the "Query" button.
+
+<u>**Output Interpretation**</u>
+
+In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+
+These results can be interpreted as the ones obtained after a Genes Query.
+
+For this example...
 
 ### 6.5. Small Variants Analysis<a name="examples-vcf-query"></a>
 
