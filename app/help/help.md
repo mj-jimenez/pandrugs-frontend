@@ -177,11 +177,11 @@ By default, all options are selected so the results include drugs in all the app
 
 Allows to filter therapeutic options according to the type of drug-gene interaction:
 
-- **Direct target:** Show drugs that directly target any input gene that contributes to a disease phenotype.
+- **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype.
 
-- **Biomarker:** Show drugs whose response is associated, based on clinical or pre-clinical evidences, with the genetic status of any input gene.
+- **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidences, with the genetic status of any input gene.
 
-- **Pathway member**: Show drugs that target any downstream druggable genes within the pathway of the input genes.
+- **Pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes.
 
 <!-- - **Gene dependency**: Show drugs that target any gene with a genetic dependency on the input genes. -->
 
@@ -279,13 +279,13 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 - **Direct:** The altered gene is the target or the biomarker of the drug.
 
 <!-- Update image and image names -->
-  - <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> Direct target
-  - <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> Biomarker
+  - **Direct target** <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>
+  - **Biomarker** <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>
 
 - **Indirect:** The drug's target is a gene related to the altered one.
 
 <!-- Update image and image names -->
-  - <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> Pathway member
+  - **Pathway member** <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>
   <!-- - Genetic dependency <img src="genetic-dependency-interaction.svg" alt="Genetic Depedency" height="14" width="85"/> -->
 
   **4. Drug status:** Approval status and cancer prescription for the approved drugs.
@@ -359,7 +359,7 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
 - A sentence explaining the association between the drug and the gene.
 
-- The type of drug-gene ineraction for that gene. When this interaction is of type Pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
+- The type of drug-gene ineraction for that gene. When this interaction is of type pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
 
 - The type of alteration that drives the sensitivity/resistance response.
 
