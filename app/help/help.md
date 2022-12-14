@@ -244,11 +244,11 @@ Moreover, we define two thresholds: DScore = 0.7 and GScore = 0.6 to divide the 
 
 You can click and drag the cursor to select any plot region you want to zoom in. In addition, the scatter plot can be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="15" width="15"/>.
 
-<!-- Update image  and image name: scatter-plot-01.png -->
-![Scatter Plot](plot-chart-01.png "Scatter Plot")
+<!-- Update image -->
+<div style="text-align: left;"><img src="scatter-plot-01.svg" alt="Scatter Plot" height="60%" width="60%"/>
 
-<!-- Update image  and image name: scatter-plot-02.png -->
-![Scatter Plot Zoom In](plot-chart-02.png "Scatter Plot Zoom In")
+<!-- Update image -->
+<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Zoom In" height="60%" width="60%"/>
 
 #### 4.2.2 Pie Charts<a name="pie-charts"></a>
 
