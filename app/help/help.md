@@ -58,7 +58,7 @@ Another possibility is to query the database to see **which genes are associated
 In this modality, the input is a **set of gene symbols** that can be pasted directly in the text box or uploaded as a file without header. **In both cases, each gene symbol must appear in a different line**.
 
 <!-- Update image -->
-![Genes Query](genes-query-01.png "Genes Query in PanDrugs")
+<div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="50%" width="50%"/>
 
 ### 1.2 Gene Ranking Query<a name="gene-ranking-query"></a>
 In this query option, it is possible to upload a **ranked list of genes as a [RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
@@ -68,19 +68,19 @@ This file must consist in two tab delimited columns containing gene symbols and 
 The ranking metric will be scaled between 0 and 1 and will be treated as an user-supplied [GScore]#!/help#gscore-and-dscore-concept-and-calculation), overwritting the precomputed one.
 
 <!-- Update image -->
-![Gene Ranking Query](gene-ranking-query-01.png "Gene Ranking Query in PanDrugs")
+<div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="50%" width="50%"/>
 
 ### 1.3 CNVs Query<a name="cnvs-query"></a>
 In this modality, you can upload a **tab delimited** file without headers formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the correspondind gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
 
-<!-- Add image -->
-<!-- ![CNVs Query](cnvs-query-01.png "CNVs Query in PanDrugs") -->
+<!-- Update image -->
+<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="50%" width="50%"/>
 
 ### 1.4 Drug Query<a name="drug-query"></a>
 **A single drug** can be queried in order to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
 
-<!-- Update image and image name:  drug-query-01.png-->
-![Drug Query](drugs-query-01.png "Drug Query in PanDrugs")
+<!-- Update image -->
+<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="50%" width="50%"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
 In this query option, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. <!-- The genomic coordinates in this VCF must correspond to the GRCh38/hg38 assembly of the human genome. -->
@@ -91,7 +91,7 @@ In this query option, you must upload a **[VCF](https://samtools.github.io/hts-s
 - **Ideally**, a VCF with **two sample columns named "tumor" and "normal"** with the genotypes of the corresponding variant in each sample. Please note that, while the order of the sample columns is indifferent, the names must be strictly "tumor" and "normal".
 
 <!-- Update image -->
-![VCF Query](vcf-query-01.png "Small Variants Query in PanDrugs")
+<div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="50%" width="50%"/>
 
 To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
@@ -128,8 +128,8 @@ You can perform a Multi-omics Query in case you have at least two of these input
   - CNV information
   - A VCF
 
-<!-- Add image -->
-<!-- ![Multi-omics Query](multi-omics-query-01.png "Multi-omics Query in PanDrugs") -->
+<!-- Update image -->
+<div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="50%" width="50%"/>
 
 In this query option, the expression data can be uploaded as a **[RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
@@ -152,8 +152,8 @@ PanDrugs output will rank all drugs associated with either the Highly Overexpres
 
 Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [Small Variants](#!/help#vcf-query)) can be adjusted using the panel of advanced options:
 
-<!-- Update image  and image name: advanced-options.png-->
-![Advanced Options](Advanced-Options.png "Advanced Options")
+<!-- Update image -->
+<div style="text-align: left;"><img src="advanced-options.png" alt="Advanced Options" height="60%" width="60%"/>
 
 ### 2.1 Drug status level<a name="drugs-status-level"></a>
 
@@ -255,13 +255,13 @@ You can click and drag the cursor to select any plot region you want to zoom in.
 
 This chart shows the percentage of ranked therapies in each approval status group (Approved, Clinical Trials or Experimental).
 
-<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="600" width="600"/>
+<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="40%" width="40%"/>
 
 **Drugs by family**
 
 This chart shows the percentage of ranked therapies that belongs to each drug family.
 
-<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="600" width="600"/>
+<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="40%" width="40%"/>
 
 These two charts can also be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="18" width="18" style="vertical-align:middle;"/>.
 
