@@ -3,8 +3,8 @@
 1. **[Query Options](#!/help#query-options)**
   1. [Genes Query](#!/help#genes-query)
   2. [Gene Ranking Query](#!/help#gene-ranking-query)
-  3. [CNVs Query](#!/help#cnvs-query)
-  4. [Drug Query](#!/help#drug-query)
+  3. [Drug Query](#!/help#drug-query)
+  4. [CNVs Query](#!/help#cnvs-query)
   5. [Small Variants Query](#!/help#vcf-query)
   6. [Multi-omics Query](#!/help#multi-omics-query)
 
@@ -73,17 +73,17 @@ The ranking metric will be scaled between 0 and 1 and will be treated as an user
 <!-- Update image -->
 <div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
 
-### 1.3 CNVs Query<a name="cnvs-query"></a>
-In this modality, you can upload a **tab delimited** file without headers formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the correspondind gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
-
-<!-- Update image -->
-<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="70%" width="70%"/>
-
-### 1.4 Drug Query<a name="drug-query"></a>
+### 1.3 Drug Query<a name="drug-query"></a>
 **A single drug** can be queried in order to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
 
 <!-- Update image -->
 <div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
+
+### 1.4 CNVs Query<a name="cnvs-query"></a>
+In this modality, you can upload a **tab delimited** file without headers formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the correspondind gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
+
+<!-- Update image -->
+<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="70%" width="70%"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
 In this query option, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. <!-- The genomic coordinates in this VCF must correspond to the GRCh38/hg38 assembly of the human genome. -->
