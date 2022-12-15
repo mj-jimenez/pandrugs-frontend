@@ -376,7 +376,7 @@ In the [summary table](#!/help#summary-table), each row represents a gene associ
 
 ## 6. Examples<a name="examples"></a>
 
-### 6.1. Genes<a name="examples-genes-query"></a>
+### 6.1. Genes Analysis<a name="examples-genes-query"></a>
 
 Load <span style="color:#50AC50">**Example 3**</span> from [Genes Query tab](#!/query?tab=genes).
 
@@ -411,7 +411,7 @@ You may also notice two alerts <img src="response-alert.svg" alt="Exclamation Ma
 <!-- Update image -->
 <div style="text-align: left;"><img src="genes-query-output-03.png" alt="Genes Query Summary Table Expanded" height="100%" width="100%"/>
 
-### 6.2. Gene Ranking<a name="examples-gene-ranking-query"></a>
+### 6.2. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
 
 [Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
 
@@ -425,7 +425,7 @@ Load the RNK file, do not modify any of the <span style="color:#50AC50">**Advanc
 
 In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query, but keep in mind that the GScores are dependent on the ranking metric in the input.
+These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the ranking metric in the input.
 
 For this example, PanDrugs does not find Best Therapeutic Candidates. This means that there is no approved drug associated to any of the top 500 highly expressed genes in this cancer patient.
 
@@ -444,7 +444,7 @@ Note that the **Drug response** column shows the label <img src="response-both.s
 
 Also, other treatments based on pathway members are suggested, as imatinib and bosutinib that targets downstream proteins to EGFR.
 
-### 6.3. Drug<a name="examples-drug-query"></a>
+### 6.3. Drug Analysis<a name="examples-drug-query"></a>
 
 [Query Palbociclib.](#!/query?tab=drugs)
 
@@ -470,24 +470,33 @@ In the summary table, each row represents a gene associated with Palbociclib. We
 <!-- Update image -->
 <div style="text-align: left;"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
 
-### 6.4 CNVs<a name="examples-cnvs-query"></a>
+### 6.4 CNVs Analysis<a name="examples-cnvs-query"></a>
 
-[Load example for a breast invasive carcinoma patient from the TCGA]()
+[Load example for a breast invasive carcinoma patient from the TCGA.]()
 
 This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbors a deletion in *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
 
-<!-- Add image -->
-<!-- ![CNVs Query Input](cnvs-query-input.png "CNVs query example input") -->
+![CNVs Query Input](cnvs-query-input.png "CNVs query example input")
 
-Load the example file, do not modify any of the "Advanced Options" and click on the "Query" button.
+Load the example file, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
 In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query.
+These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query).
 
-For this example...
+Among the Best Therapeutic Candidates, PanDrugs suggests vorinostat, trametinib and palbociclib.
+
+<!-- Update image -->
+<!-- ![Genes Query Scatter Plot](genes-query-output-01.svg "Genes query example scatter plot") -->
+
+If you take a look to the summary table, you will see that these three drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the one with the highest DScore and GScore a pathway member interaction in all cases. While vorinostat is a chemotherapy, trametinib and palbociclib are both targeted therapies. Nevertheless, all these drugs are approved for cancer.
+
+<!-- Update image -->
+<div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Collapsed" height="100%" width="100%"/>
+
+If you expand trametinib row by clicking on the <img src="plus.png" alt="Expand Icon" height="20" width="20" style="vertical-align:middle;"/> button, you will notice that this drug won't be a good fit, since the deletion of *RB1*, which is present in this patient, is associated with resistance to the drug. So, if you were interested in finding a targeted therapy for this TCGA-D8-A1JD patient, maybe the best option would be palbociclib. This drug is for breast cancer, which is the cancer type this patient suffers, and, on top of that, the deletion of *RB1* is associated with sensitivity to palbociclib.
 
 ### 6.5. Small Variants Analysis<a name="examples-vcf-query"></a>
 
