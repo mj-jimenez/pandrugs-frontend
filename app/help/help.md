@@ -446,30 +446,29 @@ Also, other treatments based on pathway members are suggested, as imatinib and b
 
 ### 6.3. Drug<a name="examples-drug-query"></a>
 
-[Query Palbociclib](#!/query?tab=drugs)
+[Query Palbociclib.](#!/query?tab=drugs)
 
 Palbociclib is a targeted therapy approved in the treatment of breast cancer.
 
-<!-- Update image -->
-![Drug Query](drug-query-input.png "Drug query example input")
+<div style="text-align: left;"><img src="drug-query-example-input.png" alt="Drug Query Input" height="100%" width="100%"/>
 
-Click on the "Query" button.
+Click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
 In the results page, you will see a summary box and a summary table similar to the one returned by other types of queries (see [Drug Query Output](#!/help#drug-query-output) section for further details).
 
 <!-- Update image -->
-![Drug Query Summary Box](drug-query-output-01.png "Drug query example summary box")
+<div style="text-align: left;"><img src="drug-query-output-01.png" alt="Drug Query Summary Box" height="100%" width="100%"/>
 
 In the summary table, each row represents a gene associated with Palbociclib. We can observe examples for each one of the drug-gene interaction categories:
 
 - **Direct targets:** Such as *CDK6* or *CDK4*.
-- **Biomarkers:** Such as *CDKN2A*, whose alterations are associated to sensitivity; or *CCNE1*, whose amplification and overexpression is associated to resistance to Palbociclib.
+- **Biomarkers:** Such as *RB1*, whose alterations are associated to sensitivity; or *CCNE1*, whose amplification and overexpression is associated to resistance to Palbociclib.
 - **Pathway members:** Such as *CCND1*, *CCNE1*, *CDKN2A*, *CDKN2B* and *RB1*, which are downstream the direct target *CDK4*.
 
 <!-- Update image -->
-![Drug Query Summary Table](drug-query-output-02.png "Drug query example summary table")
+<div style="text-align: left;"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
 
 ### 6.4 CNVs<a name="examples-cnvs-query"></a>
 
