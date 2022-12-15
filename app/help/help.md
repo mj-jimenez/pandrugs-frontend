@@ -362,12 +362,12 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
 ## 5. Drug Query Output<a name="drug-query-output"></a>
 
-In case of doing a drug query to retrieve the genes associated with a particular drug, the result consists in a summary box and a summary table similar to the one returned by other types of queries.
+After doing a drug query to retrieve the genes associated with a particular drug, the result consists in a summary box and a summary table similar to the one returned by other types of queries.
 
 In this case, the summary box details the genes associated with the input drug, according to PanDrugsdb. Morever, it specifies the drug status and type of therapy.
 
-<!-- Add image -->
-![Summary Box After Drug Query](summary-box-02.png "Summary Box After Drug Query")
+<!-- Update image -->
+<div style="text-align: left;"><img src="summary-box-02.png" alt="Summary Box After Drug Query" height="80%" width="80%"/>
 
 In the [summary table](#!/help#summary-table), each row represents a gene associated with the input drug. The reported DScore and GScore are the pre-calculated ones for each drug-gene interaction in the database.
 
