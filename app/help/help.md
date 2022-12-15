@@ -382,7 +382,7 @@ Load <span style="color:#50AC50">**Example 3**</span> from [Genes Query tab](#!/
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
-<div style="text-align: left;"><img src="gene-query-example-input.png" alt="Gene Query Input" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-example-input.png" alt="Genes Query Input" height="100%" width="100%"/>
 
 Do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -398,7 +398,7 @@ Among the Best Therapeutic Candidates, PanDrugs suggests everolimus and temsirol
 If you take a look to the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the one with the highest DScore and GScore a direct target interaction in both cases. Moreover, everolimus and temsirolimus are both targeted therapies approved for cancer and belong to the Serine/threonine kinases and mTOR inhibitor drug families.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Genes Query Summary Table Collapsed" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Genes Query Summary Table Collapsed" height="100%" width="100%"/>
 
 If you expand everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="20" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
@@ -409,17 +409,17 @@ If you expand everolimus row by clicking on the <img src="plus.png" alt="Expand 
 You may also notice two alerts <img src="response-alert.svg" alt="Exclamation Mark" height="35" width="35" style="vertical-align:middle;"/> in the **Drug response** column. These alerts should be considered if *MTOR* presented one of the listed variants or *PTEN* was deleted, since all those alterations are associated with reduced sensitivity to everolimus.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="genes-query-output-03.png" alt="Genes Query Summary Table Expanded" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="genes-query-output-03.png" alt="Genes Query Summary Table Expanded" height="100%" width="100%"/>
 
 ### 6.2. Gene Ranking<a name="examples-gene-ranking-query"></a>
 
 [Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
 
-This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* gene that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
+This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
 
-![Gene Ranking Query Input](gene-ranking-query-input.png "Gene ranking query example input")
+<div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
 
-Load the RNK file, do not modify any of the "Advanced Options" and click on the "Query" button.
+Load the RNK file, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -432,17 +432,17 @@ For this example, PanDrugs does not find Best Therapeutic Candidates. This means
 <!-- Update image -->
 ![Gene Ranking Query Scatter Plot](gene-ranking-query-output-01.png "Gene query example scatter plot")
 
-If we order the summary table by descending DScore, one of the candidate therapies proposed by PanDrugs is Paclitaxel (DScore = 0.995), an drug approved for lung cancer treatment.
+If we order the summary table by descending DScore, one of the candidate therapies proposed by PanDrugs is paclitaxel (DScore = 0.995), a drug approved for lung cancer treatment.
 
 <!-- Update image -->
-![Gene Ranking Query Summary Table Collapsed](gene-ranking-query-output-02.png "Gene ranking query example summary table collapsed")
+<div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%"/>
 
-Note that the "Drug response" column shows the label "Both". If you expand Paclitaxel's row, you will realise that some input genes, when mutated, may trigger sensitivity whereas others may confer resistance to this drug. Among the later we can find *EGFR*, the gene that is amplified and highly expressed in this cancer patient.
+Note that the **Drug response** column shows the label <img src="response-both.svg" alt="Both" height="35" width="38" style="vertical-align:middle;"/>. If you expand paclitaxel's row, you will realise that some input genes, when mutated, may trigger sensitivity whereas others may confer resistance to this drug. Among the later we can find *EGFR*, the gene that is amplified and highly expressed in this cancer patient.
 
-<!-- Update image and image name -->
-![Gene Ranking Query Summary Table Expanded](gene-ranking-query-output-03.png "Gene ranking query example summary table expanded")
+<!-- Update image -->
+<div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
 
-Also, other treatments based on pathway members are suggested, as Imatinib and Bosutinib that targets downstream proteins to EGFR, gene that is altered in the patient and that is causing an increased expression in the tumor.
+Also, other treatments based on pathway members are suggested, as imatinib and bosutinib that targets downstream proteins to EGFR.
 
 ### 6.3. Drug<a name="examples-drug-query"></a>
 
