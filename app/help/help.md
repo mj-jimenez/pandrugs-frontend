@@ -241,7 +241,7 @@ Once the query has been completed, a summary box with the execution details, som
 This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [Advanced Options](#!/help#advanced-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report would be available for download at the summary box.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="100%" width="100%"/>
 
 ### 4.2 Charts<a name="drug-status-level"></a>
 
@@ -370,7 +370,7 @@ After doing a drug query to retrieve the genes associated with a particular drug
 In this case, the summary box details the genes associated with the input drug, according to PanDrugsdb. Morever, it specifies the drug status and type of therapy.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="summary-box-02.png" alt="Summary Box After Drug Query" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="summary-box-02.png" alt="Summary Box After Drug Query" height="100%" width="100%"/>
 
 In the [summary table](#!/help#summary-table), each row represents a gene associated with the input drug. The reported DScore and GScore are the pre-calculated ones for each drug-gene interaction in the database.
 
