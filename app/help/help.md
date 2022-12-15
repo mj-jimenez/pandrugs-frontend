@@ -9,8 +9,8 @@
   6. [Multi-omics Query](#!/help#multi-omics-query)
 
 2. **[Advanced Options](#!/help#advanced-options)**
-  1. [Drug status level](#!/help#drugs-status-level)
-  2. [Interaction evidence level](#!/help#interaction-evidence-level)
+  1. [Drug Status Level](#!/help#drugs-status-level)
+  2. [Interaction Evidence Level](#!/help#interaction-evidence-level)
   3. [Select Cancer Types](#!/help#select-cancer-types)
 
 3. **[PanDrugs Scores](#!/help#pandrugs-scores)**
@@ -99,12 +99,12 @@ In this query option, you must upload a **[VCF](https://samtools.github.io/hts-s
 To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="60%" width="60%"/>
 
 A message indicating that the computation has been successfully submitted will appear. In this message you will get a link in order to follow the computation progress.
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="25%" width="25%"/>
+<div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="40%" width="40%"/>
 
 Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
 
@@ -124,7 +124,7 @@ Moreover, it is possible to download a tab delimited file with the annotations f
 
 If you are logged in PanDrugs, the results of the query will be stored in your personal account. You will be able to access any previous analyses done within the last 6 months <!-- check this --> and select one of them to make a new query. That is why we encourage you to register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
-### 1.5 Multi-omics Query<a name="multi-omics-query"></a>
+### 1.6 Multi-omics Query<a name="multi-omics-query"></a>
 You can perform a Multi-omics Query in case you have at least two of these inputs for the same patient:
 
   - Expression data
@@ -158,7 +158,7 @@ Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/he
 <!-- Update image -->
 <div style="text-align: left;"><img src="advanced-options.png" alt="Advanced Options" height="60%" width="60%"/>
 
-### 2.1 Drug status level<a name="drugs-status-level"></a>
+### 2.1 Drug Status Level<a name="drugs-status-level"></a>
 
 Allows to filter therapeutic options according to their approval status for cancer or other pathologies. The options are:
 
@@ -175,15 +175,15 @@ Allows to filter therapeutic options according to their approval status for canc
 
 By default, all options are selected so the results include drugs in all the approval status levels.
 
-### 2.2 Interaction evidence level<a name="interaction-evidence-level"></a>
+### 2.2 Interaction Evidence Level<a name="interaction-evidence-level"></a>
 
 Allows to filter therapeutic options according to the type of drug-gene interaction:
 
-- **<img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> Direct target:** Show drugs that directly target any input gene that contributes to a disease phenotype.
+- **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype.
 
-- **<img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> Biomarker:** Show drugs whose response is associated, based on clinical or pre-clinical evidences, with the genetic status of any input gene.
+- **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidences, with the genetic status of any input gene.
 
-- **<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> Pathway member:** Show drugs that target any downstream druggable genes within the pathway of the input genes.
+- **Pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes.
 
 <!-- - **Gene dependency**: Show drugs that target any gene with a genetic dependency on the input genes. -->
 
@@ -191,7 +191,7 @@ By default, all options are selected so the results include all types of drug-ge
 
 ### 2.3 Select Cancer Types<a name="select-cancer-types"></a>
 
-Allows to filter therapeutic options approved for specific cancer types. **Drugs in clinical trials or experimental drugs associated to the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA approved drugs for cancer** (see [Drug status level](#!/help#drugs-status-level) section).
+Allows to filter therapeutic options approved for specific cancer types. **Drugs in clinical trials or experimental drugs associated to the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA approved drugs for cancer** (see [Drug Status Level](#!/help#drugs-status-level) section).
 
 By default, all cancer types are selected.
 
