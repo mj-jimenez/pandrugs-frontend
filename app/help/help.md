@@ -378,43 +378,42 @@ In the [summary table](#!/help#summary-table), each row represents a gene associ
 
 ### 6.1. Genes<a name="examples-genes-query"></a>
 
-Load Example 3 from [Genes Query tab](#!/query?tab=genes)
+Load <span style="color:#50AC50">**Example 3**</span> from [Genes Query tab](#!/query?tab=genes).
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
-<!-- Update image and image name -->
-![Genes Query Input](gene-query-example-input.png "Genes query example input")
+<div style="text-align: left;"><img src="gene-query-example-input.png" alt="Gene Query Input" height="100%" width="100%"/>
 
-Do not modify any of the "Advanced Options" and click on the "Query" button.
+Do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
 In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-Among the Best Therapeutic Candidates, PanDrugs suggests Everolimus and Temsirolimus.
+Among the Best Therapeutic Candidates, PanDrugs suggests everolimus and temsirolimus.
 
 <!-- Update image -->
-![Genes Query Scatter Plot](genes-query-output-01.png "Genes query example scatter plot")
+<!-- ![Genes Query Scatter Plot](genes-query-output-01.svg "Genes query example scatter plot") -->
 
-If you take a look to the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the one with the highest DScore and GScore a direct target interaction in both cases. Moreover, Everolimus and Temsirolimus are both targeted therapies approved for cancer and belong to the Serine/threonine kinases and mTOR inhibitor drug families.
+If you take a look to the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the one with the highest DScore and GScore a direct target interaction in both cases. Moreover, everolimus and temsirolimus are both targeted therapies approved for cancer and belong to the Serine/threonine kinases and mTOR inhibitor drug families.
 
-<!-- Add image -->
-<!-- ![Genes Query Summary Table Collapsed](genes-query-output-02.png "Genes query example summary table collapsed") -->
+<!-- Update image -->
+<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Genes Query Summary Table Collapsed" height="80%" width="80%"/>
 
-If you expand Everolimus row by clicking on "+" button you will notice that this drug suggestion is based on:
+If you expand everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="20" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
 1. A direct target inhibition: *MTOR*.
-2. A pathway member association between *MTOR* and other genes in the input list without entries in PanDrugsdb: *AKT1S1*, *MLST8*, *PDPK1*, *RHEB*, *RICTOR*, *RPTOR*, *TSC1* and *TSC2*.
+2. A pathway member association with *AKT1S1*, *MLST8*, *PDPK1*, *RHEB*, *RICTOR*, *RPTOR*, *TSC1* and *TSC2* genes, which are downstream *MTOR*. You can click on <span style="color:#50AC50">**See pathways**</span> to retrieve more information regarding the functional pathways in which they are involved.
 3. Six response biomarkers: *PIK3CA*, *PTEN*, *TSC2*, *TSC1*, *AKT1* and *AKT2*.
 
-You may also notice an alert in the "Drug response" column that should be considered if *PTEN* was deleted or *MTOR* presented one of the listed variants, since all those alterations are associated with reduced sensitivity to Everolimus.
+You may also notice two alerts <img src="response-alert.svg" alt="Exclamation Mark" height="35" width="35" style="vertical-align:middle;"/> in the **Drug response** column. These alerts should be considered if *MTOR* presented one of the listed variants or *PTEN* was deleted, since all those alterations are associated with reduced sensitivity to everolimus.
 
-<!-- Update image and image name -->
-![Genes Query Summary Table Expanded](genes-query-output-02.png "Genes query example summary table expanded")
+<!-- Update image -->
+<div style="text-align: left;"><img src="genes-query-output-03.png" alt="Genes Query Summary Table Expanded" height="80%" width="80%"/>
 
 ### 6.2. Gene Ranking<a name="examples-gene-ranking-query"></a>
 
-[Load example for a lung adenocarcinoma patient from the TCGA](#!/query?tab=generank)
+[Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
 
 This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* gene that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
 
