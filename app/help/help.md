@@ -248,8 +248,8 @@ Once the query has been completed, a summary box with the execution details, som
 
 This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [Advanced Options](#!/help#advanced-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report would be available for download at the summary box.
 
-<!-- Add image -->
-![Summary Box](summary-box-01.png "Summary Box")
+<!-- Update image -->
+<div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="80%" width="80%"/>
 
 ### 4.2 Charts<a name="drug-status-level"></a>
 
@@ -301,12 +301,12 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
   - **Direct:** The altered gene is the target or the biomarker of the drug.
 
-    - **<img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> Direct target**
-    - **<img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> Biomarker**
+    - **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>**
+    - **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>**
 
   - **Indirect:** The drug's target is a gene related to the altered one.
 
-    - **<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> Pathway member**
+    - **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>**
     <!-- - Genetic dependency <img src="genetic-dependency-interaction.svg" alt="Genetic Depedency" height="14" width="85"/> -->
 
 **4. Drug status:** Approval status and cancer prescription for the approved drugs.
@@ -331,11 +331,11 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
   <!-- Update image -->
   <img src="pandrugs-sources.png" alt="PanDrugs Sources" height="750" width="500" style="horizontal-align:left;"/>
 
-**9. DScore:** Measures the suitability of the treatment. It ranges from -1 to 1, with the negative values corresponding to resistance and the positive values corresponding to sensitivity. For further information, please refer to [DScore Calculation] section.
+**9. DScore:** Measures the suitability of the treatment. It ranges from -1 to 1, with the negative values corresponding to resistance and the positive values corresponding to sensitivity. For further information, please refer to [DScore Calculation](#!/help#dscore-calculation) section.
 
-**10. GScore:** Measures the biological relevance of the gene in the tumoral process and its druggability. It ranges from 0 to 1. For further information, please refer to [GScore Calculation] section.
+**10. GScore:** Measures the biological relevance of the gene in the tumoral process and its druggability. It ranges from 0 to 1. For further information, please refer to [GScore Calculation](#!/help#gscore-calculation) section.
 
-**11. BTC:** The Best Therapeutic Candidates, with DScore > 0.7 and GScore > 0.6, are highlighted with a yellow star in the BTC column.
+**11. BTC:** The Best Therapeutic Candidates, with DScore > 0.7 and GScore > 0.6, are highlighted with a yellow star <img src="btc.png" alt="Best Therapeutic Candidate" height="35" width="35" style="vertical-align:middle;"/> in the BTC column.
   
 **12. PharmCAT:** This column will appear after a [Small Variants Query](#!/help#vcf-query) or a [Multi-omics Query](#!/help#multi-omics-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>. The drugs with CPIC recommendations will be labelled with one of these icons:
 
@@ -349,7 +349,7 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
 **13. SNV:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with a VCF. A drug will be labelled with this icon <img src="small-variants.svg" alt="SNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a somatic variant.
 
-**14. CNV:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with a CNV file. A drug will be labelled with this icon <img src="cnvs.svg" alt="CNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a CNV (either an ![Amplification](amplification.png "Amplification") or ![Deletion](deletion.png "Deletion")).
+**14. CNV:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with a CNV file. A drug will be labelled with this icon <img src="cnvs.svg" alt="CNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a CNV (either an <span style="color:#FFA42B">Amplification</span> or <span style="color:#6E66D4">Deletion</span>).
 
 **15. Expression:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with expression data. A drug will be labelled with this icon <img src="expression.svg" alt="Expression" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes is labelled as
 
@@ -361,7 +361,7 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
   - A sentence explaining the association between the drug and the gene.
 
-  - The type of drug-gene ineraction for that gene. When this interaction is of type pathway member (<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>), there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
+  - The type of drug-gene ineraction for that gene. When this interaction is of type pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
 
   - The type of alteration that drives the sensitivity/resistance response.
 
