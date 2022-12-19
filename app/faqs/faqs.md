@@ -13,6 +13,9 @@
 - [Can I use PanDrugs for medical advice?](#!/faqs#medical-advice)
 - [Can I use PanDrugs with non-cancer data?](#!/faqs#non-cancer-data)
 - [Can I use PanDrugs for commercial purposes?](#!/faqs#commercial-use)
+- [What is PanDrugs data policy?](#!/faqs#data-policy)
+- [Do I need to register to use PanDrugs?](#!/faqs#registration)
+- [Is it possible to run PanDrugs in my own server?](#!/faqs#docker)
 
 ### What is PanDrugs?<a name="what-is-pandrugs"></a>
 PanDrugs is a bioinformatics platform to prioritize anticancer drug treatments using individual genomics data. **This prioritization is performed through the intersection of two scores: the DScore and the GScore**.
@@ -20,12 +23,12 @@ PanDrugs is a bioinformatics platform to prioritize anticancer drug treatments u
 ### What does the DScore represent?<a name="dscore"></a>
 The **DScore** measures the **suitability of the treatment** according to the drug indication and status, type of drug-gene association and curation level of the sources. It **ranges from -1 to 1**, with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
 
-You can find more details regarding the DScore computation [here](#!/help#gscore-and-dscore-concept-and-calculation).
+You can find more details regarding the DScore computation [here](#!/help#dscore-calculation).
 
 ### What does the GScore represent?<a name="gscore"></a>
 The **GScore** measures the **biological relevance of a gene in the tumoral process and its druggability**. It is estimated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer, its druggability level, the biological impact of mutations, the frequency of gene alterations and their clinical implications. The GScore **ranges from 0 to 1**.
 
-You can find more details regarding the GScore computation [here](#!/help#gscore-and-dscore-concept-and-calculation).
+You can find more details regarding the GScore computation [here](#!/help#gscore-calculation).
 
 ### What are the Best Therapeutic Candidates?<a name="best-therapeutic-candidates"></a>
 PanDrugs provides a prioritized list of candidate drugs considering the DScore and GScore values. **Those therapies supported by DScores and GScores closer to 1 will have higher evidence of their effectiveness in cancer treatment and will be considered as Best Therapeutic Candidates**. 
@@ -60,3 +63,17 @@ PanDrugs has been designed to prioritize drugs using cancer genomics data. Never
 
 ### Can I use PanDrugs for commercial purposes?<a name="commercial-use"></a>
 PanDrugs is exclusively intended for research purposes and academic use. **In case you are interested in a collaboration, please contact the principal investigator [Fátima Al-Shahrour](mailto:falshahrour@cnio.es)**.
+
+### What is PanDrugs data policy?<a name="data-policy"></a>
+To prevent unauthorized access or disclosure, PanDrugs uses several technical measures to safeguard your data, in accordance with current technological and
+industry standards. In particular, all connections to and from our website are encrypted using Secure Socket Layer (SSL). Passwords are hashed in our database.
+
+Input VCFs are deleted right after execution. However, data analyzed with PanDrugs are stored in our private servers. This data includes annotations for somatic variants and PharmCAT’s report for germline ones. Removing an analysis implies that it will be completely and permanently removed from PanDrugs servers. **Files are not shared with third parties**.
+
+We ensure that data and results are kept at least 1 week for guest requests and at least 6 months for authenticated users.
+
+### Do I need to register to use PanDrugs?<a name="registration"></a>
+No, you can make queries on PanDrugs as a guest user.
+
+### Is it possible to run PanDrugs in my own server?<a name="docker"></a>
+Yes, you can build a docker image to run PanDrugs in your own server. Visit PanDrugs docker [here](http://github.com/sing-group/pandrugs-docker).
