@@ -32,6 +32,20 @@ angular.module('pandrugsFrontendApp')
     function restDatabaseFactory($q, $timeout, $filter, $http, $sessionStorage, $location, BACKEND) {
       var currentUser = 'anonymous';
 
+      var loginStateChangedListeners = [];
+      function notifyLoginStateChanged() {
+        loginStateChangedListeners.forEach(function(listener) {
+          listener();
+        });
+      }
+
+      function doLogout() {
+        currentUser = 'anonymous';
+        delete $sessionStorage.user;
+        delete $sessionStorage.password;
+        notifyLoginStateChanged();
+      }
+      
       function doLogin(login, password, onSuccess, onError) {
         $http.defaults.headers.common.Authorization = 'Basic ' + btoa(login + ':' + password);
         // signals the backend to send a WWW-Authenticate: xBasic avoiding the browser login dialog to appear
@@ -56,7 +70,6 @@ angular.module('pandrugsFrontendApp')
           });
       }
 
-      var loginStateChangedListeners = [];
       function onLoginStateChanged(listener) {
         loginStateChangedListeners.push(listener);
       }
@@ -65,18 +78,6 @@ angular.module('pandrugsFrontendApp')
         if (index !== -1) {
           loginStateChangedListeners.splice(index, 1);
         }
-      }
-      function notifyLoginStateChanged() {
-        loginStateChangedListeners.forEach(function(listener) {
-          listener();
-        });
-      }
-
-      function doLogout() {
-        currentUser = 'anonymous';
-        delete $sessionStorage.user;
-        delete $sessionStorage.password;
-        notifyLoginStateChanged();
       }
 
       function doConfirm(token, onSuccess, onError) {
@@ -147,7 +148,7 @@ angular.module('pandrugsFrontendApp')
 
       }
 
-      function submitComputation(vcfFile, computationName, onSuccess, onError) {
+      function submitComputation(vcfFile, computationName, withPharmcat, tsvFile, onSuccess, onError) {
         var headers = {'Content-Type': undefined};
 
         var requestUser = currentUser;
@@ -156,32 +157,40 @@ angular.module('pandrugsFrontendApp')
           requestUser = 'guest';
         }
 
-        var reader = new FileReader();
-        reader.onload = function () {
-          var fileContents = reader.result;
-          var submitURL = BACKEND.API + 'variantsanalysis/' + requestUser + '?name=' + computationName;
-          if (currentUser !== 'anonymous') {
-            var absUrl = $location.absUrl();
-            var encodedTemplate = encodeURIComponent(absUrl.substring(0, absUrl.indexOf('#')) + '#!/login?ref=query?tab=vcfrank');
-            submitURL += '&resultsurltemplate='+encodedTemplate;
-          }
-          $http.post(submitURL, fileContents, {
-            transformRequest: angular.identity,
-            headers: headers
-          }).then(function (response) {
-            if (onSuccess) {
-              var location = response.headers('Location');
-              var newId = location.substring(location.lastIndexOf('/') + 1);
+        var submitURL = BACKEND.API + 'variantsanalysis/' + requestUser + '?name=' + computationName;
+        if (currentUser !== 'anonymous') {
+          var absUrl = $location.absUrl();
+          var encodedTemplate = encodeURIComponent(absUrl.substring(0, absUrl.indexOf('#')) + '#!/login?ref=query?tab=vcfrank');
+          submitURL += '&resultsurltemplate='+encodedTemplate;
+        }
 
-              onSuccess(newId);
-            }
-          }, onError);
-        };
-        reader.readAsText(vcfFile);
+        var formData = new FormData();
+        formData.append('withPharmcat', withPharmcat);
+        formData.append('vcfFile', vcfFile);
+        formData.append('tsvFile', tsvFile);
+
+        $http({
+          url: submitURL,
+          transformRequest: angular.identity,
+          headers: headers,
+          data: formData,
+          method: 'POST'
+        }).then(function (response) {
+          if (onSuccess) {
+            var location = response.headers('Location');
+            var newId = location.substring(location.lastIndexOf('/') + 1);
+
+            onSuccess(newId);
+          }
+        }, onError);
       }
 
       function getVscoreDownloadURLForComputation(computationId) {
         return BACKEND.API + 'variantsanalysis/files/' + (currentUser==='anonymous'?'guest':currentUser) + '/' + computationId + '/vscorefile';
+      }
+
+      function getPharmcatURLForComputation(computationId){
+        return BACKEND.API + 'variantsanalysis/files/' + (currentUser==='anonymous'?'guest':currentUser) + '/' + computationId + '/pharmcatreport?type=html';
       }
 
       function deleteComputation(computationId, onSuccess, onError) {
@@ -218,6 +227,7 @@ angular.module('pandrugsFrontendApp')
         getComputation: getComputation,
         submitComputation: submitComputation,
         getVscoreDownloadURLForComputation: getVscoreDownloadURLForComputation,
+        getPharmcatURLForComputation: getPharmcatURLForComputation,
         deleteComputation: deleteComputation
       };
     }

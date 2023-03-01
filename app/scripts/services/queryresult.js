@@ -30,18 +30,18 @@
 angular.module('pandrugsFrontendApp')
   .factory('QueryResultFactory', ['$sce', function ($sce) {
     var geneDrugHeader =
-      'Gene(s),Target,Alteration,Status Info,Threrapy,Indirect Gene(s),' +
-      'Indirect Pathway(s),Sensitivity,Source(s),Warning(s),DScore,GScore';
+      '"Gene(s)","Target","Alteration","Status Info","Threrapy","Indirect Gene(s)",' +
+      '"Indirect Pathway(s)","Sensitivity","Source(s)","Warning(s)","DScore","GScore"';
 
     var geneDrugGroupsHeader =
-      'Gene(s),Standard Drug Name,Show Drug Name,PubChemId(s),Status,' +
-      'Status Description,Therapy,Target,Source(s),Curated Source(s),' +
-      'Family(ies),Cancer(s),Indirect Gene(s),Drug response,Best Interaction,' +
-      'DScore,GScore,' + geneDrugHeader;
+      '"Gene(s)","Standard Drug Name","Show Drug Name","PubChemId(s)","Status",' +
+      '"Status Description","Therapy","Target","Source(s)","Curated Source(s)",' +
+      '"Family(ies)","Cancer(s)","Indirect Gene(s)","Drug response","Best Interaction",' +
+      '"DScore","GScore",' + geneDrugHeader;
 
-    var geneDrugGroupsHeaderSimple = 'Gene(s),Show Drug Name,' +
-      'Status Description,Therapy,Drug response,Best Interaction,Family(ies),' +
-      'Source(s),DScore,GScore,Best Candidate Therapy,Warning(s)';
+    var geneDrugGroupsHeaderSimple = '"Gene(s)","Show Drug Name",' +
+      '"Status Description","Therapy","Drug response","Best Interaction","Family(ies)",' +
+      '"Source(s)","DScore","GScore","Best Candidate Therapy","Warning(s)"';
 
     function drugToLink(drug, pubchemId) {
       return '<a href="https://pubchem.ncbi.nlm.nih.gov/compound/PUBCHEM_ID_TOKEN" target="_blank">DRUG_NAME_TOKEN</a>'
@@ -85,8 +85,9 @@ angular.module('pandrugsFrontendApp')
 
       angular.merge(this, geneDrug);
       this.geneDrugGroup = geneDrugGroup;
-      if (this.getInteraction() === 'pathway-member')
+      if (this.getInteraction() === 'pathway-member') {
         this.pathwayId = 'pathway-' + this.geneDrugGroup.standardDrugName.replace(' ', '-') + '-' + this.getIndirectGeneSymbol();
+      }
     }
 
     function GeneDrugGroup(geneDrugGroup) {
@@ -144,6 +145,12 @@ angular.module('pandrugsFrontendApp')
     GeneDrug.prototype.getGeneSymbols = function() {
       return this.gene.map(function (gene) {
         return gene.geneSymbol;
+      });
+    };
+
+    GeneDrug.prototype.getAlterations = function() {
+      return this.alteration.map(function (alteration) {
+        return alteration.alteration+' (according to ' + alteration.drugSource+')';
       });
     };
 
@@ -226,14 +233,17 @@ angular.module('pandrugsFrontendApp')
     };
 
     GeneDrug.prototype.getInteraction = function() {
-      if (this.target === 'marker') {
-        return 'biomarker';
-      } else if (this.indirect === null) {
-        return 'direct-target';
-      } else if (this.indirect !== null){
-        return 'pathway-member';
-      } else {
-        throw Error('Invalid gene drug group type');
+      switch(this.interactionType) {
+        case 'BIOMARKER':
+          return 'biomarker';
+        case 'DIRECT_TARGET':
+          return 'direct-target';
+        case 'PATHWAY_MEMBER':
+          return 'pathway-member';
+        case 'GENE_DEPENDENCY':
+          return 'gene-dependency';
+        default:
+          throw Error('Invalid gene drug group type');
       }
     };
 
@@ -249,11 +259,10 @@ angular.module('pandrugsFrontendApp')
 
     GeneDrug.prototype.toCSV = function(addHeader) {
       var header = addHeader === true ? geneDrugHeader + '\n' : '';
-
       return header + [
         this.getGeneSymbols(),
         this.target,
-        this.alteration,
+        this.getAlterations(),
         this.drugStatusInfo,
         this.therapy,
         this.getIndirectGeneSymbol(),
@@ -266,11 +275,12 @@ angular.module('pandrugsFrontendApp')
       ]
         .map(prepareValueForCSV)
       .join(',');
+      
     };
 
     GeneDrugGroup.prototype.getBestInteraction = function() {
       var isBetterInteractionThan = function(interaction1, interaction2) {
-        var interactionOrder = [ 'direct-target', 'biomarker', 'pathway-member' ];
+        var interactionOrder = [ 'direct-target', 'biomarker', 'pathway-member', 'gene-dependency' ];
 
         var index1 = interactionOrder.indexOf(interaction1);
         var index2 = interactionOrder.indexOf(interaction2);

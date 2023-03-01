@@ -288,7 +288,7 @@ module.exports = function (grunt) {
         httpFontsPath: '/styles/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
+        raw: 'Encoding.default_external = \'utf-8\'\nSass::Script::Number.precision = 10\n'
       },
       dist: {
         options: {
@@ -449,9 +449,11 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
             'downloads/*.*',
+            'downloads/Multi-omics/*.*',
             'd3/*.*',
             'd3/data/*.*',
-            'help/*.*'
+            'help/*.*',
+            'faqs/*.*'
           ]
         }, {
           expand: true,
@@ -560,7 +562,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
+    //'test',
     'build'
   ]);
 

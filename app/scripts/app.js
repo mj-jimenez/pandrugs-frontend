@@ -40,9 +40,9 @@ angular
     'smart-table',
     'highcharts-ng',
     'smartArea',
-    'listGroup',
     'angular-loading-bar',
-    'ngSanitize'
+    'ngSanitize',
+    'listGroup'
   ])
   .constant('BACKEND', (function() {
     // Service logic
@@ -52,8 +52,8 @@ angular
     //var server = 'http://mrjato.sing-group.org:8080'; // development: test server
     //var server = 'http://0.0.0.0:9000'; // development: via grunt reverse proxy to local backend
     var server = ''; // the server is in this machine (e.g.: docker distribution)
+    //var server = 'http://0.0.0.0:8080'
     var app = server + '/pandrugs-backend/';
-
 
     return {
       SERVER: server,
@@ -73,8 +73,12 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/help', {
-        templateUrl: 'views/help.html',
+        templateUrl: 'views/markdown.html',
         controller: 'HelpCtrl'
+      })
+      .when('/faqs', {
+        templateUrl: 'views/markdown.html',
+        controller: 'FaqCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',

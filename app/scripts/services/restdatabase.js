@@ -72,7 +72,8 @@ angular.module('pandrugsFrontendApp')
 
       var interaction = 'biomarker=' + advancedQueryOptions.biomarker +
         '&pathwayMember=' + advancedQueryOptions.pathwayMember +
-        '&directTarget=' + advancedQueryOptions.directTarget;
+        '&directTarget=' + advancedQueryOptions.directTarget + 
+        '&geneDependency=' + advancedQueryOptions.geneDependency;
 
       return cancerDrugStatus + nonCancerDrugStatus + cancers + interaction;
     }
@@ -83,7 +84,6 @@ angular.module('pandrugsFrontendApp')
       advancedQueryOptions
     ) {
       var deferred = $q.defer();
-
       // build query string
       var queryString = '';
       for (var i = 0; i < queryValues.length; i++) {
@@ -126,6 +126,56 @@ angular.module('pandrugsFrontendApp')
         fd.append('generank', geneRankFile);
 
         $http.post(BACKEND.API + 'genedrug?' + queryString, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .then(function(results) {
+            deferred.resolve(results.data);
+          }
+        );
+
+        return deferred.promise;
+      },
+
+      multiOmicsSearch: function(multiOmics, advancedQueryOptions) {
+        var deferred = $q.defer();
+
+        var queryString = constructQueryString(advancedQueryOptions);
+        var url = BACKEND.API + 'genedrug/multiomics?' + queryString;
+
+        if(multiOmics.computationId !== null){
+          queryString = 'computationId=' + multiOmics.computationId + '&' + queryString;
+          url = BACKEND.API + 'genedrug/fromComputationId/multiomics?' + queryString;
+        }
+
+        var fd = new FormData();
+        if(multiOmics.cnvFile){
+          fd.append('cnv', multiOmics.cnvFile);
+        }
+        if(multiOmics.expressionFile){
+          fd.append('expressiongenerank', multiOmics.expressionFile);
+        }
+        $http.post(url, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .then(function(results) {
+            deferred.resolve(results.data);
+          }
+        );
+
+        return deferred.promise;
+      },
+
+      cnvSearch: function(cnv, advancedQueryOptions) {
+        var deferred = $q.defer();
+
+        var queryString = constructQueryString(advancedQueryOptions);
+
+        var fd = new FormData();
+        fd.append('cnv', cnv);
+
+        $http.post(BACKEND.API + 'genedrug/cnv?' + queryString, fd, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         })

@@ -55,13 +55,13 @@ angular.module('pandrugsFrontendApp')
   ) {
 
     this.isValidTab = function(tab) {
-      return tab === 'genes' || tab === 'drugs' || tab === 'generank' || tab === 'vcfrank';
+      return tab === 'genes' || tab === 'drugs' || tab === 'generank' || tab === 'vcfrank' || tab === 'multiomics'  || tab === 'cnv';
     };
 
 
     var example = $location.search().example;
     var urlGeneList = $location.search().genes;
-    this.triggerQueryOnChange = this.isValidTab(example) || urlGeneList != undefined;
+    this.triggerQueryOnChange = this.isValidTab(example) || urlGeneList !== undefined;
 
     $scope.selectedTab = this.isValidTab(example) ? example : 'genes';
 
@@ -84,6 +84,10 @@ angular.module('pandrugsFrontendApp')
 
     $scope.generank = null;
 
+    $scope.multiOmics = null;
+
+    $scope.cnv = null;
+
     $scope.computationId = null;
     $scope.computation = null;
 
@@ -94,10 +98,43 @@ angular.module('pandrugsFrontendApp')
     $scope.results = null;
     $scope.resultsFiltered = null;
 
+    $scope.getTitleForCurrentResults = function() {
+      switch ($scope.selectedTab) {
+        case 'genes':
+          return 'GENES';
+        case 'drugs':
+          return 'DRUG INFORMATION';
+        case 'generank':
+          return 'GENE Rank';
+        case 'vcfrank':
+          return 'Small variants';
+        case 'multiomics':
+          return 'Multi-omics analysis';
+        case 'cnv':
+          return 'CNV';
+      }
+    };
+
+    $scope.getInputFilesForCurrentResults = function() {
+      if ($scope.selectedTab === 'generank' && $scope.generank) {
+        return [$scope.generank];
+      } else if ($scope.selectedTab === 'multiomics' && $scope.multiOmics) {
+        var result = [];
+        if ($scope.multiOmics.cnvFile){
+          result.push($scope.multiOmics.cnvFile);
+        }
+        if ($scope.multiOmics.expressionFile){
+          result.push($scope.multiOmics.expressionFile);
+        }
+        return result;
+      } else if ($scope.selectedTab === 'cnv' && $scope.cnv) {
+        return [$scope.cnv];
+      }
+    };
 
     $scope.setSelectedTab = function (tab) {
       if (this.isValidTab(tab) && $scope.selectedTab !== tab) {
-        $scope.selectedTab = tab;
+        $scope.selectedTab = tab;        
       }
     }.bind(this);
 
@@ -124,6 +161,24 @@ angular.module('pandrugsFrontendApp')
 
     $scope.updateGenerank = function(generank) {
       $scope.generank = generank;
+    };
+
+    $scope.updateMultiOmics = function(cnvFile, expressionFile, computationId, computation) {
+      $scope.multiOmics = {cnvFile: cnvFile, expressionFile: expressionFile, computationId: computationId, computation: computation};
+    };
+
+    $scope.getSelectedMultiOmicsItems = function(){
+      var count = 0;
+      if($scope.multiOmics){
+        if ($scope.multiOmics.cnvFile){count += 1;}
+        if ($scope.multiOmics.expressionFile){count += 1;}
+        if ($scope.multiOmics.computationId){count += 1;}
+      }
+      return count;
+    };
+
+    $scope.updateCNV = function(cnv) {
+      $scope.cnv = cnv;
     };
 
     $scope.updateComputation = function(computationId, computation) {
@@ -158,7 +213,13 @@ angular.module('pandrugsFrontendApp')
           || ($scope.selectedTab === 'drugs' && $scope.selectedDrug)
           || ($scope.selectedTab === 'generank' && $scope.generank)
           || ($scope.selectedTab === 'vcfrank' && $scope.computationId && $scope.computation && $scope.computation.canBeQueried())
+          || ($scope.selectedTab === 'multiomics' && $scope.getSelectedMultiOmicsItems() >= 2)
+          || ($scope.selectedTab === 'cnv' && $scope.cnv)
         );
+    };
+
+    $scope.getPharmcatURL = function(computationId) {
+      return user.getPharmcatURLForComputation(computationId); 
     };
 
     //  ========== QUERY ========
@@ -167,22 +228,11 @@ angular.module('pandrugsFrontendApp')
         db.genesPresence($scope.geneList).then(function(presence){
           $scope.genePresence = presence;
         });
-
         this.searchBy(db.searchByGenes, $scope.geneList);
       } else if ($scope.selectedTab === 'drugs' && $scope.selectedDrug) {
         this.searchBy(db.searchByDrugs, [ $scope.selectedDrug ], AdvancedQueryOptionsFactory.createAdvancedQueryOptions());
       } else if ($scope.selectedTab === 'generank' && $scope.generank) {
-        var reader = new FileReader();
-
-        reader.onload = function() {
-          $scope.geneList = utilities.parseGenes(reader.result);
-          db.genesPresence($scope.geneList)
-            .then(function(presence){
-              $scope.genePresence = presence;
-            });
-        };
-
-        reader.readAsText($scope.generank);
+        this.fileReader($scope.generank);
 
         this.searchBy(db.rankedSearch, $scope.generank);
       } else if ($scope.selectedTab === 'vcfrank' && $scope.computation) {
@@ -191,8 +241,64 @@ angular.module('pandrugsFrontendApp')
         });
 
         this.searchBy(db.computationIdSearch, $scope.computationId);
+      } else if ($scope.selectedTab === 'multiomics' && $scope.getSelectedMultiOmicsItems() >= 2) {
+
+        var readers = [];
+        var onOneReaded = function onOneReaded() {
+          if (readers.filter(function(r) { return r.readyState === FileReader.DONE;}).length === readers.length) {
+            //all files (one or two) are read
+            var allGenes = readers.map(function(reader) {return utilities.parseGenes(reader.result,false);})
+              .reduce(function(totalArray, currentSubArray) { return totalArray.concat(currentSubArray);}, []);
+
+            if ($scope.multiOmics.computation) {
+              allGenes = allGenes.concat($scope.multiOmics.computation.affectedGenes);
+            }
+
+            $scope.geneList = utilities.uniqueIgnoreCase(allGenes);
+
+            db.genesPresence($scope.geneList)
+                  .then(function(presence){
+                    $scope.genePresence = presence;
+              });
+          }
+        };
+
+        var files = [];
+        if ($scope.multiOmics.cnvFile) {
+          files = files.concat($scope.multiOmics.cnvFile);
+        }
+        if ($scope.multiOmics.expressionFile) {
+          files = files.concat($scope.multiOmics.expressionFile);
+        }
+
+        readers = files.map(function() {
+          var reader = new FileReader();
+          reader.onload = onOneReaded;          
+          return reader;
+        });
+        readers.forEach(function(reader, index)  {reader.readAsText(files[index]);});
+
+        this.searchBy(db.multiOmicsSearch, $scope.multiOmics);
+      }else if ($scope.selectedTab === 'cnv' && $scope.cnv) {
+        this.fileReader($scope.cnv);
+
+        this.searchBy(db.cnvSearch, $scope.cnv);
       }
     }.bind(this);
+
+    this.fileReader = function(file){
+      var reader = new FileReader();
+
+      reader.onload = function() {
+        $scope.geneList = utilities.parseGenes(reader.result);
+          db.genesPresence($scope.geneList)
+            .then(function(presence){
+              $scope.genePresence = presence;
+          });
+      };
+
+      reader.readAsText(file);
+    };
 
     this.checkTriggerQuery = function() {
       if (this.triggerQueryOnChange && $scope.canQuery()) {
@@ -217,10 +323,8 @@ angular.module('pandrugsFrontendApp')
         searchFunction(value, advancedQueryOptions || $scope.advancedQueryOptions)
           .then(function(result) {
             $scope.isLoading = false;
-
             $scope.results = QueryResultFactory.createQueryResult(result.geneDrugGroup, $scope.advancedQueryOptions);
             $scope.resultsFiltered = $scope.results.getFilteredGroups();
-
             this.updateCharts($scope.resultsFiltered);
           }.bind(this),
           function() {
@@ -228,7 +332,5 @@ angular.module('pandrugsFrontendApp')
           });
       }
     };
-
-
 
   }]);

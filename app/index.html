@@ -24,8 +24,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/angular-list-group/dist/angular-list-group.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-fileinput/css/fileinput.min.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/spinkit/css/spinkit.css" />
@@ -65,11 +65,12 @@
               <li ng-class="{ active: isActive('/tcga') }"><a ng-href="#!/tcga">PanDrugs in TCGA</a></li>
               <li><a ng-href="{{BACKEND.APP}}">API</a></li>
               <li ng-class="{ active: isActive('/help') }"><a ng-href="#!/help">Help</a></li>
+              <li ng-class="{ active: isActive('/faqs') }"><a ng-href="#!/faqs">FAQs</a></li>
               <li ng-show="getCurrentUser() === 'anonymous'" ng-class="{ active: isActive('/login') }"><a ng-href="#!/login">Login</a></li>
               <li ng-show="getCurrentUser() !== 'anonymous'"><a style="cursor: pointer" ng-click="logout()">Logout ({{getCurrentUser()}})</a></li>
             </ul>
          
-            <div class="pandrugs-version">version: <a href="https://github.com/sing-group/pandrugs-docker/releases/tag/v2021.04.27">2021.04.27</a> (<a href="https://github.com/sing-group/pandrugs-backend/blob/master/LICENSE">License</a>)</div>
+            <div class="pandrugs-version">version: 2022.12 (<a href="https://github.com/sing-group/pandrugs-backend/blob/master/LICENSE">License</a>)</div>
 
             </div>
 
@@ -130,9 +131,10 @@
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-list-group/dist/angular-list-group.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
     <script src="bower_components/highcharts-release/highcharts.js"></script>
@@ -142,7 +144,6 @@
     <script src="bower_components/cytoscape/dist/cytoscape.js"></script>
     <script src="bower_components/ng-storage/ngStorage.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-    <script src="bower_components/angular-list-group/dist/angular-list-group.min.js"></script>
     <script src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
     <script src="bower_components/pagedown/Markdown.Converter.js"></script>
     <script src="bower_components/pagedown/Markdown.Sanitizer.js"></script>
@@ -168,7 +169,7 @@
         <script src="scripts/controllers/query.js"></script>
         <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/user.js"></script>
-        <script src="scripts/controllers/help.js"></script>
+        <script src="scripts/controllers/documentation.js"></script>
         <script src="scripts/filters/enumeration.js"></script>
         <script src="scripts/filters/enumerationWithLink.js"></script>
         <script src="scripts/filters/titlecase.js"></script>
@@ -180,11 +181,15 @@
         <script src="scripts/filters/mapattribute.js"></script>
         <script src="scripts/filters/groupby.js"></script>
         <script src="scripts/filters/formatalterations.js"></script>
+        <script src="scripts/filters/toIconClass.js"></script>
         <script src="scripts/components/advanced-query-options/advanced-query-options.component.js"></script>
         <script src="scripts/components/gene-query-panel/gene-query-panel.component.js"></script>
         <script src="scripts/components/drug-query-panel/drug-query-panel.component.js"></script>
         <script src="scripts/components/generank-query-panel/generank-query-panel.component.js"></script>
         <script src="scripts/components/vcf-query-panel/vcf-query-panel.component.js"></script>
+        <script src="scripts/components/multi-omics-query-panel/multi-omics-query-panel.component.js"></script>
+        <script src="scripts/components/cnv-query-panel/cnv-query-panel.component.js"></script>
+        <script src="scripts/components/variant-analysis-panel/variant-analysis-panel.component.js"></script>
         <script src="scripts/components/gene-results-table/gene-results-table.component.js"></script>
         <script src="scripts/components/drug-results-table/drug-results-table.component.js"></script>
         <script src="scripts/services/queryresult.js"></script>

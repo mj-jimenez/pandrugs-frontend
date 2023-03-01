@@ -23,160 +23,113 @@ angular.module('pandrugsFrontendApp')
     templateUrl: 'views/components/vcf-query-panel/vcf-query-panel.template.html',
     bindings: {
       idPrefix: '@',
-      reloadInterval: '@',
-      autoreload: '<',
-      onChange: '&'
+      autoreload: '<'
     },
-    controller: ['user', '$location', '$scope', '$interval', '$timeout', function (user, $location, $scope, $interval, $timeout) {
+    controller: ['user', '$location', '$timeout', '$scope', function (user, $location, $timeout, $scope) {
       this.vcfFile = '';
       this.computationName = 'My Computation';
-      this.computations = [];
       this.computationId = $location.search().computationId;
-
+      this.withPharmcat = false;
+      this.tsvFile = '';
+      this.errorVCFFile = '';
+      
       if (this.autoreload === undefined) {
         this.autoreload = true;
       }
 
-      this.$onInit = function () {
-        if ($location.search().example === 'vcfrank') {
-          this.computationId = 'example';
-
-          user.getComputation('guest', 'example', function(computation){
-            this.computationId = 'example';
-            this.computations.example = new Computation(computation);
-            this.notifyComputationIdChange();
-          }.bind(this));
+      this.changeFile = function(file, option) {
+        if (option == "VCF"){
+          this.vcfFile = file;          
+        }else if (option == "TSV"){
+          this.tsvFile = file;
         }
-
-        // User requires some time to load the actual user.
-        // This delay wait for the current user to be set.
-        $timeout(this.reloadComputations, 1000)
-          .then(function() {
-            this.reloadComputationsTask = $interval(
-              function() {
-                if (this.autoreload) {
-                  this.reloadComputations();
-                }
-              }.bind(this),
-              this.reloadInterval ? this.reloadInterval : 5000
-            );
-          }.bind(this));
-      }.bind(this);
-
-      this.$onDestroy = function() {
-        if (this.reloadComputationsTask !== undefined) {
-          $interval.cancel(this.reloadComputationsTask);
-        }
-      }.bind(this);
-
-      this.notifyComputationIdChange = function () {
-        this.onChange({
-          computationId: this.computationId,
-          computation: this.computations[this.computationId]
-        });
-      }.bind(this);
-
-      this.changeFile = function(file) {
-        this.vcfFile = file;
       };
 
+      this.checkVCF = function(file, onOK, onNotOK){
+        
+        var reader = new FileReader();
+
+        reader.onload = function () {
+          var allrows = reader.result.split('\n');
+          var isValid = true;
+          var error = ''
+
+         
+          for(var row = 0; row < allrows.length; row++) {
+              var line = allrows[row].trim();
+              
+              if (line.startsWith('#') && !line.startsWith('##')) {
+                  // in header
+                  var colsCount = line.split('\t').length;
+                  if (!this.withPharmcat) {
+                    if (colsCount > 11) {
+                      isValid = false;
+                      error = "Number of columns exceeds 11";
+                    }
+                  } else {
+                    if (colsCount < 10 || colsCount > 11){
+                      isValid = false;
+                      error = "Number of columns should be exactly 10 or 11";
+                    }
+                  }
+                  if (colsCount === 11) {                    
+                    var lastTwoColumns = [line.split('\t')[9].toUpperCase(), line.split('\t')[10].toUpperCase()]; 
+                    if (!lastTwoColumns.includes('TUMOR') || !lastTwoColumns.includes('NORMAL')) {                    
+                        isValid = false;
+                        error = 'The two latests columns should be named "tumor/normal" or "normal/tumor';
+                    }            
+                  }
+                  break;
+              }
+          }
+          if (isValid) {              
+              onOK();
+          } else {
+              onNotOK(error);
+          }
+        }.bind(this);
+
+        reader.readAsText(file);
+      
+      };
+
+      this.onSubmissionComplete = function(newId) {        
+        if (this.isAnonymous()) {
+          var absoluteUrl = $location.absUrl();
+
+          var followUrl = absoluteUrl.substring(0, absoluteUrl.indexOf('#!')) + '#!/query?tab=vcfrank&computationId=' + newId;
+          window.alert('Computation submitted successfully. Please keep this link in a SAFE PLACE in order to get back and follow the computation progress:\n' + followUrl);
+          
+          $timeout(function() {
+            //do redirection asynchronously, since in chrome the modal vcf dialog black background does not disappear ...
+            document.location.href = followUrl;
+          });
+        } else {
+          window.alert('Computation submitted successfully. We will start to analyze it as soon as we can.');
+        }
+      }.bind(this);
+
       this.submitVCF = function() {
-        user.submitComputation(this.vcfFile, this.computationName,
-          function(newId) {
-            if (this.isAnonymous()) {
-              var absoluteUrl = $location.absUrl();
-
-              var followUrl = absoluteUrl.substring(0, absoluteUrl.indexOf('#!')) + '#!/query?computationId=' + newId;
-              window.alert('Computation submitted successfully. Please keep this link in a SAFE PLACE in order to get back and follow the computation progress:\n' + followUrl);
-
-              $timeout(function() {
-                //do redirection asynchronously, since in chrome the modal vcf dialog black background does not disappear ...
-                document.location.href = followUrl;
-              });
-
-            } else {
-              window.alert('Computation submitted successfully. We will start to analyze it as soon as we can.');
-            }
-          }.bind(this),
+        this.checkVCF(this.vcfFile,
+          // on OK
           function() {
-            window.alert('ERROR: computation could not be submitted.');
-          }.bind(this)
-        );
+            $('#'+this.idPrefix+'-new-modal').modal('hide');
+            this.errorVCFFile = '';
+            user.submitComputation(this.vcfFile, this.computationName, this.withPharmcat, this.tsvFile,
+              this.onSubmissionComplete,
+              function() { // onSubmissionError
+                window.alert('ERROR: computation could not be submitted.');
+              }.bind(this)
+            )}.bind(this), 
+          // on not OK
+          function(error) {
+            this.errorVCFFile = error;
+            $scope.$apply();
+          }.bind(this))
       }.bind(this);
 
       this.isAnonymous = function() {
         return user.getCurrentUser() === 'anonymous';
       };
-
-      this.deleteComputation = function(computationId) {
-        if (window.confirm('Are you sure?')) {
-          user.deleteComputation(computationId,
-            function() {
-              window.alert('Computation deleted successfully.');
-            },
-            function() {
-              window.alert('ERROR: computation could not be deleted.');
-            }
-          );
-        }
-      };
-
-      this.downloadVScoreFile = function(computationId) {
-        window.location.href = user.getVscoreDownloadURLForComputation(computationId);
-      };
-
-      function Computation(computation) {
-        angular.merge(this, computation);
-      };
-
-      Computation.prototype.canBeQueried = function() {
-        return this.isSuccess() && this.hasAffectedGenes();
-      };
-
-      Computation.prototype.hasAffectedGenes = function() {
-        return this.countAffectedGenes() > 0;
-      };
-
-      Computation.prototype.countAffectedGenes = function() {
-        return this.affectedGenes ? this.affectedGenes.length : 0;
-      };
-
-      Computation.prototype.isFailed = function() {
-        return this.failed;
-      };
-
-      Computation.prototype.isSuccess = function() {
-        return this.finished && !this.isFailed();
-      };
-
-      //update computation status...
-      this.reloadComputations = function() {
-        if (!this.isAnonymous()) {
-          user.getComputations(function(computations) {
-            var savedExample;
-
-            if (this.computations.example) {
-              savedExample = this.computations.example;
-            }
-
-            this.computations = {};
-            for (var computationId in computations) {
-              if (computations.hasOwnProperty(computationId)) {
-                this.computations[computationId] = new Computation(computations[computationId]);
-              }
-            }
-
-            if (savedExample) {
-              this.computations.example = savedExample;
-            }
-          }.bind(this));
-        } else if(this.computationId) {
-          user.getComputation('guest', this.computationId, function(computation) {
-            this.computations = {};
-            this.computations[this.computationId] = new Computation(computation);
-            this.notifyComputationIdChange();
-          }.bind(this));
-        }
-      }.bind(this);
     }]
   });
