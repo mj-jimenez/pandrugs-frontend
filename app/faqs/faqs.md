@@ -42,7 +42,7 @@ The thresholds for labelling a drug as BTC are DScore = 0.7 and GScore = 0.6.
 You can check all sources used to build PanDrugsdb in [sources](#!/sources) page. -->
 
 ### What inputs does PanDrugs accept?<a name="pandrugs-inputs"></a>
-For more information, please check the [help](#!/help#query-options) page.
+For more information, please check the [Help](#!/help#query-options) page.
 
 <!-- ### What information does the report contain?<a name="report-info"></a> 
 For more information, please check the [help](#!/help) page. -->
