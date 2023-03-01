@@ -24,7 +24,7 @@ PanDrugs is a bioinformatics platform to prioritize anticancer drug treatments u
 <div style="text-align: left"><img src="../images/pandrugs-scoring.svg" alt="PanDrugs Scoring" height="70%" width="70%"/>
 
 ### What does the DScore represent?<a name="dscore"></a>
-The **DScore** measures the **suitability of the treatment** according to the drug indication and status, type of drug-gene association and curation level of the sources. It **ranges from -1 to 1**, with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
+The **DScore** measures the **suitability of the treatment** for a particular patient. It is computed according to the drug indication and approval status, the number of genes associated with a drug, the nature and reliability of these associations and the type of drug response. The DScore **ranges from -1 to 1**, with the negative values corresponding to resistance and the positive values corresponding to sensitivity.
 
 You can find more details regarding the DScore computation [here](#!/help#dscore-calculation).
 
