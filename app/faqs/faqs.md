@@ -3,7 +3,7 @@
 - [What is PanDrugs?](#!/faqs#what-is-pandrugs)
 - [What does the DScore represent?](#!/faqs#dscore)
 - [What does the GScore represent?](#!/faqs#gscore)
-- [What are the Best Therapeutic Candidates?](#!/faqs#best-therapeutic-candidates)
+- [What are the Best Therapeutic Candidates (BTC)?](#!/faqs#best-therapeutic-candidates)
 <!-- - [Which are PanDrugsdb sources?](#!/faqs#pandrugsdb-sources) -->
 - [What inputs does PanDrugs accept?](#!/faqs#pandrugs-inputs)
 <!-- - [What information does the report contain?](#!/faqs#report-info) -->
@@ -33,10 +33,10 @@ The **GScore** measures the **biological relevance of a gene in the tumoral proc
 
 You can find more details regarding the GScore computation [here](#!/help#gscore-calculation).
 
-### What are the Best Therapeutic Candidates?<a name="best-therapeutic-candidates"></a>
-PanDrugs provides a prioritized list of candidate drugs considering the DScore and GScore values. **Those therapies supported by DScores and GScores closer to 1 will have higher evidence of their effectiveness in cancer treatment and will be considered as Best Therapeutic Candidates**. 
+### What are the Best Therapeutic Candidates (BTC)?<a name="best-therapeutic-candidates"></a>
+PanDrugs provides a prioritized list of candidate drugs considering the DScore and GScore values. **Those therapies supported by DScores and GScores closer to 1 will have higher evidence of their effectiveness in cancer treatment and will be considered as Best Therapeutic Candidates (BTC)**. 
 
-The thresholds for labelling a drug as Best Therapeutic Candidate are DScore = 0.7 and GScore = 0.6.
+The thresholds for labelling a drug as BTC are DScore = 0.7 and GScore = 0.6.
 
 <!-- ### Which are PanDrugsdb sources?<a name="pandrugsdb-sources"></a>
 You can check all sources used to build PanDrugsdb in [sources](#!/sources) page. -->
