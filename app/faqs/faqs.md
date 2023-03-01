@@ -84,4 +84,4 @@ We ensure that data and results are kept at least 1 week for guest requests and 
 No, you can make queries on PanDrugs as a guest user.
 
 ### Is it possible to run PanDrugs in my own server?<a name="docker"></a>
-Yes, you can build a docker image to run PanDrugs in your own server. Visit PanDrugs docker [here](http://github.com/sing-group/pandrugs-docker).
+Yes, you can build a docker image to run PanDrugs in your own server. Please, visit PanDrugs docker [here](http://github.com/sing-group/pandrugs-docker).
