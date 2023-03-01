@@ -5,4 +5,4 @@ dist
 bower_components
 .idea
 package-lock.json
-
+.DS_Store
