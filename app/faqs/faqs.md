@@ -29,7 +29,7 @@ The **DScore** measures the **suitability of the treatment** for a particular pa
 You can find more details regarding the DScore computation [here](#!/help#dscore-calculation).
 
 ### What does the GScore represent?<a name="gscore"></a>
-The **GScore** measures the **biological relevance of a gene in the tumoral process and its druggability**. It is estimated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer, its druggability level, the biological impact of mutations, the frequency of gene alterations and their clinical implications. The GScore **ranges from 0 to 1**.
+The **GScore** measures the **biological relevance of a gene in the tumoral process and its druggability**. It is estimated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer, its druggability level, the biological impact of mutations, the frequency of gene alterations and their clinical implications. The GScore **ranges from 0 to 1**, with higher values corresponding to more relevant and actionable targets.
 
 You can find more details regarding the GScore computation [here](#!/help#gscore-calculation).
 
