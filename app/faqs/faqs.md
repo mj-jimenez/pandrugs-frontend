@@ -56,7 +56,7 @@ Currently, **PanDrugs requires that your VCF contains somatic variants** in orde
 ### How do I cite PanDrugs?<a name="citation"></a>
 When citing our application, please refer to **PanDrugs publication:**
 
-E. Piñeiro-Yáñez et al. (2018) [PanDrugs: a novel method to prioritize anticancer drug treatments according to individual genomic data.](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-018-0546-1) Genome Medicine. Volume 10:41. ISSN: 1756-994X.
+Piñeiro-Yáñez, E. *et al.* (2018). [PanDrugs: a novel method to prioritize anticancer drug treatments according to individual genomic data.](https://doi.org/10.1186/s13073-018-0546-1) Genome medicine, 10(1), 41.
 
 <!--- A list of all publications that used PanDrugs is available [here](#!/citation). --->
 
