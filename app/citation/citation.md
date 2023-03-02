@@ -6,7 +6,7 @@ When citing our application, please refer to **PanDrugs publication:**
     <a href="https://doi.org/10.1186/s13073-018-0546-1" target="_blank" style="color:#000000">Piñeiro-Yáñez, E., Reboiro-Jato, M., Gómez-López, G., Perales-Patón, J., Troulé, K., Rodríguez, J. M., Tejero, H., Shimamura, T., López-Casas, P. P., Carretero, J., Valencia, A., Hidalgo, M., Glez-Peña, D., & Al-Shahrour, F. (2018). PanDrugs: a novel method to prioritize anticancer drug treatments according to individual genomic data. Genome medicine, 10(1), 41.</a>
 </div>
 
-### Related work
+### Related work<a name="related-work"></a>
 You may also find interesting our PanDrugs related publications:
 
 1. [Goldman, M. J., Zhang, J., Fonseca, N. A., Cortés-Ciriano, I., Xiang, Q., Craft, B., Piñeiro-Yáñez, E., O'Connor, B. D., Bazant, W., Barrera, E., Muñoz-Pomer, A., Petryszak, R., Füllgrabe, A., Al-Shahrour, F., Keays, M., Haussler, D., Weinstein, J. N., Huber, W., Valencia, A., Park, P. J., … Vazquez, M. (2020). A user guide for the online exploration and visualization of PCAWG data. Nature communications, 11(1), 3400.](https://doi.org/10.1038/s41467-020-16785-6)
