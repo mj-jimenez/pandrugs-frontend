@@ -58,7 +58,7 @@ When citing our application, please refer to **PanDrugs publication:**
 
 Piñeiro-Yáñez, E. *et al.* (2018). [PanDrugs: a novel method to prioritize anticancer drug treatments according to individual genomic data.](https://doi.org/10.1186/s13073-018-0546-1) Genome medicine, 10(1), 41.
 
-<!--- A list of all publications that used PanDrugs is available [here](#!/citation). --->
+A list with our PanDrugs related publications is available [here](#!/citation#related-work).
 
 ### Which license does PanDrugs use?<a name="license"></a>
 GPLv3.
