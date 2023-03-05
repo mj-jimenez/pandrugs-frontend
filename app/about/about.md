@@ -21,4 +21,11 @@ PanDrugs has been designed, created and is mantained by the CNIO Bioinformatics 
 
 ### CNIO Bioinformatics Unit
 
+The Bioinformatics Unit of the Spanish National Cancer Research Centre (BU-CNIO)...
+
+<div style="text-align: left;"><a href="https://bioinformatics.cnio.es"><img src="bu-cnio-logo.png" alt="BU-CNIO" height="10%" width="10%"/></a>
+
 ### SING Group
+The Next Generation Computer Systems Group (SING)...
+
+<div style="text-align: left;"><a href="http://www.sing-group.org"><img src="sing-logo.png" alt="SING" height="16%" width="16%"/></a>
