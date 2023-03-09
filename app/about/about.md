@@ -24,12 +24,16 @@ PanDrugs has been designed, created and is mantained by the CNIO Bioinformatics 
 The Bioinformatics Unit of the Spanish National Cancer Research Centre (BU-CNIO) has a double mission: to support other CNIO groups and to conduct research in bioinformatics. This research 
 focuses on developing novel computational methods for integrating cancer genomics data with clinical and pathological information. Our final goal is to translate this knowledge into effective and personalised cancer treatment.
 
-<div style="text-align: left;"><a href="https://bioinformatics.cnio.es"><img src="bu-cnio-logo.png" alt="BU-CNIO" height="3%" width="3%"/></a>
-<div style="text-align: left;"><a href="https://www.cnio.es"><img src="cnio-logo.svg" alt="CNIO" height="6%" width="6%"/></a>
+<div style="text-align: left;">
+<a href=https://bioinformatics.cnio.es target="_blank"><img src="bu-cnio-logo.png" alt="BU-CNIO" height="3%" width="3%"/></a>
+<a href="https://www.cnio.es" target="_blank"><img src="cnio-logo.svg" alt="CNIO" height="6%" width="6%"></a>
+</div>
 
 ### SING Group
 
 The SING Group (Next-Generation Computer Systems Group, University of Vigo, Spain) has more than 15 years of experience developing bioinformatics and biomedicine applications in collaboration with relevant research groups, taking advantage of cutting-edge techniques and methods in the fields of Machine Learning, Distributed Computing and Software Engineering.
 
-<div style="text-align: left;"><a href="http://www.sing-group.org"><img src="sing-logo.png" alt="SING" height="5%" width="5%"/></a>
-<div style="text-align: left;"><a href="http://www.sing-group.org"><img src="u-vigo-logo.svg" alt="University of Vigo" height="7%" width="7%"/></a>
+<div style="text-align: left;">
+<a href=http://www.sing-group.org target="_blank"><img src="sing-logo.png" alt="SING" height="5%" width="5%"/></a>
+<a href=https://www.uvigo.gal" target="_blank"><img src="u-vigo-logo.svg" alt="University of Vigo" height="7%" width="7%"></a>
+</div>
