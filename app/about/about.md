@@ -25,6 +25,7 @@ The Bioinformatics Unit of the Spanish National Cancer Research Centre (BU-CNIO)
 focuses on developing novel computational methods for integrating cancer genomics data with clinical and pathological information. Our final goal is to translate this knowledge into effective and personalised cancer treatment.
 
 <div style="text-align: left;"><a href="https://bioinformatics.cnio.es"><img src="bu-cnio-logo.png" alt="BU-CNIO" height="10%" width="10%"/></a>
+<div style="text-align: left;"><a href="https://www.cnio.es"><img src="cnio-logo.svg" alt="CNIO" height="20%" width="20%"/></a>
 
 ### SING Group
 
