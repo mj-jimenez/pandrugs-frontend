@@ -32,3 +32,4 @@ focuses on developing novel computational methods for integrating cancer genomic
 The SING Group (Next-Generation Computer Systems Group, University of Vigo, Spain) has more than 15 years of experience developing bioinformatics and biomedicine applications in collaboration with relevant research groups, taking advantage of cutting-edge techniques and methods in the fields of Machine Learning, Distributed Computing and Software Engineering.
 
 <div style="text-align: left;"><a href="http://www.sing-group.org"><img src="sing-logo.png" alt="SING" height="16%" width="16%"/></a>
+<div style="text-align: left;"><a href="http://www.sing-group.org"><img src="u-vigo-logo.svg" alt="University of Vigo" height="20%" width="20%"/></a>
