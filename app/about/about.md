@@ -27,6 +27,7 @@ focuses on developing novel computational methods for integrating cancer genomic
 <div style="text-align: left;">
 <a href=https://bioinformatics.cnio.es target="_blank"><img src="bu-cnio-logo.png" alt="BU-CNIO" height="3%" width="3%"/></a>
 <a href="https://www.cnio.es" target="_blank"><img src="cnio-logo.svg" alt="CNIO" height="6%" width="6%"></a>
+<a href="https://inb-elixir.es" target="_blank"><img src="inb-elixir-logo.png" alt="INB-ELIXIR" height="10%" width="10%"></a>
 </div>
 
 ### SING Group
