@@ -1,81 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="22.577778mm"
-   height="22.577778mm"
-   viewBox="0 0 80 80"
-   id="svg4768"
-   version="1.1"
-   inkscape:version="0.91 r"
-   sodipodi:docname="drug.svg">
-  <defs
-     id="defs4770" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-650.71423"
-     inkscape:cy="-237.14284"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:window-width="2560"
-     inkscape:window-height="1019"
-     inkscape:window-x="0"
-     inkscape:window-y="-5"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata4773">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-342.85709,-215.21936)">
-    <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4160-6"
-       width="70"
-       height="70"
-       x="347.85709"
-       y="220.21936"
-       ry="15.555554" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:50px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="362.58121"
-       y="273.11484"
-       id="text4198-9"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4200-0"
-         x="362.58121"
-         y="273.11484"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-opacity:1">D</tspan></text>
-  </g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 15.64 15.22" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Layer-1" vectornator:layerName="Layer 1">
+<g opacity="1">
+<path d="M4.70147 1.49362C5.4815 1.49362 6.26049 1.79863 6.88451 2.40762L13.1215 8.49663C13.7455 9.02963 14.0565 9.79063 14.0565 10.6276C14.0565 11.4646 13.7455 12.2256 13.1215 12.7586C11.9515 13.9006 9.92449 13.9006 8.67748 12.7586L2.44048 6.66963C1.89452 6.13662 1.58251 5.37562 1.58251 4.53863C1.58251 3.70163 1.89452 2.94063 2.51849 2.40762C3.14251 1.79863 3.9215 1.49362 4.70147 1.49362Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
+<path d="M10.5485 4.91763L13.6675 7.96162C15.2265 9.48463 15.2265 11.8436 13.6675 13.3656C12.8875 14.1276 11.8735 14.5076 10.9385 14.5076C10.0025 14.5076 8.91149 14.1276 8.20953 13.3656L5.09148 10.3216L10.5485 4.91763Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
+<path d="M10.9385 15.1926C12.1855 15.1926 13.3555 14.7356 14.2125 13.8226C15.1485 12.9856 15.6165 11.8436 15.6165 10.6256C15.6165 9.40863 15.1485 8.26663 14.2125 7.42962L7.97552 1.34062C6.18249-0.410372 3.22051-0.410372 1.3485 1.34062C0.491509 2.17763 0.0234912 3.31962 0.0234912 4.53662C0.0234912 5.75462 0.491509 6.89662 1.42651 7.73362L7.66351 13.8226C8.52148 14.7356 9.69048 15.1926 10.9385 15.1926ZM4.70147 1.49263C5.4815 1.49263 6.26049 1.79663 6.88451 2.40562L13.1215 8.49463C13.7455 9.02763 14.0565 9.78863 14.0565 10.6256C14.0565 11.4636 13.7455 12.2246 13.1215 12.7576C11.9515 13.8986 9.92449 13.8986 8.67748 12.7576L2.44048 6.66763C1.89452 6.13563 1.58251 5.37463 1.58251 4.53662C1.58251 3.69963 1.89452 2.93863 2.51849 2.40562C3.14251 1.79663 3.9215 1.49263 4.70147 1.49263Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M11.2655 5.12562L10.2475 4.26762L4.85851 9.51863L5.87652 10.3776L11.2655 5.12562Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
+</g>
+<g opacity="1"/>
+</g>
 </svg>
