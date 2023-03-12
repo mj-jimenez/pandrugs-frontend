@@ -48,7 +48,7 @@ For more information, please check the [Help](#!/help#query-options) page.
 For more information, please check the [help](#!/help) page. -->
 
 ### Does PanDrugs include drug-gene associations involving mitochondrial genes?<a name="mitochondrial"></a>
-Yes, the current version of PanDrugsdb includes 67 drug-gene associations between 13 mitochondrial genes and 37 drugs.
+Yes, the current version of PanDrugsdb includes 73 drug-gene associations between 13 mitochondrial genes and 37 drugs.
 
 ### Can I input a VCF containing only germline variants?<a name="only-germline"></a>
 Currently, **PanDrugs requires that your VCF contains somatic variants** in order to generate a drug ranking. Germline variants are used to annotate ranked drugs according to the recommendations provided by the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org), which are retrieved via [PharmCAT](https://pharmcat.org).
