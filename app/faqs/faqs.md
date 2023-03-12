@@ -4,7 +4,7 @@
 - [What does the DScore represent?](#!/faqs#dscore)
 - [What does the GScore represent?](#!/faqs#gscore)
 - [What are the Best Therapeutic Candidates (BTCs)?](#!/faqs#best-therapeutic-candidates)
-<!-- - [Which are PanDrugsdb sources?](#!/faqs#pandrugsdb-sources) -->
+- [Which are PanDrugsdb sources?](#!/faqs#pandrugsdb-sources)
 - [What inputs does PanDrugs accept?](#!/faqs#pandrugs-inputs)
 <!-- - [What information does the report contain?](#!/faqs#report-info) -->
 - [Does PanDrugs include drug-gene associations involving mitochondrial genes?](#!/faqs#mitochondrial)
@@ -38,8 +38,8 @@ PanDrugs provides a prioritized list of candidate drugs considering the DScore a
 
 The thresholds for labelling a drug as BTC are DScore = 0.7 and GScore = 0.6.
 
-<!-- ### Which are PanDrugsdb sources?<a name="pandrugsdb-sources"></a>
-You can check all sources used to build PanDrugsdb in [sources](#!/sources) page. -->
+### Which are PanDrugsdb sources?<a name="pandrugsdb-sources"></a>
+You can check all sources used to build PanDrugsdb on [Sources](#!/sources) page.
 
 ### What inputs does PanDrugs accept?<a name="pandrugs-inputs"></a>
 For more information, please check the [Help](#!/help#query-options) page.
