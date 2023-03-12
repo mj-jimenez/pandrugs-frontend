@@ -84,7 +84,7 @@ PanDrugs is exclusively intended for research purposes and academic use. **In ca
 ### What is PanDrugs data policy?<a name="data-policy"></a>
 To prevent unauthorized access or disclosure, PanDrugs uses several technical measures to safeguard your data, following current technological and industry standards. In particular, all connections to and from our website are encrypted using Secure Socket Layer (SSL). Passwords are hashed in our database.
 
-Input VCFs are deleted right after execution. However, data analysed with PanDrugs are stored on our private servers. These data include annotations for somatic variants and PharmCAT’s report for germline ones. Removing an analysis implies that it will be completely and permanently removed from PanDrugs servers. **Files are not shared with third parties**.
+Input VCFs are deleted right after execution. However, data analysed with PanDrugs are stored on our private servers. These data include annotations for somatic variants and PharmCAT's report for germline ones. Removing an analysis implies that it will be completely and permanently removed from PanDrugs servers. **Files are not shared with third parties**.
 
 We ensure that data and results are kept for at least 1 week for guest requests and at least 6 months for authenticated users.
 
