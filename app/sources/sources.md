@@ -3,7 +3,7 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 
 <div style="text-align: left;"><embed src="pandrugsdb-sources.pdf" alt="PanDrugsdb Sources" type="application/pdf" frameBorder="0" height="70%" width="70%"/>
 
-| Source             | Version/Access Date/DOI      | License                     | Retrieved Information                                           |
+| Source             | Version/Access Date\*/DOI      | License                     | Retrieved Information                                           |
 | ------------------ | ---------------------------- | --------------------------- | --------------------------------------------------------------- |
 | CIViC              | v2022-07-01                  | CC0 1.0                     | Drug-gene associations; Drug-gene annotations                   |
 | DGIdb              | v4.2.0                       | MIT                         | Drug-gene associations                                          |
@@ -11,14 +11,14 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 | GDSC               | v8.2                         | CC BY-NC-ND 2.5             | Drug-gene associations; Drug-gene annotations                   |
 | MOAlmanac          | v2022-03-03                  | GPLv2                       | Drug-gene associations; Drug-gene annotations                   |
 | OncoKB             | v3.14                        | Free for academic use       | Drug-gene associations; Drug-gene annotations; Gene annotations |
-| Thera-SAbDab       | 2022/06/21                   | CC BY 4.0                   | Drug-gene associations                                          |
-| PubChem            | 2022/11/29                   | Free                        | Drug standardisation                                            |
+| Thera-SAbDab       | 2022-06-21                   | CC BY 4.0                   | Drug-gene associations                                          |
+| PubChem            | 2022-11-29                   | Free                        | Drug standardisation                                            |
 | HGNC               | v2022-10-01                  | CC0 1.0                     | Gene standardisation                                            |
-| ClinicalTrials.gov | 2022/03/15                   | Free                        | Drug annotations                                                |
+| ClinicalTrials.gov | 2022-03-15                   | Free                        | Drug annotations                                                |
 | CLUE               | v1.2; build 1.44             | CC BY 4.0                   | Drug annotations                                                |
-| Drugs@FDA          | 2022/03/14                   | Free                        | Drug annotations                                                |
-| EMA                | 2022/05/31                   | Free                        | Drug annotations                                                |
-| FDA Drug Labels    | 2022/06/01                   | CC0 1.0                     | Drug annotations                                                |
+| Drugs@FDA          | 2022-03-14                   | Free                        | Drug annotations                                                |
+| EMA                | 2022-05-31                   | Free                        | Drug annotations                                                |
+| FDA Drug Labels    | 2022-06-01                   | CC0 1.0                     | Drug annotations                                                |
 | KEGG BRITE         | v101                         | Free for academic use       | Drug annotations                                                |
 | COSMIC's CGC       | v95                          | Free for non-commercial use | Gene annotations                                                |
 | DepMap             | v22Q2                        | CC BY 4.0                   | Gene annotations; GScore calculation                            |
@@ -34,3 +34,5 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 | UniProt            | v2022_03                     | CC BY 4.0                   | Variant annotations                                             |
 | VEP                | v109                         | Apache-2.0                  | Variant annotations                                             |
 | PharmCAT           | v2.1.2                       | MPL 2.0                     | Pharmacogenomics recommendations                                |
+
+\* Dates are displayed in ISO 8601 standard format: YYYY-MM-DD.
