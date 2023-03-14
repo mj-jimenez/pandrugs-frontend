@@ -33,4 +33,4 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 | Pfam               | v35.0                        | CC0 1.0                     | Variant annotations                                             |
 | UniProt            | v2022_03                     | CC BY 4.0                   | Variant annotations                                             |
 | VEP                | v109                         | Apache-2.0                  | Variant annotations                                             |
-| PharmCAT           |                              | MPL 2.0                     | Pharmacogenomics recommendations                                |
+| PharmCAT           | v2.1.2                       | MPL 2.0                     | Pharmacogenomics recommendations                                |
