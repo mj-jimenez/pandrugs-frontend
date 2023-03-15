@@ -2,8 +2,8 @@
 
 1. **[Query Options](#!/help#query-options)**
   1. [Genes Query](#!/help#genes-query)
-  2. [Gene Ranking Query](#!/help#gene-ranking-query)
-  3. [Drug Query](#!/help#drug-query)
+  2. [Drug Query](#!/help#drug-query)
+  3. [Gene Ranking Query](#!/help#gene-ranking-query)
   4. [CNVs Query](#!/help#cnvs-query)
   5. [Small Variants Query](#!/help#vcf-query)
   6. [Multi-omics Query](#!/help#multi-omics-query)
@@ -33,8 +33,8 @@
 
 6. **[Examples](#!/help#examples)**
   1. [Genes Analysis](#!/help#examples-genes-query)
-  2. [Gene Ranking Analysis](#!/help#examples-gene-ranking-query)
-  3. [Drug Analysis](#!/help#examples-drug-query)
+  2. [Drug Analysis](#!/help#examples-drug-query)
+  3. [Gene Ranking Analysis](#!/help#examples-gene-ranking-query)
   4. [CNVs Analysis](#!/help#examples-cnvs-query)
   5. [Small Variants Analysis](#!/help#examples-vcf-query)
     1. [Small Variants Analysis with Somatic Alterations](#!/help#examples-vcf-query-somatic-variants)
@@ -66,7 +66,12 @@ In this modality, the input is a **set of gene symbols** that can be pasted dire
 
 <div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="70%" width="70%"/>
 
-### 1.2 Gene Ranking Query<a name="gene-ranking-query"></a>
+### 1.2 Drug Query<a name="drug-query"></a>
+**A single drug** can be queried in order to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
+
+<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
+
+### 1.3 Gene Ranking Query<a name="gene-ranking-query"></a>
 In this query option, it is possible to upload a **ranked list of genes as a [RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
 This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line. 
@@ -74,11 +79,6 @@ This file must consist in two tab delimited columns containing gene symbols and 
 The ranking metric will be scaled between 0 and 1 and will be treated as an user-supplied [GScore](#!/help#gscore-calculation), overwritting the pre-computed one.
 
 <div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
-
-### 1.3 Drug Query<a name="drug-query"></a>
-**A single drug** can be queried in order to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
-
-<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
 
 ### 1.4 CNVs Query<a name="cnvs-query"></a>
 In this modality, you can upload a **tab delimited file without headers** formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the correspondind gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
@@ -409,37 +409,7 @@ You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mar
 
 <div style="text-align: left;"><img src="genes-query-output-02.png" alt="Genes Query Summary Table Expanded" height="100%" width="100%"/>
 
-### 6.2. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
-
-[Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
-
-This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
-
-<div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
-
-Load the RNK file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
-
-<u>**Output Interpretation**</u>
-
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
-
-These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the ranking metric in the input.
-
-For this example, PanDrugs finds a handfull of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
-
-<div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%"/>
-
-Please, order the summary table by descending GScore in order to visualize the results.
-
-<div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%"/>
-
-If we take a closer look to the RNK file and expand any row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button, we will notice that the gene that is driving these results is the top most overexpressed one: *CALML5*, with a GScore = 1.
-
-<div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
-
-This gene has no direct association to any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of the downstream genes do have direct associations with PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> associations.
-
-### 6.3. Drug Analysis<a name="examples-drug-query"></a>
+### 6.2. Drug Analysis<a name="examples-drug-query"></a>
 
 <!--
 [Query Palbociclib.](#!/query?tab=drugs)
@@ -484,6 +454,36 @@ In the summary table, each row represents a gene associated with Temsirolimus. W
 - **Pathway members:** Such as *PIK3CA*, which is downstream the direct target *MTOR*.
 
 <div style="text-align: left;"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
+
+### 6.3. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
+
+[Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
+
+This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
+
+<div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
+
+Load the RNK file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+
+<u>**Output Interpretation**</u>
+
+In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+
+These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the ranking metric in the input.
+
+For this example, PanDrugs finds a handfull of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
+
+<div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%"/>
+
+Please, order the summary table by descending GScore in order to visualize the results.
+
+<div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%"/>
+
+If we take a closer look to the RNK file and expand any row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button, we will notice that the gene that is driving these results is the top most overexpressed one: *CALML5*, with a GScore = 1.
+
+<div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
+
+This gene has no direct association to any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of the downstream genes do have direct associations with PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> associations.
 
 ### 6.4 CNVs Analysis<a name="examples-cnvs-query"></a>
 
