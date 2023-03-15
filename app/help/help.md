@@ -122,9 +122,9 @@ If you are logged in PanDrugs, the results of the query will be stored in your a
 ### 1.6 Multi-omics Query<a name="multi-omics-query"></a>
 You can perform a multi-omics query in case you have at least two of these inputs for the same patient:
 
-  - CNV data
-  - A VCF
-  - Expression data
+  - CNV data.
+  - A VCF.
+  - Expression data.
 
 <div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="100%" width="100%"/>
 
