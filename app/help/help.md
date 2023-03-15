@@ -383,36 +383,36 @@ In the [summary table](#!/help#summary-table), each row represents a gene associ
 
 ### 6.1. Genes Analysis<a name="examples-genes-query"></a>
 
-Load <span style="color:#50AC50">**Example 3**</span> from [Genes Query tab](#!/query?tab=genes).
+Load <span style="color:#50AC50">**Example 3**</span> from the [genes query tab](#!/query?tab=genes).
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
 <div style="text-align: left;"><img src="genes-query-example-input.png" alt="Genes Query Input" height="100%" width="100%"/>
 
-Do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Select **Pathway member** in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
 In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>, PanDrugs suggests Temsirolimus and Alpelisib.
+Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>, PanDrugs suggests alpelisib and temsirolimus.
 
 <div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Genes Query" height="80%" width="80%"/>
 
-If you take a look to the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the one with the highest DScore and GScore:
+If you take a look at the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the ones with the highest DScore and GScore:
 
-- A pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> for Temsirolimus
-- A direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> for Alpelisib
+- A direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> for alpelisib.
+- A pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> for temsirolimus.
 
-Moreover, Temsirolimus and Alpelisib are both targeted therapies approved for cancer and belong to the mTOR inhibitor and PI3K inhibitor families respectively.
+Moreover, temsirolimus and alpelisib are both targeted therapies approved for cancer and belong to the PI3K inhibitor and mTOR inhibitor families respectively.
 
 <div style="text-align: left;"><img src="genes-query-output-01.png" alt="Genes Query Summary Table Collapsed" height="100%" width="100%"/>
 
-If you expand Temsirolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
+If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
 1. A pathway member association with *AKT1*, *AKT2*, *PDPK1*, *PIK3CA*, *PIK3R1*, *PIK3R2*, *RHEB*, *TSC1* and *TSC2*, which are downstream *MTOR*. You can click on <span style="color:#50AC50">**See pathways**</span> to retrieve more information regarding the functional pathways in which they are involved.
 2. A direct target inhibition: *MTOR*.
-3. Two response biomarkers: *PIK3CA* and *PTEN*.
+3. Three response biomarkers: *PIK3CA*, *PTEN* and *AKT*.
 
 You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> in the **Drug response** column. This alert indicates that a *PTEN* deficiency is associated with reduced sensitivity to the drug.
 
