@@ -120,30 +120,28 @@ Moreover, it is possible to download a tab-delimited file with the annotations f
 If you are logged in PanDrugs, the results of the query will be stored in your account. You will be able to access any previous analyses done within the last 6 months and select one of them to make a new query. You can register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
 ### 1.6 Multi-omics Query<a name="multi-omics-query"></a>
-You can perform a Multi-omics Query in case you have at least two of these inputs for the same patient:
+You can perform a multi-omics query in case you have at least two of these inputs for the same patient:
 
-  - Expression data
-  - CNV information
+  - CNV data
   - A VCF
+  - Expression data
 
 <div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="100%" width="100%"/>
 
-In this type of query, the expression data can be uploaded as a **[RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
+In this type of query, the expression data can be uploaded as a **[.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
-This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line and **the ranking metric must reflect the expression change between tumor and normal samples** (e.g. a differential expression test statistic).
+This file must consist of two tab-delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line and **the ranking metric must reflect the expression change between tumour and normal samples** (e.g. a differential expression test statistic).
 
 The files containing CNV information and the VCF must be as detailed in sections [CNVs Query](#!/help#cnvs-query) and [Small Variants Query](#!/help#vcf-query), respectively.
 
-If expression data is available, PanDrugs will compute the 90th percentile of the expression metric and will assign an expression label to each gene in the RNK file:
+If expression data is available, PanDrugs will compute the 90th percentile of the expression metric and will assign an expression label to each gene in the .rnk file:
 
-- **Highly Overexpressed<!--Oncogenes-->:** <!--Oncogenes-->Genes with an expression metric above the 90th percentile.
+- **Highly Overexpressed:** Genes with an expression metric above the 90th percentile.
 - **Overexpressed:** Genes with an expression metric > 0.
 - **Underexpressed:** Genes with an expression metric < 0.
 - **Not Expressed:** Genes with no expression information (i.e. genes that appear in any other input).
 
-Then, PanDrugs will query its database with the Highly Overexpressed <!--Oncogenes-->Genes and/or the genes with known CNV status information, if available. Moreover, if there is a VCF, PanDrugs runs an additional analysis as [detailed before](#!/help#vcf-query).
-
-PanDrugs output will rank all drugs associated with either the Highly Overexpressed <!--Oncogenes-->Genes, the genes with known CNV status or the genes with somatic alterations. If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, PanDrugs output will contain CPIC recommendations (if any) for the ranked drugs and a link to PharmCAT's report.
+Then, PanDrugs will query its database with the genes with known CNV status information, if available. Moreover, if there is a VCF, PanDrugs runs a small variants query (with an optional call to PharmCAT) as [detailed before](#!/help#vcf-query). The output table will contain annotations for each drug-associated gene, including its SNV, CNV and expression status, when available.
 
 ## 2. Analysis Options<a name="analysis-options"></a>
 
