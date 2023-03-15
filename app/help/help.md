@@ -420,31 +420,9 @@ You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mar
 
 ### 6.2. Drug Analysis<a name="examples-drug-query"></a>
 
-<!--
-[Query Palbociclib.](#!/query?tab=drugs)
+[Query encorafenib](#!/query?tab=drugs).
 
-Palbociclib is a targeted therapy approved in the treatment of breast cancer.
-
-<div style="text-align: left;"><img src="drug-query-example-input.png" alt="Drug Query Input" height="50%" width="50%"/>
-
-Click on the <span style="color:#50AC50">**Query**</span> button.
-
-<u>**Output Interpretation**</u>
-
-In the results page, you will see a summary box and a summary table similar to the one returned by other types of queries (see [Drug Query Output](#!/help#drug-query-output) section for further details).
-
-<div style="text-align: left;"><img src="drug-query-output-01.png" alt="Drug Query Summary Box" height="100%" width="100%"/>
-
-In the summary table, each row represents a gene associated with Palbociclib. We can observe examples for different drug-gene interaction categories:
-
-- **Direct targets:** Such as *CDK4* or *CDK6*.
-- **Biomarkers:** Such as *ERBB2*.
-
-<div style="text-align: left;"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
--->
-[Query Temsirolimus.](#!/query?tab=drugs)
-
-Temsirolimus is a targeted therapy approved in the treatment of kidney cancer.
+Encorafenib is a targeted therapy approved for the treatment of colon, rectum and skin cancer.
 
 <div style="text-align: left;"><img src="drug-query-example-input.png" alt="Drug Query Input" height="50%" width="50%"/>
 
@@ -452,17 +430,18 @@ Click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box and a summary table similar to the one returned by other types of queries (see [Drug Query Output](#!/help#drug-query-output) section for further details).
+On the results page, you will see a summary box and a summary table similar to the one returned by other types of queries (see [Drug Query Output](#!/help#drug-query-output) section for further details).
 
 <div style="text-align: left;"><img src="drug-query-output-01.png" alt="Drug Query Summary Box" height="90%" width="90%"/>
 
-In the summary table, each row represents a gene associated with Temsirolimus. We can observe examples for each one of the drug-gene interaction categories:
+In the summary table, each row represents a gene associated with encorafenib. We can observe examples for each type of drug-gene association:
 
-- **Direct targets:** Such as *MTOR*.
-- **Biomarkers:** Such as *BRAF* or *KRAS*. Notice that *PTEN* entry has an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> that indicates that a *PTEN* deficiency is associated with reduced sensitivity to Temsirolimus.
-- **Pathway members:** Such as *PIK3CA*, which is downstream the direct target *MTOR*.
+- **Direct targets:** Such as *BRAF*, *RAF1*, *CCND1* and *ARAF*.
+- **Biomarkers:** Such as *EGFR*, *MAP2K1*, *KRAS*, *TP53* or *PTEN*. Notice that the *MAP2K1* entry has an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> that indicates that a *MAP2K1* mutation (V211D) may induce drug resistance to encorafenib.
+- **Genetic dependencies:** Such as *KRAS* (GoF) and *RAF1*.
+- **Pathway members:** Such as *CCND1*, which is a direct target downstream of *ARAF*, *BRAF*, *KRAS*, *MAP2K1*, *RAF1* and *TP53*. Note that *CCND1* GScore as a pathway member (DScore = 1) is different from its score as a direct target (DScore = 0.7257) since the first one is computed as the maximum GScore of all upstream genes.
 
-<div style="text-align: left;"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;s"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
 
 ### 6.3. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
 
