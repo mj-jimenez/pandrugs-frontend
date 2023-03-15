@@ -410,7 +410,7 @@ Moreover, temsirolimus and alpelisib are both targeted therapies approved for ca
 
 If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
-1. A pathway member association with *AKT1*, *AKT2*, *PDPK1*, *PIK3CA*, *PIK3R1*, *PIK3R2*, *RHEB*, *TSC1* and *TSC2*, which are downstream *MTOR*. You can click on <span style="color:#50AC50">**See pathways**</span> to retrieve more information regarding the functional pathways in which they are involved.
+1. A pathway member association with *AKT1*, *AKT2*, *PDPK1*, *PIK3CA*, *PIK3R1*, *PIK3R2*, *RHEB*, *TSC1* and *TSC2*, which are upstream of the direct target *MTOR*. You can click on <span style="color:#50AC50">**See pathways**</span> to retrieve more information regarding the functional pathways in which they are involved.
 2. A direct target inhibition: *MTOR*.
 3. Three response biomarkers: *PIK3CA*, *PTEN* and *AKT*.
 
