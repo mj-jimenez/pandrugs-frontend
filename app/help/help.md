@@ -62,7 +62,7 @@ There are 5 types of queries to obtain a **rank of therapies according to an ind
 Another possibility is to make a **[drug query](#!/help#drug-query)** to find out which genes are associated with a particular drug.
 
 ### 1.1 Genes Query<a name="genes-query"></a>
-In this modality, the input is a **set of gene symbols** that can be pasted directly in the text box or uploaded as a file **without header**. **In both cases, each gene symbol must appear in a different line**.
+In this modality, the input is a **set of gene symbols** that can be pasted directly into the text box or uploaded as a file **without a header**. **In both cases, each gene symbol must appear in a different line**.
 
 <div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="70%" width="70%"/>
 
