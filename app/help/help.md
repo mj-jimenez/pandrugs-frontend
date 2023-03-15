@@ -475,9 +475,9 @@ This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *
 
 ### 6.4 CNVs Analysis<a name="examples-cnvs-query"></a>
 
-[Load example for a breast invasive carcinoma patient from the TCGA.](#!/query?tab=cnv)
+[Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=cnv)
 
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbors a deletion in *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
 
 <div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%"/>
 
@@ -485,25 +485,23 @@ Load the example file, do not modify any of the <span style="color:#50AC50">**An
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query).
+These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query).
 
-In this case, PanDrugs does not find Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> because no gene with CNV information has a GScore > 0.6.
-
-<!--
-Among the Best Therapeutic Candidates, PanDrugs suggests...
--->
+In this case, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 0.7338. 
 
 <div style="text-align: left;"><img src="cnvs-query-output-01.svg" alt="Scatter Plot CNVs Query" height="80%" width="80%"/>
 
-However, we know that patients with a deletion in *BRCA2* are susceptible to PARP inhibitors. If we scroll down the table, we'll discover some drugs from this family that have a biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> association with *BRCA2* and a DScore > 0.7.
+Please, order the summary table by descending GScore to visualize the results.
 
-<div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Collapsed" height="100%" width="100%"/>
+All these Best Therapeutic Candidates are driven by *RB1* (GScore = 0.7338). The first result is everolimus, a targeted therapy approved for breast cancer that has *RB1* and *BRCA2* as biomarkers of drug response. If we expand the everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that these two genes are deleted in this patient.
 
-If we expand any of these rows by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that *BRCA2* is indeed deleted in this patient.
+<div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Everolimus" height="100%" width="100%"/>
 
-<div style="text-align: left;"><img src="cnvs-query-output-03.png" alt="CNVs Query Summary Table Expanded" height="100%" width="100%"/>
+We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibitors. If we scroll down the table, we'll discover some drugs from this family that have a biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> association with *BRCA2* and a DScore > 0.7. However, as *BRCA2* is not a direct target of PARP inhibitors, its GScore is below the threshold for defining Best Therapeutic Candidates (GScore < 0.6).
+
+<div style="text-align: left;"><img src="cnvs-query-output-03.png" alt="CNVs Query Summary Table PARPi" height="100%" width="100%"/>
 
 ### 6.5. Small Variants Analysis<a name="examples-vcf-query"></a>
 
