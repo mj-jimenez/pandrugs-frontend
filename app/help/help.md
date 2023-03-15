@@ -220,27 +220,27 @@ The final DScore reported by PanDrugs depends on the type of query:
   - **After a Drug Query:** The table shows the pre-computed DScore of each drug-gene association.
 
   - **After any other query:** The table shows a final DScore for each individual drug. PanDrugs modifies the pre-computed DScore in absolute value to account for the approval status of the drug, the number of associated genes, their interactions with the drug and the curation level of the sources. The final DScore is then assigned to the maximum modified pre-computed DScore in absolute value multiplied by its original sign. If there are two maximum values with an opposed sign, the final DScore will be positive. Moreover, if the mutation of a drug-associated gene confers <span style="color:#7F0004">**resistance**</span> to the drug and the alteration of another associated gene indicates <span style="color:#2F7658">**sensitivity**</span>, that drug will be assigned the label <img src="response-both.svg" alt="Both" height="35" width="38" style="vertical-align:middle;"/>.
-  
+
 ### 3.2 GScore Calculation<a name="gscore-calculation"></a>
 
-PanDrugsdb stores pre-computed GScores for each gene symbol. This score has been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
+PanDrugsdb stores pre-computed GScores for each gene symbol. This score has been calculated according to gene essentiality, tumour vulnerability, the relevance of the gene in cancer and its druggability level.
 
 Depending on the type of query, the GScore can suffer modifications:
   
-  - **After a Drug Query:** The table shows the pre-computed GScore.
+  - **After a drug, genes or CNVs query:** The GScore is equal to the pre-computed GScore.
 
-  - **After a Genes or CNVs Query:** The table shows a final GScore for each group of genes. PanDrugs selects the maximum pre-computed GScore among all drug-gene associations for a specific drug.
+  - **After a gene ranking query:** The GScore is computed by scaling the ranking metric between 0 and 1.
 
-  - **After a Gene Ranking Query:** The GScore is computed by scaling the ranking metric in the second column between 0 and 1.
+  - **After a small variants query:** A Variant Score (VScore) is computed for each variant taking into account their biological impact, their frequency, their clinical implications and the pre-computed GScore of the corresponding gene. The GScore is then calculated as the maximum VScore for the principal isoform of each gene.
 
-  - **After a Small Variants Query:** A Variant Score (VScore) is computed for each variant taking into account their biological impact, their frequency and their clinical implications. The final GScore is then calculated as the maximum VScore for the principal isoform of each gene.
+  - **After a multi-omics query:** There can be two types of GScores:
 
-  - **After a Multi-omics Query:** There can be two types of GScores:
+    - **For the variants in the VCF:** The GScore is computed from VScores as in a small variants query.
+    - **For the genes in the CNV file:** The GScore is computed as in a CNVs Query.
 
-    - **For the genes in the VCF:** The GScores are computed from VScores as in a Small Variants Query.
-    - **For the genes in the CNV file and/or the expression RNK:** The final GScore for the genes with CNVs and/or the Highly Overexpressed <!--Oncogenes-->Genes is computed as in a CNVs Query.
-
-    If a gene is found in the VCF and any other input file, the GScore computed from VScores has priority over the other GScore.
+    If a gene has small variants and CNVs, the GScore computed from VScores has priority over the other GScore.
+  
+Except for the drug queries, the final PanDrugs ranking shows a collapsed GScore for each treatment, which is the maximum GScore among all drug-gene associations. PanDrugs collapsed table can be expanded to retrieve each individual GScore.
 
 ## 4. Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output<a name="genes-gene-rank-cnvs-vcf-and-multi-omics-query-output"></a>
 
