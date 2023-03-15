@@ -507,35 +507,35 @@ We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibit
 
 #### 6.5.1 Small Variants Analysis with Somatic Alterations<a name="examples-vcf-query-somatic-variants"></a>
 
-[Load example for a breast invasive carcinoma patient from the TCGA.](#!/query?tab=vcfrank)
+[Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=vcfrank)
 
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbors two mutations in *PIK3CA*. The VCF contains patient's somatic variants without any germline alteration, so in this example we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours two mutations in *PIK3CA*. The VCF contains the patient's somatic variants without any germline alteration, so we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Small Variants Query with Somatic Alterations: Input 1" height="40%" width="40%"/>
 
 First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT analysis**</span> and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
-If you come back to the Small Variants tab, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
+If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that, at this point, it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Small Variants Query with Somatic Alterations: Input 2" height="100%" width="100%"/>
 
 <u>**Output interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query, but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
+These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
 
-In this case, PanDrugs does not find Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> because no gene has a GScore > 0.6.
+PanDrugs returns several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> associated with *PIK3CA*.
 
 <div style="text-align: left;"><img src="vcf-query-output-01.svg" alt="Small Variants Query with Somatic Alterations: Scatter Plot" height="80%" width="80%"/>
 
-Nevertheless, the top scoring drugs such as Alpelisib, Copanlisib and Idelalisib  are all PI3K inhibitors with DScore > 0.7.
+Among these Best Therapeutic Candidates, there are PI3K inhibitors such as alpelisib and copanlisib.
 
 <div style="text-align: left;"><img src="vcf-query-output-02.png" alt="Small Variants Query with Somatic Alterations: Summary Table Collapsed" height="100%" width="100%"/>
 
-If we expand any of these rows by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that *PIK3CA* is indeed mutated in this patient.
+If we expand any of these rows by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that *PIK3CA* is indeed mutated in this patient. Moreover, PanDrugs details the specific mutation that drives *PIK3CA* GScore.
 
 <!-- Update image -->
 <div style="text-align: left;"><img src="vcf-query-output-03.png" alt="Small Variants Query with Somatic Alterations: Summary Table Expanded" height="100%" width="100%"/>
@@ -552,7 +552,7 @@ This example corresponds to a colon adenocarcinoma patient<!--who harbors an alt
 
 First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT analysis**</span> and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
-If you come back to the Small Variants tab, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
+If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
 When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
