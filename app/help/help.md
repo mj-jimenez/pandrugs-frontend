@@ -447,31 +447,31 @@ In the summary table, each row represents a gene associated with encorafenib. We
 
 [Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
 
-This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example RNK file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
+This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example .rnk file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
 
 <div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
 
-Load the RNK file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Load the .rnk file, select all **discovery mode** filters in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [Genes Analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the ranking metric in the input.
+These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the input ranking metric.
 
-For this example, PanDrugs finds a handfull of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
+For this example, PanDrugs finds a handful of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
 
 <div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%"/>
 
-Please, order the summary table by descending GScore in order to visualize the results.
+Please, order the summary table by descending GScore to visualize the results.
 
 <div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%"/>
 
-If we take a closer look to the RNK file and expand any row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button, we will notice that the gene that is driving these results is the top most overexpressed one: *CALML5*, with a GScore = 1.
+If we take a closer look at the .rnk file and expand any row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button, we will notice that the gene that is driving these results is the top most overexpressed one: *CALML5*, with a GScore = 1.
 
 <div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
 
-This gene has no direct association to any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of the downstream genes do have direct associations with PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> associations.
+This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of its downstream genes are direct targets of PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> associations.
 
 ### 6.4 CNVs Analysis<a name="examples-cnvs-query"></a>
 
