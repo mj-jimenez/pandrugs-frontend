@@ -1,6 +1,6 @@
 # PanDrugs Help
 
-1. **[Query Options](#!/help#query-options)**
+1. **[PanDrugs Queries](#!/help#pandrugs-queries)**
   1. [Genes Query](#!/help#genes-query)
   2. [Drug Query](#!/help#drug-query)
   3. [Gene Ranking Query](#!/help#gene-ranking-query)
@@ -46,20 +46,20 @@
     2. [Multi-omics Analysis with VCF](#!/help#examples-multi-omics-query-w-vcf)
 
 
-## 1. Query Options<a name="query-options"></a>
-There are five possible input options to obtain a **rank of therapies according to an individualized genetic profile**:
+## 1. PanDrugs Queries<a name="pandrugs-queries"></a>
+There are 5 types of queries to obtain a **rank of therapies according to an individualized genomics profile**, depending on the input data:
 
-  - A list of gene symbols ([Genes Query](#!/help#genes-query)).
-  - A ranked list of gene symbols ([Gene Ranking Query](#!/help#gene-ranking-query)).
-  - A list of gene symbols and their CNV status ([CNVs Query](#!/help#gene-ranking-query)).
-  - A VCF file containing a set of somatic (and optionally germline) variants <!-- corresponding to the GRCh38/hg38 assembly of the human genome -->([Small Variants Query](#!/help#vcf-query)).
-  - At least two of these inputs in order to make a [Multi-omics Query](#!/help#multi-omics-query):
+  - **[Genes query](#!/help#genes-query):** Using a list of altered genes as input.
+  - **[Gene ranking query](#!/help#gene-ranking-query):** Using a ranked list of altered genes in .rnk format.
+  - **[CNVs query](#!/help#gene-ranking-query):** Using a list of altered genes and their CNV status in .tsv format.
+  - **[Small variants query](#!/help#vcf-query):** Using a VCF containing a set of somatic (and optionally germline) variants corresponding to the GRCh38 assembly of the human genome.
+  - **[Multi-omics query](#!/help#multi-omics-query):** Using at least two of these inputs:
+    
+    - A .tsv compatible with a CNVs query.
+    - A VCF compatible with a small variants query.
+    - A .rnk file with genes ranked according to their expression change between tumour and normal samples.
 
-    - A CNVs Query.
-    - A Small Variants Query.
-    - A list of genes ranked according to their expression change between tumor and normal samples.
-
-Another possibility is to query the database to see **which genes are associated with a particular drug**.
+Another possibility is to make a **[drug query](#!/help#drug-query)** to find out which genes are associated with a particular drug.
 
 ### 1.1 Genes Query<a name="genes-query"></a>
 In this modality, the input is a **set of gene symbols** that can be pasted directly in the text box or uploaded as a file **without header**. **In both cases, each gene symbol must appear in a different line**.
@@ -72,7 +72,7 @@ In this modality, the input is a **set of gene symbols** that can be pasted dire
 <div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
 
 ### 1.3 Gene Ranking Query<a name="gene-ranking-query"></a>
-In this query option, it is possible to upload a **ranked list of genes as a [RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
+In this type of query, it is possible to upload a **ranked list of genes as a [RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
 This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line. 
 
@@ -86,7 +86,7 @@ In this modality, you can upload a **tab delimited file without headers** formed
 <div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="70%" width="70%"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
-In this query option, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. <!-- The genomic coordinates in this VCF must correspond to the GRCh38/hg38 assembly of the human genome. -->
+In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. <!-- The genomic coordinates in this VCF must correspond to the GRCh38/hg38 assembly of the human genome. -->
 
 **If the input VCF contains germline variants, there is an option to run [PharmCAT](https://pharmcat.org) and include the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org) drug recommendations in the final ranking returned by PanDrugs**. In order to do so, the **input VCF must contain genotype data with one or two sample columns**. These are the two accepted formats:
 
@@ -128,7 +128,7 @@ You can perform a Multi-omics Query in case you have at least two of these input
 
 <div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="100%" width="100%"/>
 
-In this query option, the expression data can be uploaded as a **[RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
+In this type of query, the expression data can be uploaded as a **[RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
 This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line and **the ranking metric must reflect the expression change between tumor and normal samples** (e.g. a differential expression test statistic).
 
