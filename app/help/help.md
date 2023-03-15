@@ -198,20 +198,29 @@ PanDrugs **ranks the results based on** two scores: the **Drug Score (DScore)** 
 
 ### 3.1 DScore Calculation<a name="dscore-calculation"></a>
 
-PanDrugsdb stores pre-computed DScores for each drug. This score has been calculated according to the drug indication and approval status, type of drug-gene interaction and drug response.
-<!--
-<div style="text-align: left;"><img src="pre-computed-dscore.png" alt="Pre-computed DScore" height="70%" width="70%"/>
--->
+This score has been calculated according to the drug indication for cancer or other diseases, its approval status and the type of direct drug-gene association (direct target or biomarker). Moreover, the sign of the pre-computed DScore indicates the direction of the drug response (sensitivity or resistance).
 
-Depending on the type of query, the DScore can suffer modifications:
+| Disease                           | Drug Status     | Druggable Gene | Pre-computed DScore |
+| --------------------------------- | --------------- | -------------- | ------------------- |
+| Cancer                            | Approved        | Direct target  | ±1                  |
+|                                   |                 | Biomarker      | ±0.9                |
+| Other (in cancer clinical trials) |                 | Direct target  | ±0.8                |
+|                                   |                 | Biomarker      | ±0.7                |
+| Cancer                            | Clinical Trials | Direct target  | ±0.6                |
+|                                   |                 | Biomarker      | ±0.5                |
+| Other                             | Approved        | Direct target  | ±0.4                |
+|                                   |                 | Biomarker      | ±0.3                |
+|                                   | Clinical Trials | Direct target  | ±0.2                |
+|                                   |                 | Biomarker      | ±0.1                |
+|                                   | Experimental    | Direct target  | ±0.0008             |
+|                                   |                 | Biomarker      | ±0.0004             |
+
+The final DScore reported by PanDrugs depends on the type of query:
   
-  - **After a Drug Query:** The table shows the pre-computed DScore.
+  - **After a Drug Query:** The table shows the pre-computed DScore of each drug-gene association.
 
-  - **After any other query:** The table shows a final DScore for each individual drug. PanDrugs selects the maximum pre-computed DScore in absolute value, multiplied by its original sign, among all drug-gene associations for a specific drug. Then, it modifies this score to account for the approval status of the drug, number of associated genes, their interactions with the drug and curation level of the sources.
-  <!--
-  <div style="text-align: left;"><img src="final-dscore.png" alt="Collapsed DScore" height="70%" width="70%"/>
-  -->
-
+  - **After any other query:** The table shows a final DScore for each individual drug. PanDrugs modifies the pre-computed DScore in absolute value to account for the approval status of the drug, the number of associated genes, their interactions with the drug and the curation level of the sources. The final DScore is then assigned to the maximum modified pre-computed DScore in absolute value multiplied by its original sign. If there are two maximum values with an opposed sign, the final DScore will be positive. Moreover, if the mutation of a drug-associated gene confers <span style="color:#7F0004">**resistance**</span> to the drug and the alteration of another associated gene indicates <span style="color:#2F7658">**sensitivity**</span>, that drug will be assigned the label <img src="response-both.svg" alt="Both" height="35" width="38" style="vertical-align:middle;"/>.
+  
 ### 3.2 GScore Calculation<a name="gscore-calculation"></a>
 
 PanDrugsdb stores pre-computed GScores for each gene symbol. This score has been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
