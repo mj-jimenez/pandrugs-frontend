@@ -47,7 +47,7 @@
 
 
 ## 1. PanDrugs Queries<a name="pandrugs-queries"></a>
-There are six types of queries to obtain a **rank of therapies according to an individualized genomics profile**, depending on the input data:
+There are five types of queries to obtain a **rank of therapies according to an individualized genomics profile**, depending on the input data:
 
   - **[Genes query](#!/help#genes-query):** Using a list of altered genes as input.
   - **[Gene ranking query](#!/help#gene-ranking-query):** Using a ranked list of altered genes in .rnk format.
