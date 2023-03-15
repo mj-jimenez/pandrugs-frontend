@@ -145,44 +145,46 @@ Then, PanDrugs will query its database with the genes with known CNV status info
 
 ## 2. Analysis Options<a name="analysis-options"></a>
 
-Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [Small Variants](#!/help#vcf-query)) can be adjusted using the panel of analysis options:
+Those queries based on genes ([genes](#!/help#genes-query), a [gene ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [small variants](#!/help#vcf-query)) can be adjusted using the panel of analysis options.
+
+PanDrugs2 includes two analysis modes: the **clinical mode**, which filters out experimental drugs and pathway member associations from the query results, and the **discovery mode**, which allows the selection of all possible filters to expand the therapeutic options suggested by PanDrugs.
 
 <div style="text-align: left;"><img src="analysis-options.png" alt="Analysis Options" height="60%" width="60%"/>
 
 ### 2.1 Drug Status<a name="drugs-status-level"></a>
 
-Allows to filter therapeutic options according to their approval status for cancer or other pathologies. The options are:
+Allows filtering therapeutic options according to their approval status for cancer or other pathologies. The options are:
 
 **Cancer:**
 
-- **FDA approved:** FDA approved drugs for cancer treatment.
+- **FDA approved:** FDA-approved drugs for cancer treatment.
 - **Clinical trials:** Drugs in clinical trials for cancer treatment.
 
 **Other pathologies:**
 
-- **FDA approved:** FDA approved drugs for other conditions or pathologies.
+- **FDA approved:** FDA-approved drugs for other conditions or pathologies.
 - **Clinical trials:** Drugs in clinical trials for the treatment of other conditions or pathologies.
-- **Experimental:** Compounds in pre-clinical phase.
+- **Experimental:** Compounds in the pre-clinical stage.
 
-By default, all options are selected so the results include drugs in all the approval status levels.
+By default, the clinical mode is selected so the results include approved drugs or drugs in clinical trials for cancer or other pathologies.
 
 ### 2.2 Interaction Type<a name="interaction-type"></a>
 
-Allows to filter therapeutic options according to the type of drug-gene interaction:
+Allows filtering therapeutic options according to the type of drug-gene interaction:
 
-- **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype.
+- **Direct target<img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype (e.g. *BRAF* is a direct target of vemurafenib).
 
-- **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidences, with the genetic status of any input gene.
+- **Biomarker<img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidence, with the genetic status of any input gene (e.g. *BRCA*-mutated cancers responding to PARP inhibitors).
 
-- **Pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes.
+- **Genetic dependency<img src="genetic-dependency-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>**: Show drugs that target any druggable gene upon which an input gene functionally depends (e.g. patients with *BRAF* GoF treated with BRAF and MEK inhibitors can develop resistance involving MAPK signalling reactivation. Thus, PanDrugs suggests targeting *MAP2K1* in tumours with *BRAF* GoF).
 
-<!-- - **Gene dependency**: Show drugs that target any gene with a genetic dependency on the input genes. -->
+- **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes (e.g. patients with mutations in *TSC1/2* respond to downstream inhibition of the mTOR pathway).
 
-By default, all options are selected so the results include all types of drug-gene interactions.
+By default, the clinical mode is selected so the results include all types of drug-gene interactions except for pathway members.
 
 ### 2.3 Select Cancer Types<a name="select-cancer-types"></a>
 
-Allows to filter therapeutic options **approved for specific cancer types**. **Drugs in clinical trials or experimental drugs associated to the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA approved drugs for cancer** (see [Drug Status](#!/help#drugs-status-level) section).
+Allows to filter therapeutic options **approved for specific cancer types**. **Drugs in clinical trials or experimental drugs associated with the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA-approved drugs for cancer** (see [Drug Status](#!/help#drugs-status-level) section).
 
 By default, all cancer types are selected.
 
