@@ -437,9 +437,9 @@ On the results page, you will see a summary box and a summary table similar to t
 In the summary table, each row represents a gene associated with encorafenib. We can observe examples for each type of drug-gene association:
 
 - **Direct targets:** Such as *BRAF*, *RAF1*, *CCND1* and *ARAF*.
-- **Biomarkers:** Such as *EGFR*, *MAP2K1*, *KRAS*, *TP53* or *PTEN*. Notice that *MAP2K1* entry has an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> that indicates that a *MAP2K1* mutation (V211D) may induce drug resistance to encorafenib.
+- **Biomarkers:** Such as *EGFR*, *MAP2K1*, *KRAS*, *TP53* or *PTEN*. Notice that the *MAP2K1* entry has an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> that indicates that a *MAP2K1* mutation (V211D) may induce drug resistance to encorafenib.
 - **Genetic dependencies:** Such as *KRAS* (GoF) and *RAF1*.
-- **Pathway members:** Such as *CCND1*, which is downstream of the direct targets/biomarkers *ARAF*, *BRAF*, *KRAS*, *MAP2K1*, *RAF1* and *TP53*.
+- **Pathway members:** Such as *CCND1*, which is a direct target downstream of *ARAF*, *BRAF*, *KRAS*, *MAP2K1*, *RAF1* and *TP53*. Note that *CCND1* GScore as a pathway member (DScore = 1) is different from its score as a direct target (DScore = 0.7257) since the first one is computed as the maximum GScore of all upstream genes.
 
 <div style="text-align: left;s"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
 
