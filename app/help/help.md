@@ -11,7 +11,7 @@
 
 2. **[Analysis Options](#!/help#analysis-options)**
   1. [Drug Status](#!/help#drugs-status)
-  2. [Interaction Evidence Level](#!/help#interaction-evidence-level)
+  2. [Interaction Type](#!/help#interaction-type)
   3. [Select Cancer Types](#!/help#select-cancer-types)
 
 
@@ -172,7 +172,7 @@ Allows to filter therapeutic options according to their approval status for canc
 
 By default, all options are selected so the results include drugs in all the approval status levels.
 
-### 2.2 Interaction Evidence Level<a name="interaction-evidence-level"></a>
+### 2.2 Interaction Type<a name="interaction-type"></a>
 
 Allows to filter therapeutic options according to the type of drug-gene interaction:
 
