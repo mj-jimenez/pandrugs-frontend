@@ -445,7 +445,7 @@ In the summary table, each row represents a gene associated with encorafenib. We
 
 ### 6.3. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
 
-[Load example for a lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
+[Load example for a non-small cell lung adenocarcinoma patient from the TCGA.](#!/query?tab=generank)
 
 This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example .rnk file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
 
