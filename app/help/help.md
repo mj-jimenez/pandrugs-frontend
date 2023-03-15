@@ -81,43 +81,43 @@ The ranking metric will be scaled between 0 and 1 and will be treated as a user-
 <div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
 
 ### 1.4 CNVs Query<a name="cnvs-query"></a>
-In this modality, you can upload a **tab delimited file without headers** formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the correspondind gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
+In this modality, you can upload a **tab-delimited file without headers** formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the corresponding gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
 
 <div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="70%" width="70%"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
-In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. <!-- The genomic coordinates in this VCF must correspond to the GRCh38/hg38 assembly of the human genome. -->
+In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. The genomic coordinates in this VCF must correspond to the GRCh38 assembly of the human genome.
 
-**If the input VCF contains germline variants, there is an option to run [PharmCAT](https://pharmcat.org) and include the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org) drug recommendations in the final ranking returned by PanDrugs**. In order to do so, the **input VCF must contain genotype data with one or two sample columns**. These are the two accepted formats:
+**If the input VCF contains germline variants, there is an option to run [PharmCAT](https://pharmcat.org) and include the [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org) guidelines in the final ranking returned by PanDrugs**. To do so, the **input VCF must contain genotype data with one or two sample columns**. These are the two accepted formats:
 
-- **Ideally**, a VCF with **two sample columns named "tumor" and "normal"** detailing the genotypes of the corresponding variant in each sample. Please note that, while the order of the sample columns is indifferent, **the names must be strictly "tumor" and "normal"**.
-- A VCF with a **single sample column** containing somatic and germline variants all together. In this case, **there are not requirements regarding the name of the sample column**.
+- **Ideally**, a VCF with **two sample columns named "tumor" and "normal"** detailing the genotypes of the corresponding variant in each sample. Please note that, while the order of the sample columns is indifferent, **the names must be exactly "tumor" and "normal"**.
+- A VCF with a **single sample column** containing somatic and germline variants all together. In this case, **there are no requirements regarding the name of the sample column**.
 
 <div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="70%" width="70%"/>
 
-To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and optionally upload a TSV file with genotypes called outside PharmCAT. Moreover, you can provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
+To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and optionally upload a .tsv file with genotypes called outside PharmCAT. Moreover, you can provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="40%" width="40%"/>
 
-A message indicating that the computation has been successfully submitted will appear. In this message you will get a link in order to follow the computation progress.
+A message indicating that the computation has been successfully submitted will appear. In this message, you will get a link to follow the computation progress.
 
 <div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="40%" width="40%"/>
 
-Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
+Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
 
 <div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="70%" width="70%"/>
 
 During this process, the somatic variants included in the VCF are annotated using Ensembl's [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) and additional databases. With these annotations, a Variant Score (VScore) is computed for each variant. The final GScore is then calculated as the maximum VScore for the principal transcript of each gene.
 
-If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, the germline variants will be used to query PharmCAT in order to retrieve the CPIC recommendations.
+If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, the germline variants will be used to query PharmCAT to retrieve the CPIC recommendations.
 
-Finally, when the progress bar is complete, you can query PanDrugsdb and obtain a ranking of treatments **tailored to the provided genomics profile**. If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, PanDrugs output will contain CPIC recommendations (if any) for the ranked drugs and a link to PharmCAT's report.
+Finally, when the progress bar is complete, you can query PanDrugsdb and obtain a ranking of treatments **tailored to the provided genomics profile**. If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, PanDrugs output will contain CPIC guidelines (if any) for the ranked drugs and a link to PharmCAT's report.
 
-Moreover, it is possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span> or the PharmCAT report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
+Moreover, it is possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span> or the PharmCAT report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="70%" width="70%"/>
 
-If you are logged in PanDrugs, the results of the query will be stored in your personal account. You will be able to access any previous analyses done within the last 6 months and select one of them to make a new query. You can register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
+If you are logged in PanDrugs, the results of the query will be stored in your account. You will be able to access any previous analyses done within the last 6 months and select one of them to make a new query. You can register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
 ### 1.6 Multi-omics Query<a name="multi-omics-query"></a>
 You can perform a Multi-omics Query in case you have at least two of these inputs for the same patient:
