@@ -72,11 +72,11 @@ In this modality, the input is a **set of gene symbols** that can be pasted dire
 <div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
 
 ### 1.3 Gene Ranking Query<a name="gene-ranking-query"></a>
-In this type of query, it is possible to upload a **ranked list of genes as a [RNK file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
+In this type of query, it is possible to upload a **ranked list of genes as a [.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
-This file must consist in two tab delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line. 
+This file must consist of two tab-delimited columns containing gene symbols and the ranking metric, respectively. Each gene symbol must appear in a different line. 
 
-The ranking metric will be scaled between 0 and 1 and will be treated as an user-supplied [GScore](#!/help#gscore-calculation), overwritting the pre-computed one.
+The ranking metric will be scaled between 0 and 1 and will be treated as a user-supplied [GScore](#!/help#gscore-calculation), overwriting the pre-computed one.
 
 <div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
 
