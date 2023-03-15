@@ -10,7 +10,7 @@
 
 
 2. **[Analysis Options](#!/help#analysis-options)**
-  1. [Drug Status Level](#!/help#drugs-status-level)
+  1. [Drug Status](#!/help#drugs-status)
   2. [Interaction Evidence Level](#!/help#interaction-evidence-level)
   3. [Select Cancer Types](#!/help#select-cancer-types)
 
@@ -155,7 +155,7 @@ Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/he
 
 <div style="text-align: left;"><img src="analysis-options.png" alt="Analysis Options" height="60%" width="60%"/>
 
-### 2.1 Drug Status Level<a name="drugs-status-level"></a>
+### 2.1 Drug Status<a name="drugs-status-level"></a>
 
 Allows to filter therapeutic options according to their approval status for cancer or other pathologies. The options are:
 
@@ -188,7 +188,7 @@ By default, all options are selected so the results include all types of drug-ge
 
 ### 2.3 Select Cancer Types<a name="select-cancer-types"></a>
 
-Allows to filter therapeutic options **approved for specific cancer types**. **Drugs in clinical trials or experimental drugs associated to the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA approved drugs for cancer** (see [Drug Status Level](#!/help#drugs-status-level) section).
+Allows to filter therapeutic options **approved for specific cancer types**. **Drugs in clinical trials or experimental drugs associated to the input genes will be shown independently of this filter**. If you want your output to only contain approved drugs for the selected cancer types, **you must also filter by FDA approved drugs for cancer** (see [Drug Status](#!/help#drugs-status-level) section).
 
 By default, all cancer types are selected.
 
