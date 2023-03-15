@@ -46,10 +46,6 @@
     2. [Multi-omics Analysis with VCF](#!/help#examples-multi-omics-query-w-vcf)
 
 
-<!--
-7. [DATABASE VERSIONS FOR VCF ANNOTATION](#!/help#database-versions-for-vcf-annotation)
--->
-
 ## 1. Query Options<a name="query-options"></a>
 There are five possible input options to obtain a **rank of therapies according to an individualized genetic profile**:
 
