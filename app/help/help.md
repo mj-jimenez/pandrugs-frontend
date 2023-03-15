@@ -9,7 +9,7 @@
   6. [Multi-omics Query](#!/help#multi-omics-query)
 
 
-2. **[Advanced Options](#!/help#advanced-options)**
+2. **[Analysis Options](#!/help#analysis-options)**
   1. [Drug Status Level](#!/help#drugs-status-level)
   2. [Interaction Evidence Level](#!/help#interaction-evidence-level)
   3. [Select Cancer Types](#!/help#select-cancer-types)
@@ -149,11 +149,11 @@ Then, PanDrugs will query its database with the Highly Overexpressed <!--Oncogen
 
 PanDrugs output will rank all drugs associated with either the Highly Overexpressed <!--Oncogenes-->Genes, the genes with known CNV status or the genes with somatic alterations. If you clicked on <span style="color:#50AC50">**PharmCAT analysis**</span>, PanDrugs output will contain CPIC recommendations (if any) for the ranked drugs and a link to PharmCAT's report.
 
-## 2. Advanced Options<a name="advanced-options"></a>
+## 2. Analysis Options<a name="analysis-options"></a>
 
-Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [Small Variants](#!/help#vcf-query)) can be adjusted using the panel of Advanced Options:
+Those queries based on genes ([Genes](#!/help#genes-query), [Gene Ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [Small Variants](#!/help#vcf-query)) can be adjusted using the panel of analysis options:
 
-<div style="text-align: left;"><img src="advanced-options.png" alt="Advanced Options" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="analysis-options.png" alt="Analysis Options" height="60%" width="60%"/>
 
 ### 2.1 Drug Status Level<a name="drugs-status-level"></a>
 
@@ -243,7 +243,7 @@ Once the query has been completed, a summary box with the execution details, som
 
 ### 4.1 Summary Box<a name="summary-box"></a>
 
-This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [Advanced Options](#!/help#advanced-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report will be available for download at the summary box.
+This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [analysis options](#!/help#analysis-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report will be available for download at the summary box.
 
 <div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="100%" width="100%"/>
 
@@ -384,7 +384,7 @@ This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, wh
 
 <div style="text-align: left;"><img src="genes-query-example-input.png" alt="Genes Query Input" height="100%" width="100%"/>
 
-Do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -421,7 +421,7 @@ This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/pa
 
 <div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
 
-Load the RNK file, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Load the RNK file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -497,7 +497,7 @@ This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/pa
 
 <div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%"/>
 
-Load the example file, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Load the example file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -535,7 +535,7 @@ First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT anal
 
 If you come back to the Small Variants tab, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Small Variants Query with Somatic Alterations: Input 2" height="100%" width="100%"/>
 
@@ -572,7 +572,7 @@ First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT anal
 
 If you come back to the Small Variants tab, you will notice a progress bar associated to your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 2" height="100%" width="100%"/>
 
@@ -602,7 +602,7 @@ Again, load the VCF, but this time click on <span style="color:#50AC50">**PharmC
 
 PanDrugs will annotate the somatic variants and compute GScores from VScores. In addition, PanDrugs will query PharmCAT with the germline variants in order to retrieve the CPIC recommendations for the drugs shown in the final ranking. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>. Moreover, you can download PharmCAT's report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
+When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>. Moreover, you can download PharmCAT's report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-06.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Input 2" height="100%" width="100%"/>
 
@@ -634,7 +634,7 @@ We have already analyzed data from this patient in the [CNVs Analysis](#!/help#e
 
 <div style="text-align: left;"><img src="multi-omics-query-example-input-01.png" alt="Multi-omics Query without VCF Input" height="100%" width="100%"/>
 
-First, upload both the example CNV and expression RNK files. Do not click on <span style="color:#50AC50">**With variant analysis**</span>, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+First, upload both the example CNV and expression RNK files. Do not click on <span style="color:#50AC50">**With variant analysis**</span>, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -677,7 +677,7 @@ Then, click on <span style="color:#50AC50">**With variant analysis**</span> and 
 
 <div style="text-align: left;"><img src="multi-omics-query-example-input-02.png" alt="Multi-omics Query with VCF Input 3" height="100%" width="100%"/>
 
-Finally, do not modify any of the <span style="color:#50AC50">**Advanced Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Finally, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
