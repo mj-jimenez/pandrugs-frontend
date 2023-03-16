@@ -5,7 +5,7 @@ The first version of PanDrugs, which was published in 2018, prioritized anticanc
 
 PanDrugs2 includes novelties such as:
 
-- **A major update of PanDrugsdb:** With up-to-date drug-gene associations retrieved from several sources. <!-- link to sources -->
+- **A major update of PanDrugsdb:** With up-to-date drug-gene associations retrieved from several [sources](#!/sources/pandrugs-sources).
 
 - **New inputs:** copy number variants (CNVs), expression data and germline variants. 
 
