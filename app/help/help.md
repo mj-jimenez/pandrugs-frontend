@@ -477,7 +477,7 @@ This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *
 
 [Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=cnv)
 
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to a decreased expression of this gene. The example file contains all the CNVs detected for this patient.
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to the decreased expression of this gene. The example file contains all the CNVs detected for this patient.
 
 <div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%"/>
 
@@ -606,33 +606,32 @@ Moreover, the full PharmCAT's report can be downloaded from the summary box at t
 
 ### 6.6. Multi-omics Analysis<a name="examples-multi-omics-query"></a>
 
-For this example, we are using small variant, CNV and expression data from patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD). This patient harbors mutations in *PIK3CA* and a deletion in *BRCA2* that leads to a decreased expression of this gene. 
+For this example, we are using small variant, CNV and expression data from patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD). This patient harbours mutations in *PIK3CA* and a deletion in *BRCA2* that leads to the decreased expression of this gene. 
 
-We have already analyzed data from this patient in the [CNVs Analysis](#!/help#examples-cnvs-query) and the [Small Variants Analysis](#!/help#examples-vcf-query) sections. In the following example we will show how PanDrugs' results can be expanded using different omics data from the same patient.
+We have already analyzed data from this patient in the [CNVs Analysis](#!/help#examples-cnvs-query) and the [Small Variants Analysis](#!/help#examples-vcf-query) sections. In the following example, we will show how PanDrugs' results can be expanded using different omics data from the same patient.
 
 #### 6.6.1 Multi-omics Analysis without VCF<a name="examples-multi-omics-query-wo-vcf"></a>
 
-[Load example for a breast invasive carcinoma patient from the TCGA.](#!/query?tab=multiomics)
+[Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=multiomics)
 
 <div style="text-align: left;"><img src="multi-omics-query-example-input-01.png" alt="Multi-omics Query without VCF Input" height="100%" width="100%"/>
 
-First, upload both the example CNV and expression RNK files. Do not click on <span style="color:#50AC50">**With variant analysis**</span>, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+First, upload both the example CNV .tsv and expression .rnk files. Do not click on <span style="color:#50AC50">**With variant analysis**</span>, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query.
+These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query).
 
-PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on CNV and expression evidences. Tamoxifen is the drug with highest combined DScore and GScore (DScore = 0.9810; GScore = 0.6606).
+PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on CNV and expression evidence. 
+
+Please, order the summary table by descending GScore to visualize the results. You will notice that everolimus is the drug with the highest combined DScore and GScore (DScore = 0.8220; GScore = 0.7338).
 
 <div style="text-align: left;"><img src="multi-omics-query-output-01.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="100%" width="100%"/>
 
-If we expand Tamoxifen row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get futher information about the type of gene alterations that are contributing to PanDrugs ranking:
+If we expand everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get further information about the type of gene alterations that are contributing to PanDrugs ranking. In the expanded table, we observe that both *RB1* and *BRCA2*, biomarkers of everolimus, are deleted and this deletion leads to gene underexpression.
 
-  - A deletion in *CYSLTR2*.
-  - An amplification in *RIPK2*, which induces the overexpression of this gene.
-  - A highly overexpressed gene such as *CCNA2*, which is a biomarker of the response to Tamoxifen.
 
 <div style="text-align: left;"><img src="multi-omics-query-output-02.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="100%" width="100%"/>
 
