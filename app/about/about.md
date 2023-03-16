@@ -11,7 +11,7 @@ PanDrugs2 includes novelties such as:
 
 - **New drug-gene association type:** In addition to direct targets, biomarkers and pathway members, PanDrugs2 also considers genetic dependencies for ranking the most suitable therapeutic options.
 
-- **An Adverse Drug Reaction (ADR) aware drug prioritization:** Whenever germline variants are present in the input Variant Calling File (VCF), PanDrugs can label the ranked drugs with their Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines retrieved via PharmCAT.
+- **An Adverse Drug Reaction (ADR) aware drug prioritization:** Whenever germline variants are present in the input Variant Calling File (VCF), PanDrugs can label the ranked drugs with their [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org) guidelines retrieved via [PharmCAT](https://pharmcat.org).
 
 - **A multi-omics prioritization mode:** The user can rank PanDrugsdb treatments based on up to 3 different inputs: somatic (and optionally, germline) variants, CNVs and expression data.
 
