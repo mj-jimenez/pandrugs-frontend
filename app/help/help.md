@@ -383,7 +383,7 @@ In the [summary table](#!/help#summary-table), each row represents a gene associ
 
 ### 6.1. Genes Analysis<a name="examples-genes-query"></a>
 
-Load <span style="color:#50AC50">**Example 3**</span> from the [genes query tab](#!/query?tab=genes).
+Load <span style="color:#50AC50">**Example 3**</span> from the [genes query tab.](#!/query?tab=genes)
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
@@ -420,7 +420,7 @@ You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mar
 
 ### 6.2. Drug Analysis<a name="examples-drug-query"></a>
 
-[Query encorafenib](#!/query?tab=drugs).
+[Query encorafenib.](#!/query?tab=drugs)
 
 Encorafenib is a targeted therapy approved for the treatment of colon, rectum and skin cancer.
 
@@ -477,7 +477,7 @@ This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *
 
 [Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=cnv)
 
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to the decreased expression of this gene. The example file contains all the CNVs detected for this patient.
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga_pan_can_atlas_2018&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to the decreased expression of this gene. The example file contains all the CNVs detected for this patient.
 
 <div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%"/>
 
@@ -509,7 +509,7 @@ We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibit
 
 [Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=vcfrank)
 
-This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD), who harbours two mutations in *PIK3CA*. The VCF contains the patient's somatic variants without any germline alteration, so we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
+This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga_pan_can_atlas_2018&caseId=TCGA-D8-A1JD), who harbours two mutations in *PIK3CA*. The VCF contains the patient's somatic variants without any germline alteration, so we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Small Variants Query with Somatic Alterations: Input 1" height="40%" width="40%"/>
 
@@ -606,7 +606,7 @@ Moreover, the full PharmCAT's report can be downloaded from the summary box at t
 
 ### 6.6. Multi-omics Analysis<a name="examples-multi-omics-query"></a>
 
-For this example, we are using small variant, CNV and expression data from patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga&caseId=TCGA-D8-A1JD). This patient harbours mutations in *PIK3CA* and a deletion in *BRCA2* that leads to the decreased expression of this gene. 
+For this example, we are using small variant, CNV and expression data from patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga_pan_can_atlas_2018&caseId=TCGA-D8-A1JD). This patient harbours mutations in *PIK3CA* and a deletion in *BRCA2* that leads to the decreased expression of this gene. 
 
 We have already analyzed data from this patient in the [CNVs Analysis](#!/help#examples-cnvs-query) and the [Small Variants Analysis](#!/help#examples-vcf-query) sections. In the following example, we will show how PanDrugs' results can be expanded using different omics data from the same patient.
 
