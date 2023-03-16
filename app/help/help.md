@@ -172,13 +172,13 @@ By default, the clinical mode is selected so the results include approved drugs 
 
 Allows filtering therapeutic options according to the type of drug-gene interaction:
 
-- **Direct target<img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype (e.g. *BRAF* is a direct target of vemurafenib).
+- **Direct target<img src="direct-target-interaction.svg" alt="Direct Target" height="20" width="68" style="vertical-align:middle;"/>:** Show drugs that directly target any input gene that contributes to a disease phenotype (e.g. *BRAF* is a direct target of vemurafenib).
 
-- **Biomarker<img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidence, with the genetic status of any input gene (e.g. *BRCA*-mutated cancers responding to PARP inhibitors).
+- **Biomarker<img src="biomarker-interaction.svg" alt="Biomarker" height="20" width="68" style="vertical-align:middle;"/>:** Show drugs whose response is associated, based on clinical or pre-clinical evidence, with the genetic status of any input gene (e.g. *BRCA*-mutated cancers responding to PARP inhibitors).
 
-- **Genetic dependency<img src="genetic-dependency-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>**: Show drugs that target any druggable gene upon which an input gene functionally depends (e.g. patients with *BRAF* GoF treated with BRAF and MEK inhibitors can develop resistance involving MAPK signalling reactivation. Thus, PanDrugs suggests targeting *MAP2K1* in tumours with *BRAF* GoF).
+- **Genetic dependency<img src="genetic-dependency-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/>**: Show drugs that target any druggable gene upon which an input gene functionally depends (e.g. patients with *BRAF* GoF treated with BRAF and MEK inhibitors can develop resistance involving MAPK signalling reactivation. Thus, PanDrugs suggests targeting *MAP2K1* in tumours with *BRAF* GoF).
 
-- **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes (e.g. patients with mutations in *TSC1/2* respond to downstream inhibition of the mTOR pathway).
+- **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/>:** Show drugs that target any downstream druggable genes within the pathway of the input genes (e.g. patients with mutations in *TSC1/2* respond to downstream inhibition of the mTOR pathway).
 
 By default, the clinical mode is selected so the results include all types of drug-gene interactions except for pathway members.
 
@@ -300,12 +300,12 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
   - **Direct:** The altered gene is the target or the biomarker of the drug.
 
-    - **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/>**
-    - **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/>**
+    - **Direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="20" width="68" style="vertical-align:middle;"/>**
+    - **Biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="20" width="68" style="vertical-align:middle;"/>**
 
   - **Indirect:** The drug's target is a gene related to the altered one.
 
-    - **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>**
+    - **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/>**
     <!-- - Genetic dependency <img src="genetic-dependency-interaction.svg" alt="Genetic Depedency" height="14" width="85"/> -->
 
 **4. Drug status:** Approval status and cancer prescription for the approved drugs.
@@ -359,7 +359,7 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
   - A sentence explaining the association between the drug and the gene.
 
-  - The type of drug-gene ineraction for that gene. When this interaction is of type pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
+  - The type of drug-gene ineraction for that gene. When this interaction is of type pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/>, there is a button that shows a pop-up with a summary of the KEGG pathways the gene is involved in. Each pathway name has a link to a KEGG's visualization with the affected and targeted genes highlighted.
 
   - The type of alteration that drives the <span style="color:#2F7658">**sensitivity**</span>/<span style="color:#7F0004">**resistance**</span>/<span style="color:#295876">**both**</span> drug response.
 
@@ -401,8 +401,8 @@ Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic C
 
 If you take a look at the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the ones with the highest DScore and GScore:
 
-- A direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="25" width="85" style="vertical-align:middle;"/> for alpelisib.
-- A pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> for temsirolimus.
+- A direct target <img src="direct-target-interaction.svg" alt="Direct Target" height="20" width="68" style="vertical-align:middle;"/> for alpelisib.
+- A pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/> for temsirolimus.
 
 Moreover, temsirolimus and alpelisib are both targeted therapies approved for cancer and belong to the PI3K inhibitor and mTOR inhibitor families respectively.
 
@@ -471,7 +471,7 @@ If we take a closer look at the .rnk file and expand any row by clicking on the 
 
 <div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
 
-This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of its downstream genes are direct targets of PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="25" width="135" style="vertical-align:middle;"/> associations.
+This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of its downstream genes are direct targets of PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/> associations.
 
 ### 6.4 CNVs Analysis<a name="examples-cnvs-query"></a>
 
@@ -499,7 +499,7 @@ All these Best Therapeutic Candidates are driven by *RB1* (GScore = 0.7338). The
 
 <div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Everolimus" height="100%" width="100%"/>
 
-We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibitors. If we scroll down the table, we'll discover some drugs from this family that have a biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="25" width="85" style="vertical-align:middle;"/> association with *BRCA2* and a DScore > 0.7. However, as *BRCA2* is not a direct target of PARP inhibitors, its GScore is below the threshold for defining Best Therapeutic Candidates (GScore < 0.6).
+We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibitors. If we scroll down the table, we'll discover some drugs from this family that have a biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="20" width="68" style="vertical-align:middle;"/> association with *BRCA2* and a DScore > 0.7. However, as *BRCA2* is not a direct target of PARP inhibitors, its GScore is below the threshold for defining Best Therapeutic Candidates (GScore < 0.6).
 
 <div style="text-align: left;"><img src="cnvs-query-output-03.png" alt="CNVs Query Summary Table PARPi" height="100%" width="100%"/>
 
