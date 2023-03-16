@@ -22,10 +22,11 @@
 
 4. **[Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output)**
   1. [Summary Box](#!/help#summary-box)
-  2. [Charts](#!/help#drug-status-level)
+  2. [Charts](#!/help#charts)
     1. [Scatter Plot](#!/help#scatter-plot)
     2. [Pie Charts](#!/help#pie-charts)
   3. [Summary Table](#!/help#summary-table)
+  4. [PanDrugs Report](#!/help#report)
 
 
 5. **[Drug Query Output](#!/help#drug-query-output)**
@@ -244,15 +245,15 @@ Except for the drug queries, the final PanDrugs ranking shows a collapsed GScore
 
 ## 4. Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output<a name="genes-gene-rank-cnvs-vcf-and-multi-omics-query-output"></a>
 
-Once the query has been completed, a summary box with the execution details, some plots and a summary table with a drug ranking will appear.
+Once the query has been completed, a downloadable report with top results, a summary box with the execution details, some plots and a summary table with a drug ranking will appear.
 
 ### 4.1 Summary Box<a name="summary-box"></a>
 
-This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [analysis options](#!/help#analysis-options) that were selected. If you made a [Small Variants Query](#!/help#vcf-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report will be available for download at the summary box.
+This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [analysis options](#!/help#analysis-options) that were selected. If you made a [small variants query](#!/help#vcf-query) with a <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report will be available for download at the summary box.
 
 <div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="100%" width="100%"/>
 
-### 4.2 Charts<a name="drug-status-level"></a>
+### 4.2 Charts<a name="charts"></a>
 
 #### 4.2.1 Scatter Plot<a name="scatter-plot"></a>
 
@@ -264,7 +265,7 @@ The ranked therapies are plotted as points with different shapes, colors and siz
 - **Color** indicates the approval status of the drug.
 - **Size** is proportional to the final GScore/DScore ratio.
 
-Moreover, we define two thresholds: DScore = 0.7 and GScore = 0.6 to divide the scatter plot into quadrants. The area above both thresholds is shaded in green and includes the drugs labelled as **Best Therapeutic Candidates (BTC)**.
+Moreover, we define two thresholds: DScore = 0.7 and GScore = 0.6 to divide the scatter plot into quadrants. The area above both thresholds is shaded in green and includes the drugs labelled as **Best Therapeutic Candidates (BTCs)**.
 
 You can click and drag the cursor to select any plot region you want to zoom in. In addition, the scatter plot can be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="15" width="15"/>.
 
@@ -296,7 +297,7 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
 **2. Drug:** Compound's name. Each drug is linked to its page in [PubChem](https://pubchem.ncbi.nlm.nih.gov).
 
-**3. Interaction:** Drug-gene relationship between the genes and the drug. The value of this column in the collapsed table corresponds to the drug-gene pair with the highest DScore and GScore. Options are:
+**3. Interaction:** Type of drug-gene association. The value of this column in the collapsed table corresponds to the drug-gene pair with the highest DScore and GScore. Options are:
 
   - **Direct:** The altered gene is the target or the biomarker of the drug.
 
@@ -305,27 +306,28 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
   - **Indirect:** The drug's target is a gene related to the altered one.
 
+    - **Genetic dependency<img src="genetic-dependency-interaction.svg" alt="Genetic Depedency" height="14" width="85"/>**
     - **Pathway member<img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/>**
-    <!-- - Genetic dependency <img src="genetic-dependency-interaction.svg" alt="Genetic Depedency" height="14" width="85"/> -->
 
 **4. Drug status:** Approval status and cancer prescription for the approved drugs.
 
 **5. Type of therapy:** Only available for drugs approved for cancer treatment. Options are:
 
-  - **Targeted therapy:** Drugs that specifically attack cancer cells.
-  - **Chemotherapy:** Drugs that kill fast-growing cells.
-  - **Immunotherapy:** Drugs that boost or change how the immune system works in order to fight against cancer.
-  - **Hormone therapy:** Suppression of certain hormones that can prompt or help in the tumor growth.
-  - **Photodynamic therapy:** Use of light-sensitive drugs, called photosensitizing agents, along with light to kill cancer cells.
+- **Chemotherapy:** Drugs that kill fast-growing cells.
+- **Targeted therapy:** Drugs that specifically attack cancer cells.
+- **Hormone therapy:** Suppression of certain hormones that can prompt or help in tumour growth.
+- **Immunotherapy:** Drugs that boost or change how the immune system works to fight against cancer.
+- **Photodynamic therapy:** Use of light-sensitive drugs, called photosensitizing agents, along with light to kill cancer cells.
+- **Combination therapy:** Use of drug combinations to treat cancer. These therapies are treated as one-drug therapies in PanDrugsdb creation, Drug Score (DScore) calculation and Gene Score (GScore) collapsing.
 
 **6. Drug response:** <img src="response-sensitivity.svg" alt="Sensitivity" height="35" width="70" style="vertical-align:middle;"/> or <img src="response-resistance.svg" alt="Resistance" height="35" width="75" style="vertical-align:middle;"/> response, based on the gene alteration. Alerts are included in this area:
 
-  - <img src="response-both.svg" alt="Both" height="35" width="38" style="vertical-align:middle;"/> If there is a predicted <span style="color:#7F0004">**resistance**</span> response to a drug based on a particular gene and another gene indicates <span style="color:#2F7658">**sensitivity**</span>, that drug will be assigned the label <span style="color:#295876">**both**</span> in the Drug response column. These indications should be reviewed to decide drug's suitability for a particular case, as sometimes the <span style="color:#2F7658">**sensitivity**</span> or <span style="color:#7F0004">**resistance**</span> response is dependent on a particular type of alteration. 
+  - <img src="response-both.svg" alt="Both" height="35" width="38" style="vertical-align:middle;"/> If there is a predicted <span style="color:#7F0004">**resistance**</span> response to a drug based on a particular gene and another gene indicates <span style="color:#2F7658">**sensitivity**</span>, that drug will be assigned the label <span style="color:#295876">**both**</span> in the Drug response column. These indications should be reviewed to decide drug's suitability for a particular case, as sometimes the <span style="color:#2F7658">**sensitivity**</span> or <span style="color:#7F0004">**resistance**</span> response is dependent on a particular type of alteration. Likewise, if some a gene alteration is associated with <span style="color:#2F7658">**sensitivity**</span> and another alteration in the same gene indicates <span style="color:#7F0004">**resistance**</span>, the drug reponse for that gene, and thus for the drug, will be <span style="color:#295876">**both**</span>
   - <img src="response-alert.svg" alt="Exclamation Mark" height="35" width="35" style="vertical-align:middle;"/> Sometimes, an exclamation mark appears as a warning, indicating that some information based on expert knowledge has to be taken into account.
 
 **7. Family:** Drug family to which the compound belongs to. It is based on the [KEGG's Target-based Classification of Drugs](https://www.genome.jp/kegg-bin/get_htext?br08310.keg) and the [Connectivity Map (CMAP)](https://www.broadinstitute.org/connectivity-map-cmap) classification.
 
-**8. Source(s):** Source(s) where the drug-gene interaction comes from. Each source name links to the original resource. Sources are:
+**8. Source(s):** Source(s) where the drug-gene association comes from. Each source name links to the original resource. Sources are:
 
   <img src="pandrugs-sources.png" alt="PanDrugs Sources" height="750" width="500" style="horizontal-align:left;"/>
 
@@ -335,7 +337,7 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
 **11. BTC:** The Best Therapeutic Candidates, with DScore > 0.7 and GScore > 0.6, are highlighted with a yellow star <img src="btc.png" alt="Best Therapeutic Candidate" height="25" width="25" style="vertical-align:middle;"/> in the BTC column.
   
-**12. PharmCAT:** This column will appear after a [Small Variants Query](#!/help#vcf-query) or a [Multi-omics Query](#!/help#multi-omics-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>. The drugs with CPIC recommendations will be labelled with one of these icons:
+**12. PharmCAT:** This column will appear after a [small variants query](#!/help#vcf-query) or a [multi-omics query](#!/help#multi-omics-query) with <span style="color:#50AC50">**PharmCAT analysis**</span>. The drugs with CPIC recommendations will be labelled with one of these icons:
 
   - <img src="strongly-recommended.svg" alt="Strongly Recommended" height="35" width="35" style="vertical-align:middle;"/> **Strongly Recommended:** There is **strong** evidence to **recommend** the administration of this drug according to patient's germline variants.
   - <img src="moderately-recommended.svg" alt="Moderately Recommended" height="35" width="35" style="vertical-align:middle;"/> **Moderately Recommended:** There is **moderate** evidence to **recommend** the administration of this drug according to patient's germline variants.
@@ -345,13 +347,13 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
   All these icons are linked to the corresponding drug section in PharmCAT's report, which further explains the administration recommendation. The full PharmCAT's report can be downloaded from the [summary box](#!/help#summary-box).
 
-**13. SNV:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with a VCF. A drug will be labelled with this icon <img src="small-variants.svg" alt="SNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a somatic variant.
+**13. SNV:** This column will appear after a [multi-omics query](#!/help#multi-omics-query) with a VCF. A drug will be labelled with this icon <img src="small-variants.svg" alt="SNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a somatic variant.
 
-**14. CNV:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with a CNV file or a [CNVs Query](#!/help#cnvs-query). A drug will be labelled with this icon <img src="cnvs.svg" alt="CNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a CNV (either an <!--<span style="color:#FFA42B">Amplification</span>--><img src="amplification.svg" alt="Sensitivity" height="40" width="85" style="vertical-align:middle;"/> or <!--<span style="color:#6E66D4">Deletion</span>--><img src="deletion.svg" alt="Sensitivity" height="40" width="60" style="vertical-align:middle;"/>).
+**14. CNV:** This column will appear after a [multi-omics query](#!/help#multi-omics-query) with a CNV file or a [CNVs query](#!/help#cnvs-query). A drug will be labelled with this icon <img src="cnvs.svg" alt="CNV" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes presents a CNV (either an <img src="amplification.svg" alt="Sensitivity" height="40" width="85" style="vertical-align:middle;"/> or <img src="deletion.svg" alt="Sensitivity" height="40" width="60" style="vertical-align:middle;"/>).
 
-**15. Expression:** This column will appear after a [Multi-omics Query](#!/help#multi-omics-query) with expression data. A drug will be labelled with this icon <img src="expression.svg" alt="Expression" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes is labelled as
+**15. Expression:** This column will appear after a [multi-omics query](#!/help#multi-omics-query) with expression data. A drug will be labelled with this icon <img src="expression.svg" alt="Expression" height="35" width="35" style="vertical-align:middle;"/> when any of its associated genes is labelled as
 
-  - <img src="highly-overexpressed-oncogene.svg" alt="Highly Overexpressed Oncogene" height="35" width="35" style="vertical-align:middle;"/> Highly Overexpressed <!--Oncogene-->Gene
+  - <img src="highly-overexpressed.svg" alt="Highly Overexpressed" height="35" width="35" style="vertical-align:middle;"/> Highly Overexpressed
   - <img src="overexpressed.svg" alt="Overexpressed" height="35" width="35" style="vertical-align:middle;"/> Overexpressed
   - <img src="underexpressed.svg" alt="Underexpressed" height="35" width="35" style="vertical-align:middle;"/> Underexpressed
 
@@ -365,9 +367,17 @@ Each row has **ADDITIONAL INFORMATION** that can be expanded clicking on the <im
 
   - A link to [PubMed](https://pubmed.ncbi.nlm.nih.gov) and [ClinicalTrials.gov](https://clinicaltrials.gov/ct2/home) with additional information regarding the drug-gene association.
 
-  - **After a query with a VCF (either a [Small Variants](#!/help#vcf-query) or [Multi-omics Query](#!/help#multi-omics-query)):** Annotations for the variant affecting the gene are provided.
+  - **After a query with a VCF (either a [small variants](#!/help#vcf-query) or [multi-omics query](#!/help#multi-omics-query)):** Annotations for the variant affecting the gene are provided.
 
-  - **After a [Multi-omics Query](#!/help#multi-omics-query):** A sentence explaning the coherence between the alterations found in the different input files is provided.
+  - **After a [multi-omics query](#!/help#multi-omics-query):** A sentence explaning the coherence between the alterations found in the different input files is provided.
+
+### 4.4 PanDrugs Report<a name="report"></a>
+
+After a [small variants query](#!/help#vcf-query), a downloadable report with PanDrugs' top results will appear on the top of the page. This report is aimed to support clinical decision-making and comprises two sections:
+
+- **Summary section:** A brief overview of PanDrugs results, including information detailed in the [Summary Box](#!/help#summary-box) and [Charts](#!/help#charts) sections.
+
+- **Best Therapeutic Candidates section:** This section contains a table with the BTCs annotated with their approval status, type of therapy, response, drug family, their actionable variants and the type of drug-gene association.
 
 ## 5. Drug Query Output<a name="drug-query-output"></a>
 
