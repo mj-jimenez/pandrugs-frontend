@@ -3,7 +3,7 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 
 <div style="text-align: left;"><embed src="pandrugsdb-sources.pdf" alt="PanDrugsdb Sources" type="application/pdf" frameBorder="0" height="70%" width="70%"/>
 
-| Source             | Version/Access Date\*/DOI      | License                     | Retrieved Information                                           |
+| Source             | Version/Access Date\*/DOI    | License                     | Retrieved Information                                           |
 | ------------------ | ---------------------------- | --------------------------- | --------------------------------------------------------------- |
 | CIViC              | v2022-07-01                  | CC0 1.0                     | Drug-gene associations; Drug-gene annotations                   |
 | DGIdb              | v4.2.0                       | MIT                         | Drug-gene associations                                          |
@@ -26,13 +26,13 @@ PanDrugs database (PanDrugsdb) integrates 74,087 drug-gene associations from 24 
 | OncoVar            | v1.2                         | Free for non-commercial use | Gene annotations; GScore calculation                            |
 | Cancer Hallmarks   | 10.1038/s41598-018-25076-6   | CC BY 4.0                   | GScore calculation                                              |
 | TDLs               | 10.1016/j.celrep.2022.110400 | CC BY-NC-ND 4.0             | GScore calculation                                              |
-| ClinVar            | v2022-08                     | Free                        | Variant annotations                                             |
+| ClinVar            | v2022-05                     | Free                        | Variant annotations                                             |
 | COSMIC             | v96                          | Free for non-commercial use | Variant annotations                                             |
 | Domains            | 10.1371/journal.pcbi.1004147 | CC BY 4.0                   | Variant annotations                                             |
-| InterPro           | v90.0                        | CC0 1.0                     | Variant annotations                                             |
+| InterPro           | v88.0                        | CC0 1.0                     | Variant annotations                                             |
 | Pfam               | v35.0                        | CC0 1.0                     | Variant annotations                                             |
-| UniProt            | v2022_03                     | CC BY 4.0                   | Variant annotations                                             |
-| VEP                | v109                         | Apache-2.0                  | Variant annotations                                             |
+| UniProt            | v2022_01                     | CC BY 4.0                   | Variant annotations                                             |
+| VEP                | v109.3                       | Apache-2.0                  | Variant annotations                                             |
 | PharmCAT           | v2.1.2                       | MPL 2.0                     | Pharmacogenomics recommendations                                |
 
 \* Dates are displayed in ISO 8601 standard format: YYYY-MM-DD.
