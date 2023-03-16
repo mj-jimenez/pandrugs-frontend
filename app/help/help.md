@@ -64,12 +64,12 @@ Another possibility is to make a **[drug query](#!/help#drug-query)** to find ou
 ### 1.1 Genes Query<a name="genes-query"></a>
 In this modality, the input is a **set of gene symbols** that can be pasted directly into the text box or uploaded as a file **without a header**. **In both cases, each gene symbol must appear in a different line**.
 
-<div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="60%" width="60%"/>
 
 ### 1.2 Drug Query<a name="drug-query"></a>
 **A single drug** can be queried to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
 
-<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="60%" width="60%"/>
 
 ### 1.3 Gene Ranking Query<a name="gene-ranking-query"></a>
 In this type of query, it is possible to upload a **ranked list of genes as a [.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
@@ -78,12 +78,12 @@ This file must consist of two tab-delimited columns containing gene symbols and 
 
 The ranking metric will be scaled between 0 and 1 and will be treated as a user-supplied [GScore](#!/help#gscore-calculation), overwriting the pre-computed one.
 
-<div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="60%" width="60%"/>
 
 ### 1.4 CNVs Query<a name="cnvs-query"></a>
 In this modality, you can upload a **tab-delimited file without headers** formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the corresponding gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
 
-<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="60%" width="60%"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
 In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. The genomic coordinates in this VCF must correspond to the GRCh38 assembly of the human genome.
@@ -93,7 +93,7 @@ In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-
 - **Ideally**, a VCF with **two sample columns named "tumor" and "normal"** detailing the genotypes of the corresponding variant in each sample. Please note that, while the order of the sample columns is indifferent, **the names must be exactly "tumor" and "normal"**.
 - A VCF with a **single sample column** containing somatic and germline variants all together. In this case, **there are no requirements regarding the name of the sample column**.
 
-<div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="60%" width="60%"/>
 
 To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and optionally upload a .tsv file with genotypes called outside PharmCAT. Moreover, you can provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
@@ -105,7 +105,7 @@ A message indicating that the computation has been successfully submitted will a
 
 Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
 
-<div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="60%" width="60%"/>
 
 During this process, the somatic variants included in the VCF are annotated using Ensembl's [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) and additional databases. With these annotations, a Variant Score (VScore) is computed for each variant. The final GScore is then calculated as the maximum VScore for the principal transcript of each gene.
 
@@ -115,7 +115,7 @@ Finally, when the progress bar is complete, you can query PanDrugsdb and obtain 
 
 Moreover, it is possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span> or the PharmCAT report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="60%" width="60%"/>
 
 If you are logged in PanDrugs, the results of the query will be stored in your account. You will be able to access any previous analyses done within the last 6 months and select one of them to make a new query. You can register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
@@ -126,7 +126,7 @@ You can perform a multi-omics query in case you have at least two of these input
   - A VCF.
   - Expression data.
 
-<div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="60%" width="60%"/>
 
 In this type of query, the expression data can be uploaded as a **[.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
