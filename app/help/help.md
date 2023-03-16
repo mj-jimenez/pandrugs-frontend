@@ -552,9 +552,9 @@ This example corresponds to a colon adenocarcinoma patient<!--who harbors an alt
 
 First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT analysis**</span> and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
-If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
+If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in here. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, select **Pathway member** in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
 <div style="text-align: left;"><img src="vcf-query-example-input-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 2" height="100%" width="100%"/>
 
@@ -562,7 +562,7 @@ When the progress bar is complete, do not modify any of the <span style="color:#
 
 In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query, but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
+These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
 
 For this example, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>. Note that the Drug response column shows an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> for MEK inhibitors. 
 
