@@ -201,20 +201,7 @@ PanDrugs **ranks the results based on** two scores: the **Drug Score (DScore)** 
 
 This score has been calculated according to the drug indication for cancer or other diseases, its approval status and the type of direct drug-gene association (direct target or biomarker). Moreover, the sign of the pre-computed DScore indicates the direction of the drug response (sensitivity or resistance).
 
-| Disease                           | Drug Status     | Druggable Gene | Pre-computed DScore |
-| --------------------------------- | --------------- | -------------- | ------------------- |
-| Cancer                            | Approved        | Direct target  | ±1                  |
-|                                   |                 | Biomarker      | ±0.9                |
-| Other (in cancer clinical trials) |                 | Direct target  | ±0.8                |
-|                                   |                 | Biomarker      | ±0.7                |
-| Cancer                            | Clinical Trials | Direct target  | ±0.6                |
-|                                   |                 | Biomarker      | ±0.5                |
-| Other                             | Approved        | Direct target  | ±0.4                |
-|                                   |                 | Biomarker      | ±0.3                |
-|                                   | Clinical Trials | Direct target  | ±0.2                |
-|                                   |                 | Biomarker      | ±0.1                |
-|                                   | Experimental    | Direct target  | ±0.0008             |
-|                                   |                 | Biomarker      | ±0.0004             |
+<div style="text-align: left;"><img src="precomputed-dscore.png" alt="Pre-computed DScores" height="40%" width="40%" max-width="850px"/>
 
 The final DScore reported by PanDrugs depends on the type of query:
   
@@ -269,9 +256,9 @@ Moreover, we define two thresholds: DScore = 0.7 and GScore = 0.6 to divide the 
 
 You can click and drag the cursor to select any plot region you want to zoom in. In addition, the scatter plot can be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="15" width="15"/>.
 
-<div style="text-align: left;"><img src="scatter-plot-01.svg" alt="Scatter Plot" height="80%" width="80%" max-width="850px"/>
+<div style="text-align: left;"><img src="scatter-plot-01.svg" alt="Scatter Plot" height="60%" width="60%" max-width="850px"/>
 
-<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Zoom In" height="80%" width="80%" max-width="850px"/>
+<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Zoom In" height="60%" width="60%" max-width="850px"/>
 
 #### 4.2.2 Pie Charts<a name="pie-charts"></a>
 
@@ -279,13 +266,13 @@ You can click and drag the cursor to select any plot region you want to zoom in.
 
 This chart shows the percentage of ranked therapies in each approval status group (<span style="color:#34BD85">Approved</span>, <span style="color:#FFCD46">Clinical Trials</span> or <span style="color:#337DB5">Experimental</span>).
 
-<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="70%" width="70%" max-width="850px"/>
+<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="60%" width="60%" max-width="850px"/>
 
 **Drugs by family**
 
 This chart shows the percentage of ranked therapies that belongs to each drug family.
 
-<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="pie-chart-02.svg" alt="Pie Chart Drug Family" height="60%" width="60%"/>
 
 These two charts can also be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="18" width="18" style="vertical-align:middle;"/>.
 
