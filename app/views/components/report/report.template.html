@@ -1,0 +1,277 @@
+<!--
+  This file is part of PanDrugs Backend.
+
+  PanDrugs Backend is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  PanDrugs Backend is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with PanDrugs Backend.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<div class="report">
+    <button type="button" class="btn btn-success" data-target="#report"
+        ng-click="$ctrl.showingReport = !$ctrl.showingReport" data-keyboard="false" data-backdrop="static" data-toggle="modal"><span class="glyphicon glyphicon-file">&nbsp;</span>See best candidates report</button>
+    <div id="report" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                            ng-click="$ctrl.showingReport = false">&times;</span></button>
+                    <button class="btn btn-primary" onclick="window.print()"><span
+                            class="glyphicon glyphicon-print">&nbsp;</span>Print or save to PDF</button>
+                </div>
+                <div class="modal-body printable">
+                    <div id="report-contents" ng-if="$ctrl.showingReport">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <img id="logo" src="images/pandrugs2-logo.svg">
+                            </div>
+                            <h2 class="row">PANDRUGS REPORT</h2>
+                            <div class="row">
+                                <p><strong>Disclaimer:</strong> This report is intended for research use only and should
+                                    not be used for medical or professional advice.</p>
+                            </div>
+                            <div class="row" id="report-header-data">
+                                <dl>
+                                    <dt>ID:</dt>
+                                    <dd>{{$ctrl.getComputation().name}}</dd>
+                                    <dt>Date:</dt>
+                                    <dd>{{$ctrl.date.toString()}}</dd>
+                                    <dt>Analysis type:</dt>
+                                    <dd>{{$ctrl.getAnalysisType()}}</dd>
+                                    <dt>Tumour type:</dt>
+                                    <dd ng-if="!$ctrl.advancedQueryOptions.areAllCancerTypesSelected()">
+                                        {{$ctrl.advancedQueryOptions.getSelectedCancerTypes() | enumeration}}
+                                    </dd>
+                                    <dd ng-if="$ctrl.advancedQueryOptions.areAllCancerTypesSelected()">All</dd>
+                                    
+                                </dl>
+                            </div>
+                            <div class="row">
+                                <p>
+                                    This report provides a summary and statistical overview of the results obtained from
+                                    PanDrugs, as well as a complete list of the most promising drugs associated with the
+                                    identified actionable variants and the supporting molecular evidence.
+                                </p>
+                            </div>
+                            <h2 class="row">SUMMARY</h2>
+
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h3>DRUGS</h3>
+                                    <dl>
+                                        <dt># “Best Candidate” drugs:</dt>
+                                        <dd><span
+                                                class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.length}}</span>
+                                        </dd>
+                                        <dt>Drug status:</dt>
+                                        <dd>AP:
+                                            <span
+                                                class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.statusCounts['APPROVED']
+                                                || "0"}}</span>;
+                                            CT:
+                                            <span
+                                                class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.statusCounts['CLINICAL_TRIALS']
+                                                || "0"}}</span>;
+                                            EX:
+                                            <span
+                                                class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.statusCounts['EXPERIMENTAL']
+                                                || "0"}}</span>
+                                        </dd>
+                                        <dt>Drug type:</dt>
+                                        <dd>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['TARGETED_THERAPY']">TT:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['TARGETED_THERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['CHEMOTHERAPY']">CTx:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['CHEMOTHERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['COMBINATION_THERAPY']">CbT:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['COMBINATION_THERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['IMMUNOTHERAPY']">IT:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['IMMUNOTHERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['PHOTODYNAMIC_THERAPY']">PdT:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['PHOTODYNAMIC_THERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['HORMONE_THERAPY']">HT:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['HORMONE_THERAPY']}}</span>;</span>
+                                            <span
+                                                ng-if="$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['OTHER']">other/NA:
+                                                <span
+                                                    class="count-value">{{$ctrl.bestCandidateGeneDrugGroups.therapyTypeCounts['OTHER']}}</span>;</span>
+
+                                        </dd>
+                                    </dl>
+
+                                    <h3>Top-5 drug families:</h3>
+                                    <ol>
+                                        <li ng-repeat="family in $ctrl.getTopKFamilies(5)">                                            
+                                            {{family.familyName}}<span ng-if="family.type"> [{{family.type | titlecase | replace:'_':' ' | pandrugsAcronym}}]</span>: 
+                                            <span class="count-value">{{$ctrl.keys(family.drugs).length}}</span> 
+                                            (AP: <span class="count-value">{{family.APCount}}</span>, 
+                                            CT: <span class="count-value">{{family.CTCount}}</span>, 
+                                            EX: <span class="count-value">{{family.EXCount}}</span>)
+                                        </li>
+                                                                           
+                                    </ol>
+                                </div>
+                                <div class="col-xs-6">
+                                    <h3>GENES</h3>
+                                    <dl>
+                                        <dt># genes:</dt>
+                                        <dd><span class="count-value">{{$ctrl.getQueriedGenesLength()}}</span></dd>
+                                        <dt># genes in Pandrugs:</dt>
+                                        <dd><span class="count-value">{{$ctrl.genePresence.present.length}}</span></dd>
+                                    </dl>
+                                    <h3>ALL MOLECULAR EVIDENCES</h3>
+                                    <dl>
+                                        <dt># SNVs:</dt>
+                                        <dd><span class="count-value">{{$ctrl.keys($ctrl.snvCounts.all.total).length}}</span> (w. conseq: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.all.withRelevantConsequence).length}}</span>, damaging: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.all.damaging).length}}</span>, pathogenic: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.all.pathogenic).length}}</span>)</dd>
+                                        
+                                        <dt ng-if="$ctrl.isMultiOmicsWithCNVAnalysis()"># CNV:
+                                        <dd ng-if="$ctrl.isMultiOmicsWithCNVAnalysis()"><span class="count-value">{{$ctrl.keys($ctrl.cnvCounts.allAmp).length}}</span> amp, <span class="count-value">{{$ctrl.keys($ctrl.cnvCounts.allDel).length}}</span> del</dd>
+                                        
+                                        <dt ng-if="$ctrl.isMultiOmicsWithExpressionAnalysis()"># Exprs:
+                                        <dd ng-if="$ctrl.isMultiOmicsWithExpressionAnalysis()"><span class="count-value">{{$ctrl.keys($ctrl.expressionCounts.allUp).length}}</span> up, <span class="count-value">{{$ctrl.keys($ctrl.expressionCounts.allDown).length}}</span> down</dd>
+                                    </dl>
+                                    <h3>BEST CANDIDATES</h3>
+                                    <dl>
+                                        <dt># SNVs:</dt>
+                                        <dd><span class="count-value">{{$ctrl.keys($ctrl.snvCounts.inBestCandidates.total).length}}</span> (w. conseq: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.inBestCandidates.withRelevantConsequence).length}}</span>; damaging: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.inBestCandidates.damaging).length}}</span>, pathogenic: <span class="count-value">{{$ctrl.keys($ctrl.snvCounts.inBestCandidates.pathogenic).length}}</span>)</dd>
+                                        <dt ng-if="$ctrl.isMultiOmicsWithCNVAnalysis()"># CNV:
+                                        <dd ng-if="$ctrl.isMultiOmicsWithCNVAnalysis()"><span class="count-value">{{$ctrl.keys($ctrl.cnvCounts.ampInBestCandidates).length}}</span> amp, <span class="count-value">{{$ctrl.keys($ctrl.cnvCounts.delInBestCandidates).length}}</span> del</dd>
+                                            
+                                        <dt ng-if="$ctrl.isMultiOmicsWithExpressionAnalysis()"># Exprs:
+                                        <dd ng-if="$ctrl.isMultiOmicsWithExpressionAnalysis()"><span class="count-value">{{$ctrl.keys($ctrl.expressionCounts.upInBestCandidates).length}}</span> up, <span class="count-value">{{$ctrl.keys($ctrl.expressionCounts.downInBestCandidates).length}}</span> down</dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <p class="col">
+                                    <strong>Legend:</strong> Drug status:
+                                    Approved ({{ 'Approved' | pandrugsAcronym}}),
+                                    Clinical Trials ({{ 'Clinical Trials' | pandrugsAcronym}}),
+                                    Experimental ({{ 'Experimental' | pandrugsAcronym}}).
+                                    Drug type: Targeted therapy ({{ 'Targeted therapy' | pandrugsAcronym}}),
+                                    Chemotherapy ({{ 'Chemotherapy' | pandrugsAcronym}}),
+                                    Combination therapy ({{ 'Combination therapy' | pandrugsAcronym}}),
+                                    Hormone therapy ({{ 'Hormone therapy' | pandrugsAcronym}}),
+                                    Immunotherapy ({{ 'Immunotherapy' | pandrugsAcronym}}),
+                                    Photodynamic therapy ({{ 'Photodynamic therapy' | pandrugsAcronym}}),
+                                    Other therapy ({{ 'Other therapy' | pandrugsAcronym}})
+                                </p>
+                            </div>
+
+
+
+                            <h2 class="row">BEST CANDIDATE DRUGS IN PANDRUGS</h2>
+
+                            <p class="details"><strong>Method:</strong> Patient’s alterations (e.g. mutations, germinal
+                                variants,
+                                amplifications and deletions) and gene expression alterations are searched in PanDrugsDB
+                                and reported according to PanDrugs scores (see GScore and DScore), which combine
+                                clinico-biological gene relevance and susceptibility to treatment, reflecting the
+                                evidence level of the gene-drug association to the clinical evidence.
+                            <p class="details"><strong>Table of results:</strong> In the following table, basic
+                                information of the patient´s alterations
+                                with relevant clinical implications can be found. <strong>Only the top best candidate drug-gene
+                                associations are reported in this report</strong>. For a detailed evaluation it is recommended to
+                                access the full PanDrugs analysis results.</p>
+
+                            <p class="details"><strong>Legend:</strong> Direct target (DT), Biomarker(BM), Pathway
+                                member (PM), Genetic Dependency (GD),
+                                DrugScore (DS),
+                                GeneScore (GS).</p>
+
+                            <table id="best-candidates-table">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5">
+                                            <p dir="ltr"><span>Drug&nbsp;</span></p>
+                                        </td>
+                                        <td colspan="4">&nbsp;<p dir="ltr"><span>Molecular evidences</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">&nbsp;<p dir="ltr"><span>Drug</span></p>
+                                        </td>
+                                        <td colspan="4">
+                                            <p dir="ltr"><span>Status</span></p>
+                                        </td>
+                                        <td colspan="4">
+                                            <p dir="ltr"><span>Gene (Variant, Alteration / Association)</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">&nbsp;<p dir="ltr"><span>Type</span></p>
+                                        </td>
+                                        <td>&nbsp;<p dir="ltr"><span>Response</span></p>
+                                        </td>
+                                        <td>&nbsp;<p dir="ltr"><span>Family</span></p>
+                                        </td>
+                                        <td colspan="4">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                                <tbody ng-repeat="row in $ctrl.bestCandidateGeneDrugGroups">
+                                    <tr>
+                                        <td rowspan="2">&nbsp;<p dir="ltr"><span class="drug-name">{{row.showDrugName |
+                                                    titlecase}}</span></p>
+                                        </td>
+                                        <td colspan="4">
+                                            <p ng-repeat="geneDrug in row.geneDrugs" dir="ltr">
+                                                <span>{{geneDrug.drugStatusInfo}}</span>
+                                            </p>
+
+
+                                        </td>
+                                        <td colspan="4" rowspan="2">
+                                            <div ng-repeat="geneDrug in row.geneDrugs">
+                                                <p ng-repeat="gene in geneDrug.gene"
+                                                    ng-if="$ctrl.getComputation().affectedGenesInfo[gene.geneSymbol]"
+                                                    ng-init="affectedGenesInfo = $ctrl.getComputation().affectedGenesInfo[gene.geneSymbol]"
+                                                    dir="ltr"><a
+                                                        href="https://pubmed.ncbi.nlm.nih.gov/?term=%22{{row.showDrugName}}%22+%22{{gene.geneSymbol}}%22"><span>{{gene.geneSymbol}}</span></a>
+                                                        <span>&nbsp;({{affectedGenesInfo.HGVS_protein}}<span ng-if="row.calculatedGeneAnnotations && row.calculatedGeneAnnotations.expression && row.calculatedGeneAnnotations.expression[gene.geneSymbol]"> / #{{row.calculatedGeneAnnotations.expression[gene.geneSymbol] | titlecase | replace:'_':' ' | pandrugsAcronym}}</span> / {{geneDrug.interactionType | titlecase | replace:'_':' ' | pandrugsAcronym
+                                                        }});&nbsp;</span></p>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <p dir="ltr" ng-if="row.therapy !== null"><span>{{row.therapy | titlecase |
+                                                    replace:'_':' ' | pandrugsAcronym}}</span></p>
+                                        </td>
+                                        <td>
+                                            <p dir="ltr"><span>{{row.getSensitivity() | titlecase}}</span></p>
+                                        </td>
+                                        <td>
+                                            <p dir="ltr"><span>{{row.family | enumeration | replace:'Other':'Unknown'}}</span></p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

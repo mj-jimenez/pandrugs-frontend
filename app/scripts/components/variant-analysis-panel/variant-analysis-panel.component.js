@@ -24,11 +24,13 @@ angular.module('pandrugsFrontendApp')
     bindings: {
       reloadInterval: '@',
       autoreload: '<',
-      onSelected: '&'
+      onSelected: '&',
+      isMultiomics: '<'
     },
     controller: ['user', '$location', '$interval', '$timeout', function (user, $location, $interval, $timeout) {
-      this.computations = [];
+      this.computations = {};
       this.computationId = $location.search().computationId;
+      this.fetchedComputations = false;
 
       if (this.autoreload === undefined) {
         this.autoreload = true;
@@ -38,7 +40,7 @@ angular.module('pandrugsFrontendApp')
         if ($location.search().example === 'vcfrank') {
           this.computationId = 'example';
 
-          user.getComputation('guest', 'example', function(computation){
+          user.getComputation('guest', 'example', function (computation) {
             this.computationId = 'example';
             this.computations.example = new Computation(this.computationId, computation);
             this.notifyComputationIdChange();
@@ -47,20 +49,22 @@ angular.module('pandrugsFrontendApp')
 
         // User requires some time to load the actual user.
         // This delay wait for the current user to be set.
+        this.reloadComputations();
         $timeout(this.reloadComputations, 1000)
-          .then(function() {
+          .then(function () {
             this.reloadComputationsTask = $interval(
-              function() {
+              function () {
                 if (this.autoreload) {
                   this.reloadComputations();
                 }
               }.bind(this),
               this.reloadInterval ? this.reloadInterval : 5000
             );
+
           }.bind(this));
       }.bind(this);
 
-      this.$onDestroy = function() {
+      this.$onDestroy = function () {
         if (this.reloadComputationsTask !== undefined) {
           $interval.cancel(this.reloadComputationsTask);
         }
@@ -73,60 +77,82 @@ angular.module('pandrugsFrontendApp')
         });
       }.bind(this);
 
-      this.isAnonymous = function() {
+      this.isAnonymous = function () {
         return user.getCurrentUser() === 'anonymous';
       };
 
-      this.deleteComputation = function(computationId) {
+      this.deleteComputation = function (computationId) {
         if (window.confirm('Are you sure?')) {
           user.deleteComputation(computationId,
-            function() {
+            function () {
               window.alert('Computation deleted successfully.');
             },
-            function() {
+            function () {
               window.alert('ERROR: computation could not be deleted.');
             }
           );
         }
       };
 
-      this.downloadVScoreFile = function(computationId) {
+      this.downloadVScoreFile = function (computationId) {
         window.location.href = user.getVscoreDownloadURLForComputation(computationId);
       };
 
-      this.getPharmcatURL = function(computationId) {
-        return user.getPharmcatURLForComputation(computationId); 
+      this.getPharmcatURL = function (computationId) {
+        return user.getPharmcatURLForComputation(computationId);
       };
+
+      this.goTo = function () {
+        document.location.href = "/#!/query?tab=vcfrank";
+      };
+
+      this.getFetchedComputationsCount = function () {
+        if (this.fetchedComputations === true) {
+          return Object.keys(this.computations).length;
+        } else {
+          return 0;
+        }
+      }.bind(this);
 
       function Computation(computationId, computation) {
         this.id = computationId;
         angular.merge(this, computation);
       };
 
-      Computation.prototype.canBeQueried = function() {
+      Computation.prototype.canBeQueried = function () {
         return this.isSuccess() && this.hasAffectedGenes();
       };
 
-      Computation.prototype.hasAffectedGenes = function() {
+      Computation.prototype.hasAffectedGenes = function () {
         return this.countAffectedGenes() > 0;
       };
 
-      Computation.prototype.countAffectedGenes = function() {
+      Computation.prototype.countAffectedGenes = function () {
         return this.affectedGenes ? this.affectedGenes.length : 0;
       };
 
-      Computation.prototype.isFailed = function() {
+      Computation.prototype.isFailed = function () {
         return this.failed;
       };
 
-      Computation.prototype.isSuccess = function() {
+      Computation.prototype.isSuccess = function () {
         return this.finished && !this.isFailed();
       };
 
+      Computation.prototype.getAllRelevantConsequences = function () {
+        return ['transcript_ablation',
+          'splice_acceptor_variant', 'splice_donor_variant', 'stop_gained',
+          'frameshift_variant',
+          'stop_lost',
+          'start_lost',
+          'transcript_amplification'];
+      }
+
       //update computation status...
-      this.reloadComputations = function() {
+      this.reloadComputations = function () {
         if (!this.isAnonymous()) {
-          user.getComputations(function(computations) {
+          user.getComputations(function (computations) {
+            this.fetchedComputations = true;
             var savedExample;
 
             if (this.computations.example) {
@@ -144,15 +170,17 @@ angular.module('pandrugsFrontendApp')
               this.computations.example = savedExample;
             }
           }.bind(this));
-        } else if(this.computationId) {
-          user.getComputation('guest', this.computationId, function(computation) {
+        } else if (this.computationId) {
+          user.getComputation('guest', this.computationId, function (computation) {
             this.computations = {};
             this.computations[this.computationId] = new Computation(this.computationId, computation);
-
+            this.fetchedComputations = true;
             this.notifyComputationIdChange();
           }.bind(this));
+        } else {
+          this.fetchedComputations = true;
         }
       }.bind(this);
     }]
-      
+
   });
