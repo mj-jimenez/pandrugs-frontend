@@ -473,8 +473,9 @@ These results can be interpreted as the ones obtained after a [gene names analys
 
 For this example, PanDrugs finds a handful of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
 
+<!--
 <div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%" max-width="850px"/>
-
+-->
 Please, order the summary table by descending GScore to visualize the results.
 
 <div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
@@ -493,7 +494,7 @@ This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/pa
 
 <div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%" max-width="850px"/>
 
-Load the example file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Load the example file, **do not** modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
@@ -503,8 +504,9 @@ These results can be interpreted as the ones obtained after a [gene names analys
 
 In this case, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 0.7338. 
 
+<!--
 <div style="text-align: left;"><img src="cnvs-query-output-01.svg" alt="Scatter Plot CNVs Query" height="80%" width="80%" max-width="850px"/>
-
+-->
 Please, order the summary table by descending GScore to visualize the results.
 
 All these Best Therapeutic Candidates are driven by *RB1* (GScore = 0.7338). The first result is everolimus, a targeted therapy approved for breast cancer that has *RB1* and *BRCA2* as biomarkers of drug response. If we expand the everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that these two genes are deleted in this patient.
