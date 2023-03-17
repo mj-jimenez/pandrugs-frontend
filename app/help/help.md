@@ -436,7 +436,7 @@ You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mar
 
 Encorafenib is a targeted therapy approved for the treatment of colon, rectum and skin cancer.
 
-<div style="text-align: left;"><img src="drug-query-example-input.png" alt="Drug Query Input" height="50%" width="50%"/>
+<div style="text-align: left;"><img src="drug-query-example-input.png" alt="Drug Query Input" height="50%" width="50%" max-width="850px"/>
 
 Click on the <span style="color:#50AC50">**Query**</span> button.
 
