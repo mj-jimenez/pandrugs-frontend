@@ -65,12 +65,12 @@ Another possibility is to make a **[drug query](#!/help#drug-query)** to find ou
 ### 1.1 Gene Names Query<a name="genes-query"></a>
 In this modality, the input is a **set of gene symbols** that can be pasted directly into the text box or uploaded as a file **without a header**. **In both cases, each gene symbol must appear in a different line**.
 
-<div style="text-align: left;"><img src="genes-query-01.png" alt="Gene Names Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="genes-query-01.png" alt="Gene Names Query" height="60%" width="60%" max-width="850px"/>
 
 ### 1.2 Drug Query<a name="drug-query"></a>
 **A single drug** can be queried to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
 
-<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="drug-query-01.png" alt="Drug Query" height="60%" width="60%" max-width="850px"/>
 
 ### 1.3 Gene Ranking Query<a name="gene-ranking-query"></a>
 In this type of query, it is possible to upload a **ranked list of genes as a [.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
@@ -79,12 +79,12 @@ This file must consist of two tab-delimited columns containing gene symbols and 
 
 The ranking metric will be scaled between 0 and 1 and will be treated as a user-supplied [GScore](#!/help#gscore-calculation), overwriting the pre-computed one.
 
-<div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-01.png" alt="Gene Ranking Query" height="60%" width="60%" max-width="850px"/>
 
 ### 1.4 CNVs Query<a name="cnvs-query"></a>
 In this modality, you can upload a **tab-delimited file without headers** formed by two columns. The first one must contain a **gene symbol** per line. The second column must indicate the **CNV status** of the corresponding gene (either "AMP" for amplification or "DEL" for deletion). **Diploid genes must not be listed in this file**.
 
-<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="cnvs-query-01.png" alt="CNVs Query" height="60%" width="60%" max-width="850px"/>
 
 ### 1.5 Small Variants Query<a name="vcf-query"></a>
 In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-specs/VCFv4.2.pdf)** containing somatic and, optionally, germline variants. The genomic coordinates in this VCF must correspond to the GRCh38 assembly of the human genome.
@@ -94,19 +94,19 @@ In this type of query, you must upload a **[VCF](https://samtools.github.io/hts-
 - **Ideally**, a VCF with **two sample columns named "tumor" and "normal"** detailing the genotypes of the corresponding variant in each sample. Please note that, while the order of the sample columns is indifferent, **the names must be exactly "tumor" and "normal"**.
 - A VCF with a **single sample column** containing somatic and germline variants all together. In this case, **there are no requirements regarding the name of the sample column**.
 
-<div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="vcf-query-01.png" alt="Small Variants Query" height="60%" width="60%" max-width="850px"/>
 
 To create a new analysis, click on <span style="color:#50AC50">**New variants analysis...**</span> and then select a valid VCF file. You can click on <span style="color:#50AC50">**PharmCAT analysis**</span> and optionally upload a .tsv file with genotypes called outside PharmCAT. Moreover, you can provide a meaningful name for the job. Finally, click on <span style="color:#50AC50">**Submit VCF**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-02.png" alt="New VCF Analysis" height="40%" width="40%" max-width="850px"/>
 
 A message indicating that the computation has been successfully submitted will appear. In this message, you will get a link to follow the computation progress.
 
-<div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-03.png" alt="Small Variants Query Submission Message" height="40%" width="40%" max-width="850px"/>
 
 Moreover, if you come back to the <span style="color:#50AC50">**Small Variants**</span> tab or follow the link, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in this progress bar.
 
-<div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="vcf-query-04.png" alt="Progress Bar" height="60%" width="60%" max-width="850px"/>
 
 During this process, the somatic variants included in the VCF are annotated using Ensembl's [Variant Effect Predictor (VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) and additional databases. With these annotations, a Variant Score (VScore) is computed for each variant. The final GScore is then calculated as the maximum VScore for the principal transcript of each gene.
 
@@ -116,7 +116,7 @@ Finally, when the progress bar is complete, you can query PanDrugsdb and obtain 
 
 Moreover, it is possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span> or the PharmCAT report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="vcf-query-05.png" alt="Progress Bar Completed" height="60%" width="60%" max-width="850px"/>
 
 If you are logged in PanDrugs, the results of the query will be stored in your account. You will be able to access any previous analyses done within the last 6 months and select one of them to make a new query. You can register [here](https://pandrugs.sing-group.org/#!/login). **Note that the germline variants used to query PharmCAT are deleted immediately and are not stored in our servers**.
 
@@ -127,7 +127,7 @@ You can perform a multi-omics query in case you have at least two of these input
   - A VCF.
   - Expression data.
 
-<div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="multi-omics-query-01.png" alt="Multi-omics Query" height="60%" width="60%" max-width="850px"/>
 
 In this type of query, the expression data can be uploaded as a **[.rnk file](https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#RNK:_Ranked_list_file_format_.28.2A.rnk.29)**.
 
@@ -150,7 +150,7 @@ Those queries based on genes ([gene names](#!/help#genes-query), a [gene ranking
 
 PanDrugs2 includes two analysis modes: the **clinical mode**, which filters out experimental drugs and pathway member associations from the query results, and the **discovery mode**, which allows the selection of all possible filters to expand the therapeutic options suggested by PanDrugs.
 
-<div style="text-align: left;"><img src="analysis-options.png" alt="Analysis Options" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="analysis-options.png" alt="Analysis Options" height="60%" width="60% max-width="850px"/>
 
 ### 2.1 Drug Status<a name="drugs-status-level"></a>
 
@@ -251,7 +251,7 @@ Once the query has been completed, a downloadable report with top results, a sum
 
 This box details the total number of queried genes as well as the number of genes present and absent in PanDrugsdb. Morever, it specifies the type of query in the title and the [analysis options](#!/help#analysis-options) that were selected. If you made a [small variants query](#!/help#vcf-query) with a <span style="color:#50AC50">**PharmCAT analysis**</span>, the full PharmCAT's report will be available for download at the summary box.
 
-<div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="summary-box-01.png" alt="Summary Box" height="100%" width="100%" max-width="850px"/>
 
 ### 4.2 Charts<a name="charts"></a>
 
@@ -269,9 +269,9 @@ Moreover, we define two thresholds: DScore = 0.7 and GScore = 0.6 to divide the 
 
 You can click and drag the cursor to select any plot region you want to zoom in. In addition, the scatter plot can be printed or downloaded in different formats (PNG, JPEG, PDF or SVG) by clicking on this icon: <img src="download-icon.png" alt="Download Icon" height="15" width="15"/>.
 
-<div style="text-align: left;"><img src="scatter-plot-01.svg" alt="Scatter Plot" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="scatter-plot-01.svg" alt="Scatter Plot" height="80%" width="80%" max-width="850px"/>
 
-<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Zoom In" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Zoom In" height="80%" width="80%" max-width="850px"/>
 
 #### 4.2.2 Pie Charts<a name="pie-charts"></a>
 
@@ -279,7 +279,7 @@ You can click and drag the cursor to select any plot region you want to zoom in.
 
 This chart shows the percentage of ranked therapies in each approval status group (<span style="color:#34BD85">Approved</span>, <span style="color:#FFCD46">Clinical Trials</span> or <span style="color:#337DB5">Experimental</span>).
 
-<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="70%" width="70%"/>
+<div style="text-align: left;"><img src="pie-chart-01.svg" alt="Pie Chart Approval Status" height="70%" width="70%" max-width="850px"/>
 
 **Drugs by family**
 
@@ -329,7 +329,7 @@ The summary table shows the therapeutic options returned by PanDrugs ranked firs
 
 **8. Source(s):** Source(s) where the drug-gene association comes from. Each source name links to the original resource. Sources are:
 
-  <img src="pandrugs-sources.png" alt="PanDrugs Sources" height="750" width="500" style="horizontal-align:left;"/>
+  <img src="pandrugs-sources.png" alt="PanDrugs Sources" height="750" width="500" style="horizontal-align:left;" max-width="850px"/>
 
 **9. DScore:** Measures the suitability of the treatment. It ranges from -1 to 1, with the negative values corresponding to resistance and the positive values corresponding to sensitivity. For further information, please refer to [DScore Calculation](#!/help#dscore-calculation) section.
 
@@ -385,7 +385,7 @@ After making a [drug query](#!/help#drug-query) to retrieve the genes associated
 
 In this case, the summary box details the genes associated with the input drug according to PanDrugsdb. Moreover, it specifies the drug status and type of therapy.
 
-<div style="text-align: left;"><img src="summary-box-02.png" alt="Summary Box After Drug Query" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="summary-box-02.png" alt="Summary Box After Drug Query" height="100%" width="100%" max-width="850px"/>
 
 In the [summary table](#!/help#summary-table), each row represents a gene associated with the input drug. The reported DScore and GScore are the pre-computed ones.
 
@@ -397,7 +397,7 @@ Load <span style="color:#50AC50">**Example 3**</span> from the [genes query tab.
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
-<div style="text-align: left;"><img src="genes-query-example-input.png" alt="Gene Names Query Input" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-example-input.png" alt="Gene Names Query Input" height="100%" width="100%" max-width="850px"/>
 
 Select **Pathway member** in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -407,7 +407,7 @@ In the results page, you will see a summary box with the execution details, some
 
 Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>, PanDrugs suggests alpelisib and temsirolimus.
 
-<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Gene Names Query" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Gene Names Query" height="80%" width="80%" max-width="850px"/>
 
 If you take a look at the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the ones with the highest DScore and GScore:
 
@@ -416,7 +416,7 @@ If you take a look at the summary table, you will see that these two drugs have 
 
 Moreover, temsirolimus and alpelisib are both targeted therapies approved for cancer and belong to the PI3K inhibitor and mTOR inhibitor families respectively.
 
-<div style="text-align: left;"><img src="genes-query-output-01.png" alt="Gene Names Query Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-output-01.png" alt="Gene Names Query Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
@@ -426,7 +426,7 @@ If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expan
 
 You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> in the **Drug response** column. This alert indicates that a *PTEN* deficiency is associated with reduced sensitivity to the drug.
 
-<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Gene Names Query Summary Table Expanded" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Gene Names Query Summary Table Expanded" height="100%" width="100%" max-width="850px"/>
 
 ### 6.2. Drug Analysis<a name="examples-drug-query"></a>
 
@@ -442,7 +442,7 @@ Click on the <span style="color:#50AC50">**Query**</span> button.
 
 On the results page, you will see a summary box and a summary table similar to the one returned by other types of queries (see [Drug Query Output](#!/help#drug-query-output) section for further details).
 
-<div style="text-align: left;"><img src="drug-query-output-01.png" alt="Drug Query Summary Box" height="90%" width="90%"/>
+<div style="text-align: left;"><img src="drug-query-output-01.png" alt="Drug Query Summary Box" height="90%" width="90%" max-width="850px"/>
 
 In the summary table, each row represents a gene associated with encorafenib. We can observe examples for each type of drug-gene association:
 
@@ -451,7 +451,7 @@ In the summary table, each row represents a gene associated with encorafenib. We
 - **Genetic dependencies:** Such as *KRAS* (GoF) and *RAF1*.
 - **Pathway members:** Such as *CCND1*, which is a direct target downstream of *ARAF*, *BRAF*, *KRAS*, *MAP2K1*, *RAF1* and *TP53*. Note that *CCND1* GScore as a pathway member (DScore = 1) is different from its score as a direct target (DScore = 0.7257) since the first one is computed as the maximum GScore of all upstream genes.
 
-<div style="text-align: left;s"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;s"><img src="drug-query-output-02.png" alt="Drug Query Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 ### 6.3. Gene Ranking Analysis<a name="examples-gene-ranking-query"></a>
 
@@ -459,7 +459,7 @@ In the summary table, each row represents a gene associated with encorafenib. We
 
 This example corresponds to patient [TCGA-91-6847](https://www.cbioportal.org/patient?studyId=luad_tcga_pan_can_atlas_2018&caseId=TCGA-91-6847), who harbors an amplification in *EGFR* that leads to an increased expression of this gene. The example .rnk file contains the top 500 highly expressed genes. The ranking metric in this case is the statistic of the differential expression test.
 
-<div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-example-input.png" alt="Gene Ranking Query Input" height="100%" width="100%" max-width="850px"/>
 
 Load the .rnk file, select all **discovery mode** filters in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -471,15 +471,15 @@ These results can be interpreted as the ones obtained after a [gene names analys
 
 For this example, PanDrugs finds a handful of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
 
-<div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-output-01.svg" alt="Scatter Plot Gene Ranking Query" height="80%" width="80%" max-width="850px"/>
 
 Please, order the summary table by descending GScore to visualize the results.
 
-<div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-output-02.png" alt="Gene Ranking Query Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 If we take a closer look at the .rnk file and expand any row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button, we will notice that the gene that is driving these results is the top most overexpressed one: *CALML5*, with a GScore = 1.
 
-<div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="gene-ranking-query-output-03.png" alt="Gene Ranking Query Summary Table Expanded" height="100%" width="100%" max-width="850px"/>
 
 This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *CALML5* is involved in a lot of different pathways and some of its downstream genes are direct targets of PanDrugs therapies. Thus, all these Best Therapeutic Candidates are obtained via pathway member <img src="pathway-member-interaction.svg" alt="Pathway Member" height="20" width="108" style="vertical-align:middle;"/> associations.
 
@@ -489,7 +489,7 @@ This gene has no direct association with any drug in PanDrugsdb. Nevertheless, *
 
 This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga_pan_can_atlas_2018&caseId=TCGA-D8-A1JD), who harbours a deletion in the *BRCA2* gene that leads to the decreased expression of this gene. The example file contains all the CNVs detected for this patient.
 
-<div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="cnvs-query-example-input.png" alt="CNVs Query Input" height="100%" width="100%" max-width="850px"/>
 
 Load the example file, do not modify any of the <span style="color:#50AC50">**Analysis options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -501,17 +501,17 @@ These results can be interpreted as the ones obtained after a [gene names analys
 
 In this case, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 0.7338. 
 
-<div style="text-align: left;"><img src="cnvs-query-output-01.svg" alt="Scatter Plot CNVs Query" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="cnvs-query-output-01.svg" alt="Scatter Plot CNVs Query" height="80%" width="80%" max-width="850px"/>
 
 Please, order the summary table by descending GScore to visualize the results.
 
 All these Best Therapeutic Candidates are driven by *RB1* (GScore = 0.7338). The first result is everolimus, a targeted therapy approved for breast cancer that has *RB1* and *BRCA2* as biomarkers of drug response. If we expand the everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that these two genes are deleted in this patient.
 
-<div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Everolimus" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="cnvs-query-output-02.png" alt="CNVs Query Summary Table Everolimus" height="100%" width="100%" max-width="850px"/>
 
 We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibitors. If we scroll down the table, we'll discover some drugs from this family that have a biomarker <img src="biomarker-interaction.svg" alt="Biomarker" height="20" width="68" style="vertical-align:middle;"/> association with *BRCA2* and a DScore > 0.7. However, as *BRCA2* is not a direct target of PARP inhibitors, its GScore is below the threshold for defining Best Therapeutic Candidates (GScore < 0.6).
 
-<div style="text-align: left;"><img src="cnvs-query-output-03.png" alt="CNVs Query Summary Table PARPi" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="cnvs-query-output-03.png" alt="CNVs Query Summary Table PARPi" height="100%" width="100%" max-width="850px"/>
 
 ### 6.5. Small Variants Analysis<a name="examples-vcf-query"></a>
 
@@ -521,15 +521,15 @@ We know that patients with a deletion in *BRCA2* are susceptible to PARP inhibit
 
 This example corresponds to patient [TCGA-D8-A1JD](https://www.cbioportal.org/patient?studyId=brca_tcga_pan_can_atlas_2018&caseId=TCGA-D8-A1JD), who harbours two mutations in *PIK3CA*. The VCF contains the patient's somatic variants without any germline alteration, so we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Small Variants Query with Somatic Alterations: Input 1" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Small Variants Query with Somatic Alterations: Input 1" height="40%" width="40%" max-width="850px"/>
 
 First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT analysis**</span> and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
 If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in here. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that, at this point, it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that, at this point, it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Small Variants Query with Somatic Alterations: Input 2" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Small Variants Query with Somatic Alterations: Input 2" height="100%" width="100%" max-width="850px"/>
 
 <u>**Output interpretation**</u>
 
@@ -539,34 +539,37 @@ These results can be interpreted as the ones obtained after a [gene names analys
 
 PanDrugs returns several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> associated with *PIK3CA*.
 
+<!--
 <div style="text-align: left;"><img src="vcf-query-output-01.svg" alt="Small Variants Query with Somatic Alterations: Scatter Plot" height="80%" width="80%"/>
-
+-->
 Among these Best Therapeutic Candidates, there are PI3K inhibitors such as alpelisib and copanlisib.
 
-<div style="text-align: left;"><img src="vcf-query-output-02.png" alt="Small Variants Query with Somatic Alterations: Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-output-02.png" alt="Small Variants Query with Somatic Alterations: Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 If we expand any of these rows by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we'll confirm that *PIK3CA* is indeed mutated in this patient. Moreover, PanDrugs details the specific mutation that drives *PIK3CA* GScore.
 
+PanDrug's report with the BTCs is available at the top of the page.
+
 <!-- Update image -->
-<div style="text-align: left;"><img src="vcf-query-output-03.png" alt="Small Variants Query with Somatic Alterations: Summary Table Expanded" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-output-03.png" alt="Small Variants Query with Somatic Alterations: Summary Table Expanded" height="100%" width="100%" max-width="850px"/>
 
 #### 6.5.2 Small Variants Analysis with Somatic and Germline Alterations<a name="examples-vcf-query-somatic-germline-variants"></a>
 
 ##### 6.5.2.1 Small Variants Analysis without PharmCAT<a name="examples-vcf-query-no-pharmcat"></a>
 
-[Load example for a colon adenocarcinoma patient with synthetic germline variants.](#!/query?tab=vcfrank)
+[Load example for a colon adenocarcinoma patient from the TCGA with synthetic germline variants.](#!/query?tab=vcfrank)
 
-This example corresponds to a colon adenocarcinoma patient<!--who harbors an alteration in *PIK3CA* gene (p.His1047Arg)-->. The VCF contains patient's somatic variants as well as made up germline variants to simulate how PharmCAT analysis would enrich the final drug ranking in a real case scenario.
+This example corresponds to patient [TCGA-AA-3696](https://www.cbioportal.org/patient?studyId=coadread_tcga&caseId=TCGA-AA-3696), who harbours two mutations in *KRAS* and *PIK3CA*. The VCF contains patient's somatic variants as well as made up germline variants to simulate how PharmCAT analysis would enrich the final drug ranking in a real case scenario.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-03.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 1" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-03.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 1" height="40%" width="40%"  max-width="850px"/>
 
 First, load the VCF, do not click on <span style="color:#50AC50">**PharmCAT analysis**</span> and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
 If you come back to the small variants tab, you will notice a progress bar associated with your job. As the computation progresses, the completion of the different steps will be indicated in here. In this example, PanDrugs will annotate the somatic variants and compute GScores from VScores. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, select **Pathway member** in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
+When the progress bar is complete, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 2" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Input 2" height="100%" width="100%"  max-width="850px"/>
 
 <u>**Output interpretation**</u>
 
@@ -574,45 +577,41 @@ In the results page, you will see a summary box with the execution details, some
 
 These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
 
-For this example, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>. Note that the Drug response column shows an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> for MEK inhibitors. 
+For this example, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>. If you are interested in a drug repurposing approach using an hormone therapy, you may want to consider Tamoxifen (DScore = 0.9360; GScore = 0.6745), which is approved for breast cancer.
 
-<div style="text-align: left;"><img src="vcf-query-output-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-output-04.png" alt="Small Variants Query with Somatic and Germline Alterations: Summary Table Collapsed" height="100%" width="100%"  max-width="850px"/>
 
-If you position your cursor on top of this icon, you will discover that drugs from this family do not provide any benefit for *KRAS*-mutant patients such as this one.
-
-<div style="text-align: left;"><img src="vcf-query-output-05.png" alt="Small Variants Query with Somatic and Germline Alterations: Summary Table Expanded" height="100%" width="100%"/>
-
-If you are interested in a drug repurposing approach using an hormone therapy, you may want to consider Tamoxifen (DScore = 0.9110; GScore = 0.7480), which is approved for breast cancer.
+PanDrug's report with the BTCs is available at the top of the page.
 
 #### 6.5.2.1 Small Variants Analysis with PharmCAT<a name="examples-vcf-query-pharmcat"></a>
 
-Let's enrich the output of the [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat) with CPIC recommendations. [Load example for a breast invasive carcinoma patient from the TCGA.](#!/query?tab=vcfrank)
+Let's enrich the output of the [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat) with CPIC recommendations. [Load example for a colon adenocarcinoma patient from the TCGA with synthetic germline variants.](#!/query?tab=vcfrank)
 
-<div style="text-align: left;"><img src="vcf-query-example-input-05.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Input 1" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-05.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Input 1" height="40%" width="40%" max-width="850px"/>
 
-Again, load the VCF, but this time click on <span style="color:#50AC50">**PharmCAT analysis**</span>, load the example TSV with the *CYP2D6* genotype called outside PharmCAT and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
+Again, load the VCF, but this time click on <span style="color:#50AC50">**PharmCAT analysis**</span>, load the example .tsv with the *CYP2D6* genotype called outside PharmCAT and click on the <span style="color:#50AC50">**Submit VCF**</span> button. 
 
 PanDrugs will annotate the somatic variants and compute GScores from VScores. In addition, PanDrugs will query PharmCAT with the germline variants in order to retrieve the CPIC recommendations for the drugs shown in the final ranking. For more details, please refer to the [Small Variants Query](#!/help#vcf-query) section.
 
-When the progress bar is complete, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>. Moreover, you can download PharmCAT's report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
+When the progress bar is complete, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query with affected genes**</span> button. Please note that at this point it is also possible to download a tab-delimited file with the annotations for each somatic variant and the corresponding VScore by clicking on <span style="color:#50AC50">**Download VScores**</span>. Moreover, you can download PharmCAT's report by clicking on <span style="color:#50AC50">**PharmCAT report**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-06.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Input 2" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-06.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Input 2" height="100%" width="100%" max-width="850px"/>
 
 <u>**Output interpretation**</u>
 
 The results page will look exactly the same as the the output of the [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat). However, the summary table will show an additional column named **PharmCAT**.
 
-Please, take a look at Tamoxifen entry. There is a PharmCAT label that indicates that this patient has germline variants that are associated with Adverse Drug Reactions to this drug. If you click on the icon, you will be redirected to this Tamoxifen's section in PharmCAT's report, which further explains the administration recommendation.
+Please, take a look at tamoxifen entry. There is a PharmCAT label that indicates that this patient has germline variants that are associated with Adverse Drug Reactions (ADRs) to this drug. If you click on the icon, you will be redirected to tamoxifen's section in PharmCAT's report, which further explains the administration guideline.
 
 <!--
 If you look for Fluorouracil (DScore = 0.8110; GScore = 0.4710) you will see a PharmCAT label that indicates that this patient has germline variants that are associated with Adverse Drug Reactions to this drug. If you click on the icon, you will be redirected to this Fluorouracil's section in PharmCAT's report, which further explains the administration recommendation.
 -->
  
-<div style="text-align: left;"><img src="vcf-query-output-06.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-output-06.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
-Moreover, the full PharmCAT's report can be downloaded from the summary box at the top of the page.
+Moreover, the full PharmCAT's report can be downloaded from the summary box at the top of the page. PanDrug's report with the BTCs is available at the top of the page.
 
-<div style="text-align: left;"><img src="vcf-query-output-07.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Summary Box" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="vcf-query-output-07.png" alt="Small Variants Query with Somatic and Germline Alterations - PharmCAT Analysis: Summary Box" height="60%" width="60%" max-width="850px"/>
 
 ### 6.6. Multi-omics Analysis<a name="examples-multi-omics-query"></a>
 
@@ -624,7 +623,7 @@ We have already analyzed data from this patient in the [CNVs Analysis](#!/help#e
 
 [Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=multiomics)
 
-<div style="text-align: left;"><img src="multi-omics-query-example-input-01.png" alt="Multi-omics Query without VCF Input" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="multi-omics-query-example-input-01.png" alt="Multi-omics Query without VCF Input" height="100%" width="100%" max-width="850px"/>
 
 First, upload both the example CNV .tsv and expression .rnk files. **Do not** click on <span style="color:#50AC50">**With variant analysis**</span>, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -638,11 +637,11 @@ PanDrugs finds several BTCs <img src="btc.png" alt="Best Therapeutic Candidate" 
 
 Please, order the summary table by descending GScore to visualize the results. You will notice that everolimus is the drug with the highest combined DScore and GScore (DScore = 0.8220; GScore = 0.7338).
 
-<div style="text-align: left;"><img src="multi-omics-query-output-01.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-01.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 If we expand everolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get further information about the type of gene alterations that are contributing to PanDrugs ranking. In the expanded table, we observe that both *RB1* and *BRCA2*, biomarkers of everolimus, are deleted and this deletion leads to gene underexpression.
 
-<div style="text-align: left;"><img src="multi-omics-query-output-02.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-02.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="100%" width="100%" max-width="850px"/>
 
 #### 6.6.2 Multi-omics Analysis with VCF<a name="examples-multi-omics-query-w-vcf"></a>
 
@@ -656,16 +655,16 @@ For the sake of this example, we will run this analysis from scratch.
 
 First, go to the small variants query tab and load the VCF as indicated in the section [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat). Please, **do not** click on <span style="color:#50AC50">**PharmCAT analysis**</span>.
 
-<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Multi-omics Query with VCF Input 1" height="20%" width="20%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Multi-omics Query with VCF Input 1" height="40%" width="40%" max-width="600px"/>
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Multi-omics Query with VCF Input 2" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Multi-omics Query with VCF Input 2" height="40%" width="40%" max-width="850px"/>
 
 Once the progress bar is complete, return to the multi-omics query tab.
 
 Then, click on <span style="color:#50AC50">**With variant analysis**</span> and select the VCF you just annotated from the list. Also, upload both the example CNV .tsv and expression .rnk files. Keep in mind that you can choose just one of them, but we want to show you what a complete multi-omics analysis looks like.
 
-<div style="text-align: left;"><img src="multi-omics-query-example-input-02.png" alt="Multi-omics Query with VCF Input 3" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="multi-omics-query-example-input-02.png" alt="Multi-omics Query with VCF Input 3" height="100%" width="100%" max-width="850px"/>
 
 Finally, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
@@ -683,13 +682,15 @@ If a gene has small variants and CNVs, the GScore computed from VScores has prio
 
 PanDrugs finds several BTCs <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on small variant, CNV and expression evidences. Afatinib is the drug with highest combined DScore and GScore (DScore = 0.9280; GScore = 0.7995) according to the 3 evidence sources.
 
-<div style="text-align: left;"><img src="multi-omics-query-output-03.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-03.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="100%" width="100%" max-width="850px"/>
 
 If we expand afatinib row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get further information about the type of gene alterations that are contributing to PanDrugs ranking:
 
   - A mutation in *PIK3CA* leads to high overexpression of this gene.
   - An amplification in *JPH1* also leads to high overexpression of this gene.
 
-<div style="text-align: left;"><img src="multi-omics-query-output-04.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-04.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="100%" width="100%" max-width="850px"/>
 
 If we search for everolimus, we will notice that its entry is not at the top of the list. Indeed, there are a handfull of drugs that appear before everolimus because we included the patient's somatic variants and *PIK3CA* mutation drives higher GScores and DScores. This results, when compared to the ones obtained without a VCF, highlight the advantages of a full combined multi-omics analysis.
+
+PanDrug's report with the BTCs is available at the top of the page.
