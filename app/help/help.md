@@ -692,26 +692,4 @@ If we expand afatinib row by clicking on the <img src="plus.png" alt="Expand Ico
 
 <div style="text-align: left;"><img src="multi-omics-query-output-04.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="60%" width="60%"/>
 
-If we search for everolimus, we will notice that its entry is not at the top of the list. Indeed, there are a handfull of drugs that appear before everolimus because we included the patient's somatic variants and *PIK3CA* mutation drives higher GScores and DScores. This results, when compared to the ones obtained without a VCF, highlight the advantages of a full combined multi-omics analysis. 
-
-<!-- 
-## 7. Database versions for VCF annotation <a name="database-versions-for-vcf-annotation"></a>
-
-**Variant Effect Predictor** Ensembl Release 90
-
-**COSMIC** Release v84 for HG19 assembly
-
-**Pfam** 31.0
-
-**UniProt** Release 2018_02
-
-**InterPro** 66.0
-
-**ClinVar** Release 2018_02
-
-**Cancer Gene Census for Cosmic** v84
-
-**APPRIS** (gencode19/ensembl74)
-
-**KEGG** Release 85.1
--->
+If we search for everolimus, we will notice that its entry is not at the top of the list. Indeed, there are a handfull of drugs that appear before everolimus because we included the patient's somatic variants and *PIK3CA* mutation drives higher GScores and DScores. This results, when compared to the ones obtained without a VCF, highlight the advantages of a full combined multi-omics analysis.
