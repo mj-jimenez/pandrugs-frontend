@@ -31,21 +31,29 @@ var markdownControllerFactory = function(markdownSubdir, markdownFile, markdownN
         var markdown = response.data;
 
         var converter = new Markdown.Converter(); // jshint ignore:line
+        Markdown.Extra.init(converter); // jshint ignore:line
         $scope.mdcontents = $sce.trustAsHtml(converter.makeHtml(markdown));
 
         // arrange images
 
         $timeout(function () {
+          $(document.links).filter(function() { // jshint ignore:line
+            return this.hostname !== window.location.hostname;
+          }).attr('target', '_blank');
+
           $('#mdcontents img').each(function () { // jshint ignore:line
             if (!/^http.*/.test($(this).attr('src'))) { // jshint ignore:line
               // fix markdown images base url
               $(this).attr('src', markdownSubdir + '/' + $(this).attr('src')); // jshint ignore:line
-
-              // images max-width
-              //$(this).attr('style', 'max-width:600px'); // jshint ignore:line
-
-              // add link to see image in original size
-              $(this).wrap('<a href=\"' + $(this).attr('src') + '\"></a>'); // jshint ignore:line
+                //check that the image has no link
+                if (!/^A.*/.test($(this).parent().get(0).tagName)) { // jshint ignore:line
+                  // These images are not logos, so they can be wrapped in a link
+                  $(this).wrap('<a class="responsive" href=\"' + $(this).attr('src') + '\"></a>'); // jshint ignore:line
+                  //do not modify the page help
+                  if(!/^#!\/help.*/.test(window.location.hash)) {
+                    $(this).attr('style', 'width:100%'); // jshint ignore:line
+                  }
+                }
             }
           });
         });
@@ -83,3 +91,36 @@ angular.module('pandrugsFrontendApp')
 angular.module('pandrugsFrontendApp')
   .controller('FaqCtrl', ['$scope', '$location', '$http', '$sce', '$timeout', '$anchorScroll',
   markdownControllerFactory('faqs', 'faqs.md', 'FAQs')]);
+
+  /**
+ * @ngdoc function
+ * @name pandrugsFrontendApp.controller:AboutCtrl
+ * @description
+ * # AboutCtrl
+ * Controller of the pandrugsFrontendApp
+ */
+  angular.module('pandrugsFrontendApp')
+  .controller('AboutCtrl', ['$scope', '$location', '$http', '$sce', '$timeout', '$anchorScroll',
+  markdownControllerFactory('about', 'about.md', 'About')]);
+
+  /**
+ * @ngdoc function
+ * @name pandrugsFrontendApp.controller:CitationCtrl
+ * @description
+ * # CitationCtrl
+ * Controller of the pandrugsFrontendApp
+ */
+    angular.module('pandrugsFrontendApp')
+    .controller('CitationCtrl', ['$scope', '$location', '$http', '$sce', '$timeout', '$anchorScroll',
+    markdownControllerFactory('citation', 'citation.md', 'Citation')]);
+
+  /**
+ * @ngdoc function
+ * @name pandrugsFrontendApp.controller:SourcesCtrl
+ * @description
+ * # SourcesCtrl
+ * Controller of the pandrugsFrontendApp
+ */
+    angular.module('pandrugsFrontendApp')
+    .controller('SourcesCtrl', ['$scope', '$location', '$http', '$sce', '$timeout', '$anchorScroll',
+    markdownControllerFactory('sources', 'sources.md', 'Sources')]);
