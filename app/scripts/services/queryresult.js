@@ -44,8 +44,12 @@ angular.module('pandrugsFrontendApp')
       '"Source(s)","DScore","GScore","Best Candidate Therapy","Warning(s)"';
 
     function drugToLink(drug, pubchemId) {
-      return '<a href="https://pubchem.ncbi.nlm.nih.gov/compound/PUBCHEM_ID_TOKEN" target="_blank">DRUG_NAME_TOKEN</a>'
-        .replace('PUBCHEM_ID_TOKEN', pubchemId)
+      var link = pubchemId === undefined
+        ? 'https://pubchem.ncbi.nlm.nih.gov/#query=' + drug
+        : 'https://pubchem.ncbi.nlm.nih.gov/compound/' + pubchemId;
+
+      return '<a href="LINK" target="_blank">DRUG_NAME_TOKEN</a>'
+        .replace('LINK', link)
         .replace('DRUG_NAME_TOKEN', drug);
     }
 
@@ -208,6 +212,10 @@ angular.module('pandrugsFrontendApp')
       return $sce.trustAsHtml(drug + joiner + geneSymbol);
     };
 
+    GeneDrug.prototype.getDrugAsHtml = function() {
+      return drugToLink(this.showDrugName, this.getPubchemId());
+    };
+
     GeneDrug.prototype.getIndirectPathways = function() {
       if (this.indirect) {
         return this.indirect.pathway.map(function (pathway) {
@@ -275,12 +283,12 @@ angular.module('pandrugsFrontendApp')
       ]
         .map(prepareValueForCSV)
       .join(',');
-      
+
     };
 
     GeneDrugGroup.prototype.getBestInteraction = function() {
       var isBetterInteractionThan = function(interaction1, interaction2) {
-        var interactionOrder = [ 'direct-target', 'biomarker', 'pathway-member', 'gene-dependency' ];
+        var interactionOrder = [ 'direct-target', 'biomarker', 'gene-dependency', 'pathway-member' ];
 
         var index1 = interactionOrder.indexOf(interaction1);
         var index2 = interactionOrder.indexOf(interaction2);
@@ -309,6 +317,14 @@ angular.module('pandrugsFrontendApp')
       }
 
       return bestInteraction;
+    };
+
+    GeneDrugGroup.prototype.getPubchemId = function() {
+      return this.pubchemId[0];
+    };
+
+    GeneDrugGroup.prototype.getDrugAsHtml = function() {
+      return drugToLink(this.showDrugName, this.getPubchemId());
     };
 
     GeneDrugGroup.prototype.getSensitivity = function() {

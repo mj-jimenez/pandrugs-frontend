@@ -14,7 +14,8 @@
   You should have received a copy of the GNU General Public License
   along with PanDrugs Backend.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<div ng-show="!isLoading" class="row">
+<div ng-show="!isLoading" class="row">  
+  
   <button type="submit" class="btn btn-primary btn-lg" ng-show="hasResult()" ng-click="newQuery()" style="float:right">New Query</button>
   <h2>{{hasResult() ? 'PanDrugs Candidate Therapies' : 'Query PanDrugs'}}</h2>
 </div>
@@ -109,6 +110,9 @@
   <div class="row">
     <div class="col-md-10 col-lg-8 col-md-push-1 col-lg-push-2 results-summary" ng-if="selectedTab === 'drugs'" ng-init="geneDrugGroup = resultsFiltered[0]">
       <div class="row">
+        
+      </div>
+      <div class="row">
         <div class="col-md-12">
           <h4 class="row">{{getTitleForCurrentResults()}}</h4>
           <dl>
@@ -134,6 +138,7 @@
     </div>
 
     <div class="col-md-10 col-lg-8 col-md-push-1 col-lg-push-2 results-summary" ng-if="selectedTab !== 'drugs'">
+      
       <div class="row">
         <div class="col-md-4" ng-if="selectedTab !== 'drugs'">
           <h4 class="row">{{getTitleForCurrentResults()}}</h4>
@@ -142,12 +147,14 @@
               <th>Input file</th><td>{{file.name}}</td>
             </tr>
             <tr ng-if="selectedTab === 'multiomics' && multiOmics.computationId !== null"><th>Variant analysis</th><td>{{multiOmics.computation.name}}</td></tr>
+            <tr ng-if="selectedTab === 'multiomics' && multiOmics.computationId !== null"><th class="tabulated">No. variants</th><td>{{multiOmics.computation.variantsInInput}}</td></tr>
+            <tr ng-if="selectedTab === 'multiomics' && multiOmics.computationId !== null"><th class="tabulated">No. affected genes</th><td>{{multiOmics.computation.affectedGenes.length}}</td></tr>
             <tr ng-if="selectedTab !== 'vcfrank'"><th>No. input genes</th><td>{{geneList.length}}</td></tr>
             <tr ng-if="selectedTab === 'vcfrank'"><th>Name</th><td>{{computation.name}}</td></tr>
-            <tr ng-if="selectedTab === 'vcfrank'"><th>No. variants</th><td>{{computation.variantsInInput}}</td></tr>
-            <tr ng-if="selectedTab === 'vcfrank'"><th>No. affected genes</th><td>{{computation.affectedGenes.length}}</td></tr>
-            <tr><th>No. genes in PanDrugs</th><td>{{genePresence.present.length}}</td></tr>
-            <tr><th>No. genes not in PanDrugs</th><td>{{genePresence.absent.length}}</td></tr>
+            <tr ng-if="selectedTab === 'vcfrank'"><th class="tabulated">No. variants</th><td>{{computation.variantsInInput}}</td></tr>
+            <tr ng-if="selectedTab === 'vcfrank'"><th class="tabulated">No. affected genes</th><td>{{computation.affectedGenes.length}}</td></tr>
+            <tr><th class="tabulated">No. genes in PanDrugs</th><td>{{genePresence.present.length}}</td></tr>
+            <tr><th class="tabulated">No. genes not in PanDrugs</th><td>{{genePresence.absent.length}}</td></tr>
             <tr ng-if="selectedTab === 'vcfrank' && computation.pharmcat === true">
               <th>PharmCAT report</th>
               <td>
@@ -181,7 +188,7 @@
           <div class="row">
               <h5>SELECTED OPTIONS</h5>
               <div class="col-md-6">
-                  <h6>Drug Status Level</h6>
+                  <h6>Drug Status</h6>
                   <p ng-if="advancedQueryOptions.cancerFda">FDA approved cancer</p>
                   <p ng-if="advancedQueryOptions.cancerClinical">Clinical trials cancer</p>
                   <p ng-if="advancedQueryOptions.otherFda">FDA approved other patologies</p>
@@ -189,10 +196,12 @@
                   <p ng-if="advancedQueryOptions.otherExperimental">Experimental</p>
               </div>
               <div class="col-md-6">
-                  <h6>Interaction Evidence Level</h6>
-                  <p ng-if="advancedQueryOptions.target">Target</p>
-                  <p ng-if="advancedQueryOptions.marker">Biomarker</p>
-                  <h6>Selected cancer types</h6>
+                  <h6>Interaction Type</h6>
+                  <p ng-if="advancedQueryOptions.directTarget">Direct target</p>
+                  <p ng-if="advancedQueryOptions.biomarker">Biomarker</p>
+                  <p ng-if="advancedQueryOptions.geneDependency">Genetic dependency</p>
+                  <p ng-if="advancedQueryOptions.pathwayMember">Pathway member</p>
+                  <h6>Selected cancer types</h6>  
                   <p ng-if="!advancedQueryOptions.areAllCancerTypesSelected()">
                     {{advancedQueryOptions.getSelectedCancerTypes() | enumeration}}
                   </p>
@@ -200,6 +209,10 @@
               </div>
           </div>
         </div>
+      </div>
+      <div class="row report-component" >
+        <report ng-if="selectedTab !== 'drugs' && hasAtLeastOneResult() && (selectedTab === 'vcfrank' || (selectedTab === 'multiomics' && multiOmics.computationId !== null))" advanced-query-options="advancedQueryOptions" gene-list="geneList" gene-presence="genePresence"  query-result="results" gene-drug-groups="resultsFiltered"
+  computation="computation" multiomics="multiOmics"/>
       </div>
     </div>
   </div>
@@ -219,11 +232,15 @@
   </div>
 
   <div class="row" ng-if="selectedTab !== 'drugs' && hasAtLeastOneResult()">
+    
     <gene-results-table query-result="results" gene-drug-groups="resultsFiltered"
                         computation="computation" show-variant-information="selectedTab === 'vcfrank'" 
                         show-cnv-information="(selectedTab === 'multiomics' && multiOmics.cnvFile) || selectedTab === 'cnv'" 
                         show-expression-information="selectedTab === 'multiomics' && multiOmics.expressionFile" 
                         show-snv-information="selectedTab === 'multiomics' && multiOmics.computationId !== null" multiomics="multiOmics"/>
+                      
+
+
 
     <drug-results-table ng-if="selectedTab === 'drugs'" gene-drug-group="resultsFiltered[0]"/>
   </div>
