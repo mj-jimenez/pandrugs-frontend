@@ -1,7 +1,7 @@
 # PanDrugs Help
 
 1. **[PanDrugs Queries](#!/help#pandrugs-queries)**
-  1. [Genes Query](#!/help#genes-query)
+  1. [Gene Names Query](#!/help#genes-query)
   2. [Drug Query](#!/help#drug-query)
   3. [Gene Ranking Query](#!/help#gene-ranking-query)
   4. [CNVs Query](#!/help#cnvs-query)
@@ -20,7 +20,7 @@
   2. [GScore Calculation](#!/help#gscore-calculation)
 
 
-4. **[Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output)**
+4. **[Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output)**
   1. [Summary Box](#!/help#summary-box)
   2. [Charts](#!/help#charts)
     1. [Scatter Plot](#!/help#scatter-plot)
@@ -33,7 +33,7 @@
 
 
 6. **[Examples](#!/help#examples)**
-  1. [Genes Analysis](#!/help#examples-genes-query)
+  1. [Gene Names Analysis](#!/help#examples-genes-query)
   2. [Drug Analysis](#!/help#examples-drug-query)
   3. [Gene Ranking Analysis](#!/help#examples-gene-ranking-query)
   4. [CNVs Analysis](#!/help#examples-cnvs-query)
@@ -50,7 +50,7 @@
 ## 1. PanDrugs Queries<a name="pandrugs-queries"></a>
 There are five types of queries to obtain a **rank of therapies according to an individualized genomics profile**, depending on the input data:
 
-  - **[Genes query](#!/help#genes-query):** Using a list of altered genes as input.
+  - **[Gene names query](#!/help#genes-query):** Using a list of altered genes as input.
   - **[Gene ranking query](#!/help#gene-ranking-query):** Using a ranked list of altered genes in .rnk format.
   - **[CNVs query](#!/help#gene-ranking-query):** Using a list of altered genes and their CNV status in .tsv format.
   - **[Small variants query](#!/help#vcf-query):** Using a VCF containing a set of somatic (and optionally germline) variants corresponding to the GRCh38 assembly of the human genome.
@@ -62,10 +62,10 @@ There are five types of queries to obtain a **rank of therapies according to an 
 
 Another possibility is to make a **[drug query](#!/help#drug-query)** to find out which genes are associated with a particular drug.
 
-### 1.1 Genes Query<a name="genes-query"></a>
+### 1.1 Gene Names Query<a name="genes-query"></a>
 In this modality, the input is a **set of gene symbols** that can be pasted directly into the text box or uploaded as a file **without a header**. **In both cases, each gene symbol must appear in a different line**.
 
-<div style="text-align: left;"><img src="genes-query-01.png" alt="Genes Query" height="60%" width="60%"/>
+<div style="text-align: left;"><img src="genes-query-01.png" alt="Gene Names Query" height="60%" width="60%"/>
 
 ### 1.2 Drug Query<a name="drug-query"></a>
 **A single drug** can be queried to explore its connection with the genes in the database. PanDrugsdb contains information about drug synonyms. So, as you type a drug name, several suggestions matching your query will appear.
@@ -146,7 +146,7 @@ Then, PanDrugs will query its database with the genes with known CNV status info
 
 ## 2. Analysis Options<a name="analysis-options"></a>
 
-Those queries based on genes ([genes](#!/help#genes-query), a [gene ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [small variants](#!/help#vcf-query)) can be adjusted using the panel of analysis options.
+Those queries based on genes ([gene names](#!/help#genes-query), a [gene ranking](#!/help#gene-ranking-query), [CNVs](#!/help#cnvs-query) and [small variants](#!/help#vcf-query)) can be adjusted using the panel of analysis options.
 
 PanDrugs2 includes two analysis modes: the **clinical mode**, which filters out experimental drugs and pathway member associations from the query results, and the **discovery mode**, which allows the selection of all possible filters to expand the therapeutic options suggested by PanDrugs.
 
@@ -228,7 +228,7 @@ PanDrugsdb stores pre-computed GScores for each gene symbol. This score has been
 
 Depending on the type of query, the GScore can suffer modifications:
   
-  - **After a drug, genes or CNVs query:** The GScore is equal to the pre-computed GScore.
+  - **After a drug, gene names or CNVs query:** The GScore is equal to the pre-computed GScore.
 
   - **After a gene ranking query:** The GScore is computed by scaling the ranking metric between 0 and 1.
 
@@ -243,7 +243,7 @@ Depending on the type of query, the GScore can suffer modifications:
   
 Except for the drug queries, the final PanDrugs ranking shows a collapsed GScore for each treatment, which is the maximum GScore among all drug-gene associations. PanDrugs collapsed table can be expanded to retrieve each individual GScore.
 
-## 4. Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output<a name="genes-gene-rank-cnvs-vcf-and-multi-omics-query-output"></a>
+## 4. Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output<a name="genes-gene-rank-cnvs-vcf-and-multi-omics-query-output"></a>
 
 Once the query has been completed, a downloadable report with top results, a summary box with the execution details, some plots and a summary table with a drug ranking will appear.
 
@@ -391,23 +391,23 @@ In the [summary table](#!/help#summary-table), each row represents a gene associ
 
 ## 6. Examples<a name="examples"></a>
 
-### 6.1. Genes Analysis<a name="examples-genes-query"></a>
+### 6.1. Gene Names Analysis<a name="examples-genes-query"></a>
 
 Load <span style="color:#50AC50">**Example 3**</span> from the [genes query tab.](#!/query?tab=genes)
 
 This list contains the genes involved in the PI3K-AKT-mTOR signaling pathway, which plays an important role in proliferation.
 
-<div style="text-align: left;"><img src="genes-query-example-input.png" alt="Genes Query Input" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-example-input.png" alt="Gene Names Query Input" height="100%" width="100%"/>
 
 Select **Pathway member** in the <span style="color:#50AC50">**Analysis options**</span> panel and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
 Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>, PanDrugs suggests alpelisib and temsirolimus.
 
-<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Genes Query" height="80%" width="80%"/>
+<div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Gene Names Query" height="80%" width="80%"/>
 
 If you take a look at the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the ones with the highest DScore and GScore:
 
@@ -416,7 +416,7 @@ If you take a look at the summary table, you will see that these two drugs have 
 
 Moreover, temsirolimus and alpelisib are both targeted therapies approved for cancer and belong to the PI3K inhibitor and mTOR inhibitor families respectively.
 
-<div style="text-align: left;"><img src="genes-query-output-01.png" alt="Genes Query Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-output-01.png" alt="Gene Names Query Summary Table Collapsed" height="100%" width="100%"/>
 
 If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/> button you will notice that this drug suggestion is based on:
 
@@ -426,7 +426,7 @@ If you expand temsirolimus row by clicking on the <img src="plus.png" alt="Expan
 
 You may also notice one alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> in the **Drug response** column. This alert indicates that a *PTEN* deficiency is associated with reduced sensitivity to the drug.
 
-<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Genes Query Summary Table Expanded" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="genes-query-output-02.png" alt="Gene Names Query Summary Table Expanded" height="100%" width="100%"/>
 
 ### 6.2. Drug Analysis<a name="examples-drug-query"></a>
 
@@ -465,9 +465,9 @@ Load the .rnk file, select all **discovery mode** filters in the <span style="co
 
 <u>**Output Interpretation**</u>
 
-On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the input ranking metric.
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query), but keep in mind that the GScores are dependent on the input ranking metric.
 
 For this example, PanDrugs finds a handful of Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 1. 
 
@@ -495,9 +495,9 @@ Load the example file, do not modify any of the <span style="color:#50AC50">**An
 
 <u>**Output Interpretation**</u>
 
-On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query).
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query).
 
 In this case, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> with GScores = 0.7338. 
 
@@ -533,9 +533,9 @@ When the progress bar is complete, do not modify any of the <span style="color:#
 
 <u>**Output interpretation**</u>
 
-On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
 
 PanDrugs returns several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> associated with *PIK3CA*.
 
@@ -570,9 +570,9 @@ When the progress bar is complete, select **Pathway member** in the <span style=
 
 <u>**Output interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query), but keep in mind that these GScores also take into account the biological impact, the frequency and the clinical implications of the somatic variants in the VCF.
 
 For this example, PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>. Note that the Drug response column shows an alert <img src="response-alert.svg" alt="Exclamation Mark" height="25" width="25" style="vertical-align:middle;"/> for MEK inhibitors. 
 
@@ -630,9 +630,9 @@ First, upload both the example CNV .tsv and expression .rnk files. Do not click 
 
 <u>**Output Interpretation**</u>
 
-On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a [genes analysis](#!/help#examples-genes-query).
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query).
 
 PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on CNV and expression evidence. 
 
@@ -672,9 +672,9 @@ Finally, do not modify any of the <span style="color:#50AC50">**Analysis Options
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Genes, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a Genes Query, but keep in mind that the GScores have been computed in two ways:
+These results can be interpreted as the ones obtained after a gene names query, but keep in mind that the GScores have been computed in two ways:
 
 - For the genes in the CNV file or the Highly Overexpressed <!--Oncogenes-->Genes found in the RNK file, the GScores are the pre-computed ones. These scores have been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
 
