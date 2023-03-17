@@ -646,55 +646,53 @@ If we expand everolimus row by clicking on the <img src="plus.png" alt="Expand I
 
 #### 6.6.2 Multi-omics Analysis with VCF<a name="examples-multi-omics-query-w-vcf"></a>
 
-[Load example for a breast invasive carcinoma patient from the TCGA.](#!/query?tab=multiomics)
+[Load example for a breast invasive ductal carcinoma patient from the TCGA.](#!/query?tab=multiomics)
 
-The VCF contains patient's somatic variants without any germline alteration, so in this example we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
+The VCF contains the patient's somatic variants without any germline alteration, so we cannot select <span style="color:#50AC50">**PharmCAT analysis**</span>.
 
-**Important: If you are logged in**, you will be able to select any of the VCFs that you have previously annotated. These **annotations are stored** in your personal account **up to 6 months**, so they can be queried many times. **If you are a guest user**, you can do this type of analysis **right after a [Small Variants Query](#!/help#vcf-query) with the VCF** of interest.
+**Important: If you are logged in**, you will be able to select any of the VCFs that you have previously annotated. These **annotations are stored** in your account **for up to 6 months**, so they can be queried many times. **If you are a guest user**, you can do this type of analysis **right after a [small variants query](#!/help#vcf-query) with the VCF** of interest.
 
 For the sake of this example, we will run this analysis from scratch.
 
-First, go to the Small Variants Query tab and load the VCF as indicated in section [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat). Please, **do not** click on <span style="color:#50AC50">**PharmCAT analysis**</span>.
+First, go to the small variants query tab and load the VCF as indicated in the section [Small Variants Analysis without PharmCAT](#!/help#examples-vcf-query-no-pharmcat). Please, **do not** click on <span style="color:#50AC50">**PharmCAT analysis**</span>.
+
+<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Multi-omics Query with VCF Input 1" height="20%" width="20%"/>
 
 <!-- Update image -->
-<div style="text-align: left;"><img src="vcf-query-example-input-01.png" alt="Multi-omics Query with VCF Input 1" height="40%" width="40%"/>
+<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Multi-omics Query with VCF Input 2" height="40%" width="40%"/>
 
-<div style="text-align: left;"><img src="vcf-query-example-input-02.png" alt="Multi-omics Query with VCF Input 2" height="100%" width="100%"/>
+Once the progress bar is complete, return to the multi-omics query tab.
 
-Once the progress bar is complete, return to the Multi-omics Query tab.
+Then, click on <span style="color:#50AC50">**With variant analysis**</span> and select the VCF you just annotated from the list. Also, upload both the example CNV .tsv and expression .rnk files. Keep in mind that you can choose just one of them, but we want to show you what a complete multi-omics analysis looks like.
 
-Then, click on <span style="color:#50AC50">**With variant analysis**</span> and select the VCF you just annotated from the list. Also, upload both the example CNV and expression RNK files. Keep in mind that you can choose just one of them, but we want to show you how a complete Multi-omics Analysis looks like.
+<div style="text-align: left;"><img src="multi-omics-query-example-input-02.png" alt="Multi-omics Query with VCF Input 3" height="40%" width="40%"/>
 
-<div style="text-align: left;"><img src="multi-omics-query-example-input-02.png" alt="Multi-omics Query with VCF Input 3" height="100%" width="100%"/>
-
-Finally, do not modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
+Finally, **do not** modify any of the <span style="color:#50AC50">**Analysis Options**</span> and click on the <span style="color:#50AC50">**Query**</span> button.
 
 <u>**Output Interpretation**</u>
 
-In the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
+On the results page, you will see a summary box with the execution details, some plots and a summary table with the drug ranking (see [Gene Names, Gene Ranking, CNVs, Small Variants and Multi-omics Query Output](#!/help#genes-gene-rank-cnvs-vcf-and-multi-omics-query-output) section for further details).
 
-These results can be interpreted as the ones obtained after a gene names query, but keep in mind that the GScores have been computed in two ways:
+These results can be interpreted as the ones obtained after a [gene names analysis](#!/help#examples-genes-query), but keep in mind that the GScores have been computed in two ways:
 
-- For the genes in the CNV file or the Highly Overexpressed <!--Oncogenes-->Genes found in the RNK file, the GScores are the pre-computed ones. These scores have been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
+- For the genes in the CNV file, the GScores are the pre-computed ones. These scores have been calculated according to gene essentiality, tumor vulnerability, relevance of the gene in cancer and its druggability level.
 
 - For the somatic variants found in the VCF, the GScores also take into account the biological impact, the frequency and the clinical implications of these variants.
 
-If a gene is found in the VCF and any other input file, the GScore computed from VScores has priority over the pre-computed GScore.
+If a gene has small variants and CNVs, the GScore computed from VScores has priority over the other GScore.
 
-PanDrugs finds several Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on small variant, CNV and expression evidences. Tamoxifen is, again, the drug with highest combined DScore and GScore (DScore = 0.9910; GScore = 0.6606).
+PanDrugs finds several BTCs <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/> based on small variant, CNV and expression evidences. Afatinib is the drug with highest combined DScore and GScore (DScore = 0.9280; GScore = 0.7995) according to the 3 evidence sources.
 
-<div style="text-align: left;"><img src="multi-omics-query-output-03.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-03.png" alt="Multi-omics Query without VCF Summary Table Collapsed" height="60%" width="60%"/>
 
-If we expand Tamoxifen row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get futher information about the type of gene alterations that are contributing to PanDrugs ranking:
+If we expand afatinib row by clicking on the <img src="plus.png" alt="Expand Icon" height="18" width="20" style="vertical-align:middle;"/>, we will get further information about the type of gene alterations that are contributing to PanDrugs ranking:
 
-  - A deletion in *CYSLTR2*.
-  - A mutation in *PIK3CA*.
-  - A highly overexpressed gene such as *CCNA2*, which is a biomarker of the response to Tamoxifen.
+  - A mutation in *PIK3CA* leads to high overexpression of this gene.
+  - An amplification in *JPH1* also leads to high overexpression of this gene.
 
-<!-- Update image -->
-<div style="text-align: left;"><img src="multi-omics-query-output-04.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="100%" width="100%"/>
+<div style="text-align: left;"><img src="multi-omics-query-output-04.png" alt="Multi-omics Query without VCF Summary Table Expanded" height="60%" width="60%"/>
 
-Please note that the GScore for Tamoxifen did not change when adding the VCF because the gene that is driving this score is *CYSLTR2*, which has a CNV. However, the DScore increased because there were more input genes associated to the drug.
+If we search for everolimus, we will notice that its entry is not at the top of the list. Indeed, there are a handfull of drugs that appear before everolimus because we included the patient's somatic variants and *PIK3CA* mutation drives higher GScores and DScores. This results, when compared to the ones obtained without a VCF, highlight the advantages of a full combined multi-omics analysis. 
 
 <!-- 
 ## 7. Database versions for VCF annotation <a name="database-versions-for-vcf-annotation"></a>
