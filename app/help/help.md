@@ -407,7 +407,9 @@ In the results page, you will see a summary box with the execution details, some
 
 Among the Best Therapeutic Candidates <img src="btc.png" alt="Best Therapeutic Candidate" height="20" width="20" style="vertical-align:middle;"/>, PanDrugs suggests alpelisib and temsirolimus.
 
+<!--
 <div style="text-align: left;"><img src="scatter-plot-02.svg" alt="Scatter Plot Gene Names Query" height="80%" width="80%" max-width="850px"/>
+-->
 
 If you take a look at the summary table, you will see that these two drugs have the highest DScore and GScore in the ranking. Also, they have multiple associations with several input genes, being the ones with the highest DScore and GScore:
 
