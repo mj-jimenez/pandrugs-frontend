@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="styles/smart-area-fixed.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/help.css">
+    <link rel="stylesheet" href="styles/report.css" />
     <!-- endbuild -->
   </head>
   <body ng-app="pandrugsFrontendApp">
@@ -54,20 +55,27 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a ng-href="#!/"><img class="navbar-brand" src="images/pandrugs-logo.png"></a>
+            <a ng-href="#!/"><img class="navbar-brand" src="images/pandrugs2-logo.svg"></a>
           </div>
 
           <div id="js-navbar-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li ng-class="{ active: isActive('/') }"><a href="#!/">Home</a></li>
               <li ng-class="{ active: isActive('/query/') }"><a ng-href="#!/query">Query</a></li>
-              <!--<li ng-class="{ active: isActive('/about') }"><a ng-href="#/about">About</a></li>-->
               <li ng-class="{ active: isActive('/tcga') }"><a ng-href="#!/tcga">PanDrugs in TCGA</a></li>
               <li><a ng-href="{{BACKEND.APP}}">API</a></li>
               <li ng-class="{ active: isActive('/help') }"><a ng-href="#!/help">Help</a></li>
               <li ng-class="{ active: isActive('/faqs') }"><a ng-href="#!/faqs">FAQs</a></li>
+              <li class="dropdown pointer" ng-class="{ active: isActive('/about') || isActive('/citation') || isActive('/sources') }">
+                <a class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ng-class="{ active: isActive('/about') }"><a href="#!/about">About us</a></li>
+                  <li ng-class="{ active: isActive('/citation') }"><a href="#!/citation">Citation</a></li>
+                  <li ng-class="{ active: isActive('/sources') }"><a href="#!/sources">Sources</a></li>
+                </ul>
+              </li>
               <li ng-show="getCurrentUser() === 'anonymous'" ng-class="{ active: isActive('/login') }"><a ng-href="#!/login">Login</a></li>
-              <li ng-show="getCurrentUser() !== 'anonymous'"><a style="cursor: pointer" ng-click="logout()">Logout ({{getCurrentUser()}})</a></li>
+              <li ng-show="getCurrentUser() !== 'anonymous'"><a class="pointer" ng-click="logout()">Logout ({{getCurrentUser()}})</a></li>
             </ul>
          
             <div class="pandrugs-version">version: 2022.12 (<a href="https://github.com/sing-group/pandrugs-backend/blob/master/LICENSE">License</a>)</div>
@@ -92,10 +100,6 @@
         <a href="https://inb-elixir.es" target="_blank"><img id="elixir-logo" src="images/elixir-es-logo.png"></a>
         <a href="http://inb-elixir.es" target="_blank"><img id="inb-logo" src="images/inb-logo.png"></a>
         - Follow us:
-        <a href="https://twitter.com/pandrugs_cnio" target="_blank">
-          <span class="fa fa-twitter twitter-color"></span> PanDrugs
-        </a>
-
         <a href="https://twitter.com/bu_cnio" target="_blank">
           <span class="fa fa-twitter twitter-color"></span> BU@CNIO
         </a>
@@ -147,6 +151,7 @@
     <script src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
     <script src="bower_components/pagedown/Markdown.Converter.js"></script>
     <script src="bower_components/pagedown/Markdown.Sanitizer.js"></script>
+    <script src="bower_components/pagedown/Markdown.Extra.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -182,6 +187,7 @@
         <script src="scripts/filters/groupby.js"></script>
         <script src="scripts/filters/formatalterations.js"></script>
         <script src="scripts/filters/toIconClass.js"></script>
+        <script src="scripts/filters/pandrugs-acronym.js"></script>
         <script src="scripts/components/advanced-query-options/advanced-query-options.component.js"></script>
         <script src="scripts/components/gene-query-panel/gene-query-panel.component.js"></script>
         <script src="scripts/components/drug-query-panel/drug-query-panel.component.js"></script>
@@ -191,6 +197,7 @@
         <script src="scripts/components/cnv-query-panel/cnv-query-panel.component.js"></script>
         <script src="scripts/components/variant-analysis-panel/variant-analysis-panel.component.js"></script>
         <script src="scripts/components/gene-results-table/gene-results-table.component.js"></script>
+        <script src="scripts/components/report/report.component.js"></script>
         <script src="scripts/components/drug-results-table/drug-results-table.component.js"></script>
         <script src="scripts/services/queryresult.js"></script>
         <script src="scripts/services/advancedqueryoptions.js"></script>

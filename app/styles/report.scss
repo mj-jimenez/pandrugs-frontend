@@ -1,0 +1,136 @@
+#report-contents {
+    font-family: 'Arial', sans-serif;
+}
+
+.report {
+    display: inline;
+    text-align: left;
+}
+.report-component {
+    text-align: center;
+    padding: 5px;
+}
+
+#report .details {
+    font-size: 0.9em;
+}
+
+#report-header{
+    background-color: green !important;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#report-contents h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center !important;
+    background-color: #A9C89C !important;
+    padding: 1% !important;
+}
+#report-contents h3 {
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#report-contents dt, #report-contents dd {
+    display: inline;
+    font-weight: normal;
+    margin-left: 0px;
+}
+#report-contents dd::after {
+    content: "";
+    display: block;
+}
+
+
+#report-header-data dt:nth-child(1), 
+#report-header-data dd:nth-child(2) {
+    font-weight: bold;
+}
+
+#report-contents table {
+    border-collapse: collapse;
+}
+#report-contents td {
+    border: 1px solid black;
+}
+
+#report #logo {
+    height: 30px;
+}
+
+#report .count-value {
+    font-weight: bold;
+}
+
+#best-candidates-table tbody:nth-child(1) td {
+    font-weight: bold;    
+}
+
+#best-candidates-table .drug-name {
+    font-weight: bold;
+}
+
+#best-candidates-table td {
+    padding: 5px;
+}
+@media print{
+ 
+    a::after {
+        content: "" !important;
+    }
+
+    #report-contents {
+        font-size: 9pt;
+    }
+
+    .container-fluid {
+        margin: 0px;
+        padding: 5px;
+    }
+
+    body {
+        margin: 0px;
+    }
+
+    gene-results-table,
+    .results-summary > div:nth-child(1),
+    #resultsContainer > div:nth-child(2),
+    footer,
+    .modal-header,
+    report button[data-toggle="modal"],
+    .header,
+    /*body>div>div>div:nth-child(1),*/
+    body>div>div>div:nth-child(1)>button,
+    body>div>div>div:nth-child(1)>h2,
+    body>div>div>div:nth-child(2) {
+        display: none;
+    }
+
+    .modal-content {
+        border-width: 0px !important;  
+    }
+
+    .modal,
+    .modal-body {
+        display: block !important;
+        position: relative;
+        padding: 0px;
+    }
+    
+    .report .modal-dialog {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .results-summary {
+        width: 100% !important;
+        border: 0px !important;
+    }
+    #resultsContainer > div:nth-child(1) {
+        margin: 0 !important;
+    }
+}
+
