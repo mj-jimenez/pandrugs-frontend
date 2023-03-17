@@ -69,14 +69,7 @@ PanDrugs is exclusively intended for research purposes and academic use. **It sh
 ### Can I use PanDrugs with non-cancer data?<a name="non-cancer-data"></a>
 PanDrugs has been designed to prioritize drugs using cancer genomics data. Nevertheless, genomics data from patients suffering from other conditions (e.g. Alzheimer's Disease) could be used for exploratory purposes. In such cases, please keep in mind that **the DScore and the GScore are biased towards cancer-related drugs and genes**. Thus, we recommend you **tier the results by the drug status and the association with the druggable gene**:
 
-| Drug Status     | Druggable Gene | Tier   |
-| --------------- | -------------- | ------ |
-| Approved        | Direct target  | Tier 1 |
-| Approved        | Biomarker      | Tier 2 |
-| Clinical Trials | Direct target  | Tier 3 |
-| Clinical Trials | Biomarker      | Tier 4 |
-| Experimental    | Direct target  | Tier 5 |
-| Experimental    | Biomarker      | Tier 6 |
+![Tier DScore](tier-table.png)]
 
 ### Can I use PanDrugs for commercial purposes?<a name="commercial-use"></a>
 PanDrugs is exclusively intended for research purposes and academic use. **In case you are interested in a collaboration, please contact the principal investigator [Fátima Al-Shahrour](mailto:falshahrour@cnio.es)**.
